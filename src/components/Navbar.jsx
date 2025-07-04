@@ -1,8 +1,17 @@
 import React from 'react'
+import { RiSearch2Line } from "react-icons/ri";
+import { RiUserLine } from "react-icons/ri";
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
+    <>
+
+    <nav>
+        <RiSearch2Line/>
+        <RiUserLine/>
+    </nav>
+
+    </>
   )
 }
 
