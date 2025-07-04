@@ -1,4 +1,11 @@
 /* -----Tailwind---- */
 @import "tailwindcss";
 
+@utility container {
+  margin-inline: auto;
+}
 /* ------Themes----- */
+@theme{
+    --font-poppins: "Poppins", "sans-serif";
+    --color-Primary: #4B5563;
+}
