@@ -2,6 +2,11 @@ import React, { useState } from 'react'
 import { Link } from 'react-router'
 import ResLogo from "../assets/Images/resLogo.png"
 import { RiSearch2Line } from "react-icons/ri";
+import { IoHomeOutline } from "react-icons/io5";
+import { MdOutlineGroup } from "react-icons/md";
+import { LuShoppingBag } from "react-icons/lu";
+import { MdLogin } from "react-icons/md";
+
 
 export const ResNavbar = () => {
 
@@ -30,7 +35,7 @@ export const ResNavbar = () => {
         </button>
         {/* ------Button Menu------ */}
 
-        <div className={`h-[100%] w-[60%] absolute top-0 bg-Primary p-5 flex justify-center duration-[.3s] rounded-2xl ${Value? 'right-[-100%] ' : 'right-0'}`}>
+        <div className={`h-[100%] w-[60%] absolute top-0 bg-Primary p-5 flex justify-center duration-[.3s] rounded-2xl shadow-[0_3px_10px_rgb(0,0,0,0.2)] ${Value? 'right-[-100%] ' : 'right-0'}`}>
             <div className='flex items-center justify-between absolute top-0 right-0 w-full p-5'>
                 <Link to={'/'} className='w-[24px] h-[24px]'><img src={ResLogo} alt="Logo" /></Link>
                 <button className='relative w-[32px] h-[28px] cursor-pointer right-0' onClick={()=>SetValue(!Value)}>
@@ -41,10 +46,10 @@ export const ResNavbar = () => {
             </div>
 
             <ul className='flex flex-col items-center gap-3 mt-25'>
-                <li><Link className='text-[#F8F8F8]' to={'/'}>Home</Link></li>
-                <li><Link className='text-[#F8F8F8]' to={'/'}>About</Link></li>
-                <li><Link className='text-[#F8F8F8]' to={'/'}>Shop</Link></li>
-                <li><Link className='text-[#F8F8F8]' to={'/'}>Login</Link></li>
+                <li><Link className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><IoHomeOutline/> Home</Link></li>
+                <li><Link className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><MdOutlineGroup/> About</Link></li>
+                <li><Link className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><LuShoppingBag/> Shop</Link></li>
+                <li><Link className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><MdLogin/> Login</Link></li>
             </ul>
         </div>
 
