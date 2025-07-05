@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router'
 import ResLogo from "../assets/Images/resLogo.png"
 import { RiSearch2Line } from "react-icons/ri";
 
 export const ResNavbar = () => {
+
+    const [Value , SetValue] = useState('true')
+    console.log(Value)
   return (
     <>
     
@@ -13,15 +16,17 @@ export const ResNavbar = () => {
         <Link to={'/'} className='w-[24px] h-[24px]'><img src={ResLogo} alt="Logo" /></Link>
         {/* ------Search Box------ */}
         
-        <div className='bg-[#F8F8F8] w-[200px] h-[36px] rounded-full flex items-center gap-[12px] pl-[26px]'>
+        <div className='bg-[#F8F8F8] w-[200px] h-[36px] rounded-full flex items-center gap-[12px] pl-[13px]'>
           <div><RiSearch2Line className='text-Primary text-[14px]'/></div>
           <input type="text" className='w-full h-full text-Primary text-[12px] font-poppins border-none outline-none' placeholder='Search in products...'/>
         </div> 
-        {/* ------Nav Icons------ */}
+        {/* ------Nav Menu------ */}
     
-        <div>
-            hello
-        </div>
+        <button className='relative w-[32px] h-[28px] cursor-pointer' onClick={()=>SetValue(!Value)}>
+            <span className={`w-[15px] h-[2px] bg-Primary absolute right-[10px] duration-[.3s] ${Value? 'rotate-[0deg] top-[5px]' : 'rotate-[45deg] top-[7px]'}`} ></span>
+            <span className={`w-[15px] h-[2px] bg-Primary absolute top-[10px] right-[10px] duration-[.3s] ${Value? 'opacity-100' : 'opacity-0'}`}></span>
+            <span className={`w-[15px] h-[2px] bg-Primary absolute right-[10px] duration-[.3s] ${Value? 'rotate-[0deg] top-[15px]' : 'rotate-[-45deg] top-[7px]' }`}></span>
+        </button>
 
       </div>
     </nav>
