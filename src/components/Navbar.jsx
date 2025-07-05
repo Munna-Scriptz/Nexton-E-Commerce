@@ -10,8 +10,8 @@ const Navbar = () => {
   return (
     <>
 
-    <nav id='Navbar' className='container py-[27px]'>
-      <div id='NavRow' className='flex items-center justify-between'>
+    <nav id='Navbar' className='py-[27px] hidden lg:block dark:bg'>
+      <div id='NavRow' className='container flex items-center justify-between'>
         {/* ------Logo------ */}
         <Link to={'/'}><img src={Logo} alt="Logo" /></Link>
         {/* ------Search Box------ */}
