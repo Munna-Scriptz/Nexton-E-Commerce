@@ -6,3 +6,23 @@ body{
     font-family: "Poppins", sans-serif;
     overflow:hidden;
 }
+/* -------Slider Dots------ */
+.slick-dots {
+    position: absolute;
+    bottom: 45px !important;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}
+.slick-dots li {
+    margin: 0 !important;
+}
+.slick-dots li button:before {
+    font-size: 8px !important;
+}
+.slick-dots li.slick-active button:before {
+    color: #111827 !important;
+}
