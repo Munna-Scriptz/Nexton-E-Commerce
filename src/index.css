@@ -1,6 +1,9 @@
 /* -----Tailwind---- */
 @import "tailwindcss";
 
+/* ----Silk Slider---- */
+
+/* -----Container---- */
 @utility container {
   margin-inline: auto;
 }
@@ -8,4 +11,5 @@
 @theme{
     --font-poppins: "Poppins", "sans-serif";
     --color-Primary: #4B5563;
+    --color-second: #111827;
 }
