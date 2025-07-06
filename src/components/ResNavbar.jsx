@@ -16,7 +16,7 @@ export const ResNavbar = () => {
   return (
     <>
     
-    <nav id='Navbar' className='py-[27px] px-[16px] overflow-hidden lg:hidden'>
+    <nav id='Navbar' className='py-[27px] px-[16px] lg:hidden relative'>
       <div id='NavRow' className='flex container items-center justify-between overflow-hidden'>
         {/* ------Logo------ */}
         <Link to={'/'} className='w-[24px] h-[24px]'><img src={ResLogo} alt="Logo" /></Link>
@@ -35,7 +35,8 @@ export const ResNavbar = () => {
         </button>
         {/* ------Button Menu------ */}
 
-        <div className={`h-[100%] w-[60%] absolute top-0 bg-Primary p-5 flex justify-center duration-[.3s] rounded-2xl shadow-[0_3px_10px_rgb(0,0,0,0.2)] overflow-hidden z-50 ${Value? 'right-[-100%] ' : 'right-0'}`}>
+
+        <div className={`h-screen w-[60%] absolute top-0 bg-Primary p-5 flex justify-center duration-[.8s] rounded-2xl shadow-[0_3px_10px_rgb(0,0,0,0.2)] overflow-hidden z-50 ${Value? ' translate-x-[-500px] ' : ' translate-x-[-15px]'}`}>
             <div className='flex items-center justify-between absolute top-0 right-0 w-full p-5'>
                 <Link to={'/'} className='w-[24px] h-[24px]'><img src={ResLogo} alt="Logo" /></Link>
                 <button className='relative w-[32px] h-[28px] cursor-pointer right-0' onClick={()=>SetValue(!Value)}>
@@ -52,8 +53,8 @@ export const ResNavbar = () => {
                 <li><Link className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><MdLogin/> Login</Link></li>
             </ul>
         </div>
-
       </div>
+
     </nav>
     
     </>

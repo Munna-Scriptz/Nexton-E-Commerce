@@ -23,7 +23,7 @@ const Banner = () => {
 
   return (
     <>
-      <div className="slider-container">
+      <div className="slider-container overflow-hidden">
         <Slider {...settings} >
           <section className='w-full h-[550px] lg:h-[600px]' >
             <div className='bg-left lg:bg-center' style={{backgroundImage:`url(${BannerImg})` , backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
