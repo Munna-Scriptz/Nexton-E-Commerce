@@ -5,8 +5,8 @@
 body{
     font-family: "Poppins", sans-serif;
 }
-/* -------Slider Dots------ */
-.slick-dots {
+/* -------Banner Slider Dots------ */
+#BannerSlider .slick-dots {
     position: absolute;
     bottom: 45px !important;
     display: block;
@@ -19,11 +19,19 @@ body{
 .slick-dots li {
     margin: 0 !important;
 }
-.slick-dots li button:before {
-    font-size: 8px !important;
+#BannerSlider .slick-dots li button:before {
+    font-size: 7px !important;
 }
-.slick-dots li.slick-active button:before {
+#BannerSlider .slick-dots li.slick-active button:before {
     color: #111827 !important;
+}
+/* -------Brands Slider Dots------ */
+
+#Brands_Slider .slick-dots{
+    bottom: -50px !important;
+}
+#Brands_Slider .slick-dots li button:before {
+    font-size: 7px !important;
 }
 
 @media (min-width: 320px) and (max-width: 576px) { 
