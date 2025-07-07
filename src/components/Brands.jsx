@@ -16,8 +16,8 @@ export const Brands = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 2,
+          slidesToScroll: 2,
           infinite: true,
           dots: true
         }
@@ -59,7 +59,7 @@ export const Brands = () => {
         {/* --------Slider-------- */}
           <div className='cursor-pointer'>
             <div className="slider-container">
-              <Slider {...settings}>
+              <Slider {...settings} className='!gap-10'>
                 <SingleBrand BrandHead={`For Men's`} BrandP={`Starting at $24`}/>
                 <SingleBrand BrandHead={`For Women's`} BrandP={`Starting at $19`}/>
                 <SingleBrand BrandHead={`Accessories`} BrandP={`Explore accessories`}/>
@@ -67,19 +67,6 @@ export const Brands = () => {
                 <SingleBrand BrandHead={`For Women's`} BrandP={`Starting at $19`}/>
                 <SingleBrand BrandHead={`For Men's`} BrandP={`Starting at $24`}/>
                 <SingleBrand BrandHead={`Accessories`} BrandP={`Explore accessories`}/>
-                <SingleBrand BrandHead={`For Women's`} BrandP={`Starting at $19`}/>
-                <SingleBrand BrandHead={`For Men's`} BrandP={`Starting at $24`}/>
-                <SingleBrand BrandHead={`Accessories`} BrandP={`Explore accessories`}/>
-                <SingleBrand BrandHead={`For Women's`} BrandP={`Starting at $19`}/>
-                <SingleBrand BrandHead={`For Men's`} BrandP={`Starting at $24`}/>
-                <SingleBrand BrandHead={`Accessories`} BrandP={`Explore accessories`}/>
-                <SingleBrand BrandHead={`For Women's`} BrandP={`Starting at $19`}/>
-                <SingleBrand BrandHead={`For Men's`} BrandP={`Starting at $24`}/>
-                <SingleBrand BrandHead={`Accessories`} BrandP={`Explore accessories`}/>
-                <SingleBrand BrandHead={`For Men's`} BrandP={`Starting at $24`}/>
-                <SingleBrand BrandHead={`For Women's`} BrandP={`Starting at $19`}/>
-                <SingleBrand BrandHead={`Accessories`} BrandP={`Explore accessories`}/>
-                <SingleBrand BrandHead={`For Women's`} BrandP={`Starting at $19`}/>
               </Slider>
             </div>
           </div>
