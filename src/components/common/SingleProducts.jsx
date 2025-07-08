@@ -6,7 +6,7 @@ import { IoBagHandleOutline } from "react-icons/io5";
 
 const SingleProducts = () => {
   return (
-    <section className='w-[309px] mt-[40px]'>
+    <section className='w-[312px] lg:w-[309px] mt-[40px]'>
         {/* ------Product Image  */}
         <div className=' relative'>
             <img src={ProductImg} alt="Product Image" />
