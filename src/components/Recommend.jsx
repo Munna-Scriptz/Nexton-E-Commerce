@@ -1,11 +1,37 @@
 import React from 'react'
 import SingleProducts from './common/SingleProducts'
+import { CommonHead } from './common/CommonHead'
+import Slider from "react-slick";
 
 const Recommend = () => {
+
+    const settings = {
+    infinite: true,
+    slidesToShow: 3,
+    speed: 500,
+    dots: true,
+  };
+
   return (
-    <>
-        <SingleProducts/>
-    </>
+    <section id='Recommend' className='mt-[138px]'>
+        <div className="container">
+            <CommonHead StartText={'Recommendations.'} EndText={' Best matching products for you'}/>
+            
+            <div className="slider-container">
+                <Slider {...settings}>
+                    <SingleProducts/>
+                    <SingleProducts/>
+                    <SingleProducts/>
+                    <SingleProducts/>
+                    <SingleProducts/>
+                    <SingleProducts/>
+                    <SingleProducts/>
+
+                </Slider>
+            </div>
+
+        </div>
+    </section>
   )
 }
 

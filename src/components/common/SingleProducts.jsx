@@ -1,18 +1,20 @@
 import React from 'react'
 import ProductImg from "../../assets/Images/ProductImage.png"
 import { FaStar } from "react-icons/fa";
+import { IoBagHandleOutline } from "react-icons/io5";
 
 
 const SingleProducts = () => {
   return (
-    <section>
+    <section className='w-[309px] mt-[40px]'>
         {/* ------Product Image  */}
-        <div>
+        <div className=' relative'>
             <img src={ProductImg} alt="Product Image" />
+            <button className='absolute right-0 top-0 pt-[22px] pr-[22px] cursor-pointer'><IoBagHandleOutline className='text-[18px] text-Primary'/></button>
         </div>
 
         {/* ------Product Details  */}
-        <div id='Product_Text' className='flex items-start justify-between w-[309px] mt-[20px]'>
+        <div id='Product_Text' className='flex items-start justify-between mt-[20px]'>
             <div>
                 <h2 className='text-second font-semibold text-base leading-[24px]'>Black Automatic Watch</h2>
                 <p className='text-Primary font-normal text-sm leading-[20px]'>Accessories</p>

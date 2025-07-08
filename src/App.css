@@ -26,10 +26,10 @@ body{
 .slick-dots li {
     margin: 0 !important;
 }
-#BannerSlider .slick-dots li button:before {
+.slick-dots li button:before {
     font-size: 7px !important;
 }
-#BannerSlider .slick-dots li.slick-active button:before {
+ .slick-dots li.slick-active button:before {
     color: #111827 !important;
 }
 /* -------Brands Slider Dots------ */
@@ -41,6 +41,15 @@ body{
     font-size: 7px !important;
 }
 
+/* -------Recommend Slider Dots------ */
+
+#Recommend .slick-dots{
+    bottom: -70px !important;
+}
+
+
+
+/* -------Slider Responsive------ */
 @media (min-width: 320px) and (max-width: 576px) { 
     #BannerSlider .slick-dots {
         text-align: start !important;

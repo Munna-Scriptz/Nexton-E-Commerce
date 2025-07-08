@@ -9,7 +9,7 @@ const Service = () => {
   return (
     <>
 
-    <section id='Service_Items' className='mt-[52px] pl-[24px]'>
+    <section id='Service_Items' className='pt-[52px] pl-[24px]'>
         <div className="container">
             <h2 className='text-[16px] font-semibold visible lg:hidden'>Nexton® always with you</h2>
             <div id="itemsRow" className=' lg:border-[1px] border-[#E5E7EB] py-[24px] lg:px-[40px] rounded-[16px] flex lg:items-center justify-between flex-wrap gap-5'>
