@@ -4,6 +4,7 @@ import Service from '../components/Service'
 import { Brands } from '../components/Brands'
 import Recommend from '../components/Recommend'
 import BestSeller from '../components/BestSeller'
+import BottomBanner from '../components/BottomBanner'
 
 export const Home = () => {
   return (
@@ -13,6 +14,7 @@ export const Home = () => {
     <Brands/>
     <Recommend/>
     <BestSeller/>
+    <BottomBanner/>
     </>
   )
 }
