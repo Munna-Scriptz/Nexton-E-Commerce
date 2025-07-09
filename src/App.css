@@ -46,8 +46,73 @@ body{
 #Recommend .slick-dots{
     bottom: -70px !important;
 }
+/* -------Single Product Shop Button Hover Start---------- */
+.ShopButton {
+  cursor: pointer;
+  position: absolute;
+}
+@keyframes jello-vertical {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  40% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  50% {
+    transform: scale3d(0.85, 1.15, 1);
+  }
+  65% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  75% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
 
+.ShopButton .tooltip {
+  position: absolute;
+  top: -20px;
+  left: -23px;
+  opacity: 0;
+  background-color: transparent;
+  background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.2s;
+  pointer-events: none;
+  letter-spacing: 0.5px;
+}
 
+.ShopButton .tooltip::before {
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #ff2525;
+  background-size: 1000%;
+  background-position: center;
+  transform: rotate(45deg);
+  bottom: -15%;
+  transition-duration: 0.3s;
+}
+
+.ShopButton:hover .tooltip {
+    top: -20px;
+    opacity: 1;
+    left: -23px;
+    transition-duration: 0.3s;
+}
+
+/* -------Single Product Shop Button Hover End---------- */
 
 /* -------Slider Responsive------ */
 @media (min-width: 320px) and (max-width: 576px) { 

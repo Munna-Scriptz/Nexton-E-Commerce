@@ -36,7 +36,7 @@ export const ResNavbar = () => {
         {/* ------Button Menu------ */}
 
 
-        <div className={`h-screen w-[60%] absolute top-0 bg-Primary p-5 flex justify-center duration-[.8s] rounded-2xl shadow-[0_3px_10px_rgb(0,0,0,0.2)] overflow-hidden z-50 ${Value? ' translate-x-[-500px] ' : ' translate-x-[-15px]'}`}>
+        <div className={`h-screen w-[60%] absolute top-0 bg-Primary p-5 flex justify-center duration-[.8s] rounded-2xl shadow-[0_3px_10px_rgb(0,0,0,0.2)] overflow-hidden z-50 ${Value? ' translate-x-[-520px] md:translate-x-[-740px] ' : ' translate-x-[-15px]'}`}>
             <div className='flex items-center justify-between absolute top-0 right-0 w-full p-5'>
                 <Link to={'/'} className='w-[24px] h-[24px]'><img src={ResLogo} alt="Logo" /></Link>
                 <button className='relative w-[32px] h-[28px] cursor-pointer right-0' onClick={()=>SetValue(!Value)}>

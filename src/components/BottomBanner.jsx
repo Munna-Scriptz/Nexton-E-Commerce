@@ -10,7 +10,7 @@ const BottomBanner = () => {
                     <h2 className='font-medium text-[14px] lg:text-[20px] text-Primary'>100% Original Products</h2>
                     <h1 className='font-semibold text-[30px] lg:text-[36px] leading-[38px] lg:leading-[40px] w-[312px] lg:w-[362px] text-[#111827] mb-[24px] mt-[14px]'>The All New Fashion Collection Items</h1>
                     <h2 className='font-medium text-[14px] lg:text-[20px] text-Primary mb-[24px]'>Starting from: $59.99</h2>
-                    <Link className='text-white py-[12px] px-[24px] lg:py-[14px] lg:px-[32px] bg-second rounded-full flex items-center w-fit gap-2.5' to={'/'}>Shop Now</Link>
+                    <Link className='text-white py-[12px] px-[24px] lg:py-[14px] lg:px-[32px] bg-second rounded-full flex items-center w-fit gap-2.5 duration-[.3s] hover:scale-[1.06] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]' to={'/'}>Shop Now</Link>
                 </div>
               </div>
     </section>
