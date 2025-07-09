@@ -22,8 +22,8 @@ const Navbar = () => {
           <div><RiSearch2Line className='text-Primary text-[20px]'/></div>
           <input type="text" className='w-full h-full text-Primary text-[14px] font-poppins border-none outline-none' placeholder='Search in products...'/>
         </div> 
+        
         {/* ------Nav Icons------ */}
-    
         <div>
           <button><RiUserLine className='text-[24px] text-Primary mr-[22px] cursor-pointer'/></button>
           <button className='relative cursor-pointer'>

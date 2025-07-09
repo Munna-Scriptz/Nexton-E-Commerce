@@ -6,6 +6,8 @@ import { IoHomeOutline } from "react-icons/io5";
 import { MdOutlineGroup } from "react-icons/md";
 import { LuShoppingBag } from "react-icons/lu";
 import { MdLogin } from "react-icons/md";
+import { RiShoppingCart2Line } from "react-icons/ri";
+import { RiUserLine } from "react-icons/ri";
 
 
 export const ResNavbar = () => {
@@ -50,7 +52,8 @@ export const ResNavbar = () => {
                 <li><Link className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><IoHomeOutline/> Home</Link></li>
                 <li><Link className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><MdOutlineGroup/> About</Link></li>
                 <li><Link className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><LuShoppingBag/> Shop</Link></li>
-                <li><Link className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><MdLogin/> Login</Link></li>
+                <li><Link className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><RiShoppingCart2Line/>Cart</Link></li>
+                <li><Link className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><RiUserLine/> Account</Link></li>
             </ul>
         </div>
       </div>
