@@ -1,6 +1,10 @@
 import React from 'react'
 import FooterImg from "../assets/Images/FooterIcon.png"
-
+// -------Images 
+import visaImg from "../assets/Images/visa.png"
+import paypalImg from "../assets/Images/paypal.png"
+import stripeImg from "../assets/Images/stripe.png"
+import verisignImg from "../assets/Images/verisign.png"
 // -----Icons------
 import { FaFacebook } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa6";
@@ -10,7 +14,7 @@ import { Link } from 'react-router';
 
 const Footer = () => {
   return (
-    <footer className=' border-t-[1px] border-[#E5E7EB] py-[60px] mt-[100px]'>
+    <footer className='border-t-[1px] border-[#E5E7EB] pt-[60px] mt-[100px]'>
         <div className="container">
            <section id='Footer_Row' className='flex items-center justify-between'>
                 {/* -----First Column----- */}
@@ -66,6 +70,19 @@ const Footer = () => {
                     </div>
                 </div>
             </section> 
+        </div>
+        <div id="Footer_Bottom" className='border-t-[1px] border-[#E5E7EB] py-[36px] mt-[60px]'>
+            <div className="container">
+                <div className='flex items-center justify-between'>
+                    <div><h2 className='text-base text-Primary font-normal'>Nexton eCommerce. © 2024</h2></div>
+                    <div className='flex items-center gap-[5px]'>
+                        <Link to={'/'}><img src={visaImg} alt="Icons" /></Link>
+                        <Link to={'/'}><img src={paypalImg} alt="Icons" /></Link>
+                        <Link to={'/'}><img src={stripeImg} alt="Icons" /></Link>
+                        <Link to={'/'}><img src={verisignImg} alt="Icons" /></Link>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
   )
