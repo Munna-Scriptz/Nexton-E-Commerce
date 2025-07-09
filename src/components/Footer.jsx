@@ -14,12 +14,12 @@ import { Link } from 'react-router';
 
 const Footer = () => {
   return (
-    <footer className='border-t-[1px] border-[#E5E7EB] pt-[60px] mt-[100px]'>
+    <footer className='border-t-[1px] border-[#E5E7EB] pt-[48px] lg:pt-[60px] mt-[100px] px-[24px] lg:px-0'>
         <div className="container">
-           <section id='Footer_Row' className='flex items-center justify-between'>
+           <section id='Footer_Row' className='flex items-start lg:items-center justify-between flex-col gap-[60px] lg:gap-0 lg:flex-row'>
                 {/* -----First Column----- */}
                 <div>
-                    <div className='mb-5'><img src={FooterImg} alt="" /></div>
+                    <div className='mb-5'><img src={FooterImg} alt="Logo" /></div>
                     <div className='flex  flex-col gap-[12px]'>
                         <Link className='flex items-center gap-2'>
                             <FaFacebook className='text-[20px]' fill='#4676ED'/>
@@ -73,13 +73,13 @@ const Footer = () => {
         </div>
         <div id="Footer_Bottom" className='border-t-[1px] border-[#E5E7EB] py-[36px] mt-[60px]'>
             <div className="container">
-                <div className='flex items-center justify-between'>
+                <div className='flex items-center justify-center lg:justify-between flex-wrap gap-[12px] lg:flex-nowrap lg:gap-0'>
                     <div><h2 className='text-base text-Primary font-normal'>Nexton eCommerce. © 2024</h2></div>
                     <div className='flex items-center gap-[5px]'>
-                        <Link to={'/'}><img src={visaImg} alt="Icons" /></Link>
-                        <Link to={'/'}><img src={paypalImg} alt="Icons" /></Link>
-                        <Link to={'/'}><img src={stripeImg} alt="Icons" /></Link>
-                        <Link to={'/'}><img src={verisignImg} alt="Icons" /></Link>
+                        <Link to={'/'}><img className='lg:w-full w-[40px]' src={visaImg} alt="Icons" /></Link>
+                        <Link to={'/'}><img className='lg:w-full w-[40px]' src={paypalImg} alt="Icons" /></Link>
+                        <Link to={'/'}><img className='lg:w-full w-[40px]' src={stripeImg} alt="Icons" /></Link>
+                        <Link to={'/'}><img className='lg:w-full w-[40px]' src={verisignImg} alt="Icons" /></Link>
                     </div>
                 </div>
             </div>
