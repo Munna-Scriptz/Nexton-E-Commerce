@@ -5,12 +5,12 @@ import Logo from "../assets/Images/logo.png"
 import whiteLogo from "../assets/Images/WhiteLogo.png"
 import { RiShoppingCart2Line } from "react-icons/ri";
 import { Link } from 'react-router';
+import LoginOrRegis from './LoginOrRegis';
 
 
 const Navbar = () => {
   return (
-    <>
-
+    <div>
     <nav id='Navbar' className='py-[27px] hidden lg:block overflow-hidden'>
       <div id='NavRow' className='container flex items-center justify-between'>
         {/* ------Logo------ */}
@@ -34,8 +34,8 @@ const Navbar = () => {
 
       </div>
     </nav>
-
-    </>
+    <LoginOrRegis/>
+    </div>
   )
 }
 
