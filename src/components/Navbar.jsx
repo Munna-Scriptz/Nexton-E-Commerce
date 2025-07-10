@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { RiSafariLine, RiSearch2Line } from "react-icons/ri";
 import { RiUserLine } from "react-icons/ri";
 import Logo from "../assets/Images/logo.png"
@@ -7,8 +7,11 @@ import { RiShoppingCart2Line } from "react-icons/ri";
 import { Link } from 'react-router';
 import LoginOrRegis from './LoginOrRegis';
 
-
 const Navbar = () => {
+
+  const [value , setValue] = useState('true')
+  console.log(value)
+
   return (
     <div>
     <nav id='Navbar' className='py-[27px] hidden lg:block overflow-hidden'>
@@ -25,7 +28,7 @@ const Navbar = () => {
         
         {/* ------Nav Icons------ */}
         <div>
-          <button><RiUserLine className='text-[24px] text-Primary mr-[22px] cursor-pointer'/></button>
+          <button onClick={()=>(setValue(!value))}><RiUserLine className='text-[24px] text-Primary mr-[22px] cursor-pointer'/></button>
           <button className='relative cursor-pointer'>
             <RiShoppingCart2Line className='text-[24px] text-Primary'/>
             <div className='absolute right-[-7px] top-[-7px] bg-[#0EA5E9] h-[20px] w-[20px] flex items-center justify-center rounded-full text-[#fff] text-[12px]'>3</div>
@@ -34,7 +37,11 @@ const Navbar = () => {
 
       </div>
     </nav>
-    <LoginOrRegis/>
+
+    {/* -----Account----- */}
+    <section className={`w-full h-full backdrop-blur-md z-50 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] duration-[.3s] flex items-center justify-center ${value? 'hidden opacity-0' : 'block opacity-100'}`}>
+      <LoginOrRegis/>
+    </section>
     </div>
   )
 }
