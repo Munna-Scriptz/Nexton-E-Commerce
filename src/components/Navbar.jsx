@@ -6,6 +6,7 @@ import whiteLogo from "../assets/Images/WhiteLogo.png"
 import { RiShoppingCart2Line } from "react-icons/ri";
 import { Link } from 'react-router';
 import LoginOrRegis from './LoginOrRegis';
+import { RxCross2 } from "react-icons/rx";
 
 const Navbar = () => {
 
@@ -39,8 +40,12 @@ const Navbar = () => {
     </nav>
 
     {/* -----Account----- */}
-    <section className={`w-full h-full backdrop-blur-md z-50 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] duration-[.3s] flex items-center justify-center ${value? 'hidden opacity-0' : 'block opacity-100'}`}>
+    <section className={`w-full h-full backdrop-blur-md bg-[#00000063] z-50 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] duration-[.3s] flex items-center justify-center gap-7 ${value? 'hidden opacity-0 duration-75' : 'block opacity-100'}`}>
       <LoginOrRegis/>
+      <button onClick={()=>(setValue(!value))} className='HidePage'>
+          <RxCross2 className='text-white text-[25px] ml-[10px]'/>
+          <div className="text">Skip For Now</div>
+      </button>
     </section>
     </div>
   )
