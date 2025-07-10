@@ -1,5 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router'
+import { FaGoogle } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 const LoginOrRegis = () => {
   return (
@@ -10,18 +13,20 @@ const LoginOrRegis = () => {
                 <div>
                     <h2 className='text-white font-medium text-[32px] mb-5'>Welcome!</h2>
                     <p className='text-white text-[17px] mb-7 w-[260px]'>Create your account For Free. if you are new!</p>
-                    <Link className='text-white py-[6px] px-[24px] lg:py-[6px] lg:px-[36px] border-[2px] rounded-full flex items-center w-fit gap-2.5 duration-[.3s] hover:scale-[1.06] cursor-pointer' to={'/'}>Sign Up</Link>
+                    <Link className='LoginWithButton2 text-white py-[6px] px-[24px] lg:py-[6px] lg:px-[36px] border-[2px] rounded-full flex items-center w-fit gap-2.5 duration-[.3s] hover:scale-[1.06] cursor-pointer' to={'/'}>Sign Up</Link>
                 </div>
 
                 <div className='flex items-end flex-col'>
-                    <h2 className='text-second font-medium text-[32px] mb-5 text-end'>Welcome <br /> Back!</h2>
-                    <p className=' text-Primary text-[17px] mb-7 w-[290px] text-end'>Login if you already have account. And Unlock New Journey</p>
-                    <Link className='text-second py-[6px] px-[24px] lg:py-[6px] lg:px-[36px] border-[2px] rounded-full flex items-center w-fit gap-2.5 duration-[.3s] hover:scale-[1.06] cursor-pointer' to={'/'}>Sign Up</Link>
-                    
-                    <div>
-                    <Link className='text-second py-[6px] px-[24px] lg:py-[6px] lg:px-[36px] border-[2px] rounded-full flex items-center w-fit gap-2.5 duration-[.3s] hover:scale-[1.06] cursor-pointer' to={'/'}>Sign Up</Link>
-                    <Link className='text-second py-[6px] px-[24px] lg:py-[6px] lg:px-[36px] border-[2px] rounded-full flex items-center w-fit gap-2.5 duration-[.3s] hover:scale-[1.06] cursor-pointer' to={'/'}>Sign Up</Link>
-                    <Link className='text-second py-[6px] px-[24px] lg:py-[6px] lg:px-[36px] border-[2px] rounded-full flex items-center w-fit gap-2.5 duration-[.3s] hover:scale-[1.06] cursor-pointer' to={'/'}>Sign Up</Link>
+                    <h2 className='text-second font-medium text-[32px] mb-4 text-end'>Welcome <br /> Back!</h2>
+                    <p className=' text-Primary text-[17px] mb-6 w-[290px] text-end'>Login if you already have account. And Unlock New Journey</p>
+                    <Link className='LoginWithButton text-second py-[6px] px-[24px] lg:py-[6px] lg:px-[36px] border-[2px] rounded-full flex items-center w-fit gap-2.5 duration-[.3s] hover:scale-[1.06] cursor-pointer' to={'/'}>login</Link>
+                    {/* --------Or Start------- */}
+                    <div className='w-full flex items-center justify-between gap-2 mt-5 mb-5'><span className='h-[2px] bg-Primary w-full'></span><p className='text-center text-second font-medium'>OR</p><span className='h-[2px] bg-Primary w-full'></span></div>
+                    {/* --------Or End------- */}
+                    <div className='flex items-center flex-wrap gap-3'>
+                        <Link className='LoginWithButton text-second py-[6px] px-[16px] border-[2px] rounded-full flex items-center w-full gap-5 duration-[.3s] hover:scale-[1.06] cursor-pointer' to={'/'}><FaGoogle /> Login With Google</Link>
+                        <Link className='LoginWithButton text-second py-[6px] px-[16px] border-[2px] rounded-full flex items-center w-full gap-5 duration-[.3s] hover:scale-[1.06] cursor-pointer' to={'/'}><FaFacebookF /> Login With Facebook</Link>
+                        <Link className='LoginWithButton text-second py-[6px] px-[16px] border-[2px] rounded-full flex items-center w-full gap-5 duration-[.3s] hover:scale-[1.06] cursor-pointer' to={'/'}><FaGithub /> Login With Github</Link>
                     </div>
                 </div>
 
