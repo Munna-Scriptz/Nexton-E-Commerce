@@ -50,7 +50,7 @@ const Navbar = () => {
       </section>
 
       {/* -----Add To Cart----- */}
-        <section>
+        <section className='fixed top-0 z-50 h-full w-full backdrop-blur-md bg-[#00000063] duration-[.3s] right-0 flex justify-end'>
           <AddToCart/>
         </section>
     </div>
