@@ -14,98 +14,113 @@ export const AddToCart = () => {
                 <div className='cursor-pointer'><RxCross2 className='text-3xl'/></div>
             </div>
             {/* ------Add items */}
-            <div className='h-120 overflow-y-scroll'>
+            <div className='h-[72%] overflow-y-scroll'>
                 <div className='flex items-center justify-between mb-5'>
                     <div className='flex items-center gap-5'>
-                        <div className='w-[60px] h-[60px] bg-Primary rounded-[10px]'></div>
+                        <div className='w-[50px] h-[50px] bg-Primary rounded-[10px]'></div>
                         <div>
-                            <h2 className='text-second font-medium text-[18px]'>Product Name</h2>
-                            <p className='text-Primary font-normal text-base'>Product Details</p>
+                            <h2 className='text-second font-medium text-[16px]'>Product Name</h2>
+                            <p className='text-Primary font-normal text-sm'>Product Details</p>
                         </div>
                     </div>
                     <div>
-                        <h2 className='text-second font-medium text-[18px]'>$50</h2>
-                        <p className='text-Primary font-normal text-base line-through'>69$</p>
+                        <h2 className='text-second font-medium text-base'>$50</h2>
+                        <p className='text-Primary font-normal text-sm line-through'>69$</p>
                     </div>
                 </div>
                 <div className='flex items-center justify-between mb-5'>
                     <div className='flex items-center gap-5'>
-                        <div className='w-[60px] h-[60px] bg-Primary rounded-[10px]'></div>
+                        <div className='w-[50px] h-[50px] bg-Primary rounded-[10px]'></div>
                         <div>
-                            <h2 className='text-second font-medium text-[18px]'>Product Name</h2>
-                            <p className='text-Primary font-normal text-base'>Product Details</p>
+                            <h2 className='text-second font-medium text-[16px]'>Product Name</h2>
+                            <p className='text-Primary font-normal text-sm'>Product Details</p>
                         </div>
                     </div>
                     <div>
-                        <h2 className='text-second font-medium text-[18px]'>$50</h2>
-                        <p className='text-Primary font-normal text-base line-through'>69$</p>
+                        <h2 className='text-second font-medium text-base'>$50</h2>
+                        <p className='text-Primary font-normal text-sm line-through'>69$</p>
                     </div>
                 </div>
                 <div className='flex items-center justify-between mb-5'>
                     <div className='flex items-center gap-5'>
-                        <div className='w-[60px] h-[60px] bg-Primary rounded-[10px]'></div>
+                        <div className='w-[50px] h-[50px] bg-Primary rounded-[10px]'></div>
                         <div>
-                            <h2 className='text-second font-medium text-[18px]'>Product Name</h2>
-                            <p className='text-Primary font-normal text-base'>Product Details</p>
+                            <h2 className='text-second font-medium text-[16px]'>Product Name</h2>
+                            <p className='text-Primary font-normal text-sm'>Product Details</p>
                         </div>
                     </div>
                     <div>
-                        <h2 className='text-second font-medium text-[18px]'>$50</h2>
-                        <p className='text-Primary font-normal text-base line-through'>69$</p>
+                        <h2 className='text-second font-medium text-base'>$50</h2>
+                        <p className='text-Primary font-normal text-sm line-through'>69$</p>
                     </div>
                 </div>
                 <div className='flex items-center justify-between mb-5'>
                     <div className='flex items-center gap-5'>
-                        <div className='w-[60px] h-[60px] bg-Primary rounded-[10px]'></div>
+                        <div className='w-[50px] h-[50px] bg-Primary rounded-[10px]'></div>
                         <div>
-                            <h2 className='text-second font-medium text-[18px]'>Product Name</h2>
-                            <p className='text-Primary font-normal text-base'>Product Details</p>
+                            <h2 className='text-second font-medium text-[16px]'>Product Name</h2>
+                            <p className='text-Primary font-normal text-sm'>Product Details</p>
                         </div>
                     </div>
                     <div>
-                        <h2 className='text-second font-medium text-[18px]'>$50</h2>
-                        <p className='text-Primary font-normal text-base line-through'>69$</p>
+                        <h2 className='text-second font-medium text-base'>$50</h2>
+                        <p className='text-Primary font-normal text-sm line-through'>69$</p>
                     </div>
                 </div>
                 <div className='flex items-center justify-between mb-5'>
                     <div className='flex items-center gap-5'>
-                        <div className='w-[60px] h-[60px] bg-Primary rounded-[10px]'></div>
+                        <div className='w-[50px] h-[50px] bg-Primary rounded-[10px]'></div>
                         <div>
-                            <h2 className='text-second font-medium text-[18px]'>Product Name</h2>
-                            <p className='text-Primary font-normal text-base'>Product Details</p>
+                            <h2 className='text-second font-medium text-[16px]'>Product Name</h2>
+                            <p className='text-Primary font-normal text-sm'>Product Details</p>
                         </div>
                     </div>
                     <div>
-                        <h2 className='text-second font-medium text-[18px]'>$50</h2>
-                        <p className='text-Primary font-normal text-base line-through'>69$</p>
+                        <h2 className='text-second font-medium text-base'>$50</h2>
+                        <p className='text-Primary font-normal text-sm line-through'>69$</p>
                     </div>
                 </div>
                 <div className='flex items-center justify-between mb-5'>
                     <div className='flex items-center gap-5'>
-                        <div className='w-[60px] h-[60px] bg-Primary rounded-[10px]'></div>
+                        <div className='w-[50px] h-[50px] bg-Primary rounded-[10px]'></div>
                         <div>
-                            <h2 className='text-second font-medium text-[18px]'>Product Name</h2>
-                            <p className='text-Primary font-normal text-base'>Product Details</p>
+                            <h2 className='text-second font-medium text-[16px]'>Product Name</h2>
+                            <p className='text-Primary font-normal text-sm'>Product Details</p>
                         </div>
                     </div>
                     <div>
-                        <h2 className='text-second font-medium text-[18px]'>$50</h2>
-                        <p className='text-Primary font-normal text-base line-through'>69$</p>
+                        <h2 className='text-second font-medium text-base'>$50</h2>
+                        <p className='text-Primary font-normal text-sm line-through'>69$</p>
                     </div>
                 </div>
                 <div className='flex items-center justify-between mb-5'>
                     <div className='flex items-center gap-5'>
-                        <div className='w-[60px] h-[60px] bg-Primary rounded-[10px]'></div>
+                        <div className='w-[50px] h-[50px] bg-Primary rounded-[10px]'></div>
                         <div>
-                            <h2 className='text-second font-medium text-[18px]'>Product Name</h2>
-                            <p className='text-Primary font-normal text-base'>Product Details</p>
+                            <h2 className='text-second font-medium text-[16px]'>Product Name</h2>
+                            <p className='text-Primary font-normal text-sm'>Product Details</p>
                         </div>
                     </div>
                     <div>
-                        <h2 className='text-second font-medium text-[18px]'>$50</h2>
-                        <p className='text-Primary font-normal text-base line-through'>69$</p>
+                        <h2 className='text-second font-medium text-base'>$50</h2>
+                        <p className='text-Primary font-normal text-sm line-through'>69$</p>
                     </div>
                 </div>
+                <div className='flex items-center justify-between mb-5'>
+                    <div className='flex items-center gap-5'>
+                        <div className='w-[50px] h-[50px] bg-Primary rounded-[10px]'></div>
+                        <div>
+                            <h2 className='text-second font-medium text-[16px]'>Product Name</h2>
+                            <p className='text-Primary font-normal text-sm'>Product Details</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 className='text-second font-medium text-base'>$50</h2>
+                        <p className='text-Primary font-normal text-sm line-through'>69$</p>
+                    </div>
+                </div>
+                
+                
             </div>
 
             {/* ------Buy items */}
