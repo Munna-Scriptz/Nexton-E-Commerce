@@ -3,7 +3,7 @@ import { RxCross2 } from "react-icons/rx";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import { Link } from 'react-router';
 
-export const AddToCart = () => {
+export const AddToCart = ({Cross}) => {
   return (
     <>
         <section id='Add-To-Cart' className='h-full bg-[#f8f8f8] w-[500px] p-5 border-l-2'>
@@ -11,7 +11,7 @@ export const AddToCart = () => {
             <div className='flex items-center justify-between mb-10'>
                 <h2 className='font-medium text-[20px] text-second flex items-center gap-4'>Add To Cart <RiShoppingCart2Line className='text-[24px] text-Primary'/>
                 </h2>
-                <div className='cursor-pointer'><RxCross2 className='text-3xl'/></div>
+                <div className='cursor-pointer'>{Cross}</div>
             </div>
             {/* ------Add items */}
             <div className='h-[72%] overflow-y-scroll'>

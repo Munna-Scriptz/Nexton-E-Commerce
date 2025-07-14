@@ -12,7 +12,8 @@ import { AddToCart } from './AddToCart';
 const Navbar = () => {
 
   const [value , setValue] = useState('true')
-  console.log(value)
+  const [cart , setCart] = useState('true')
+  console.log(cart)
 
   return (
     <div>
@@ -31,7 +32,7 @@ const Navbar = () => {
           {/* ------Nav Icons------ */}
           <div>
             <button onClick={()=>(setValue(!value))}><RiUserLine className='text-[24px] text-Primary mr-[22px] cursor-pointer'/></button>
-            <button className='relative cursor-pointer'>
+            <button onClick={()=>setCart(!cart)} className='relative cursor-pointer'>
               <RiShoppingCart2Line className='text-[24px] text-Primary'/>
               <div className='absolute right-[-7px] top-[-7px] bg-[#0EA5E9] h-[20px] w-[20px] flex items-center justify-center rounded-full text-[#fff] text-[12px]'>3</div>
             </button>
@@ -50,8 +51,8 @@ const Navbar = () => {
       </section>
 
       {/* -----Add To Cart----- */}
-        <section className='fixed top-0 z-50 h-full w-full backdrop-blur-md bg-[#00000063] duration-[.3s] right-0 flex justify-end'>
-          <AddToCart/>
+        <section className={`fixed top-0 z-50 h-full w-full backdrop-blur-md bg-[#00000063] duration-[.3s] right-0 flex justify-end ${cart? 'hidden' : 'visible'}`}>
+          <AddToCart Cross={<RxCross2 onClick={()=>setCart(!cart)} className='text-3xl'/>}/>
         </section>
     </div>
   )
