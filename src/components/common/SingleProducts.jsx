@@ -2,6 +2,8 @@ import React from 'react'
 import ProductImg from "../../assets/Images/ProductImage.png"
 import { FaStar } from "react-icons/fa";
 import { IoBagHandleOutline } from "react-icons/io5";
+import { MdReadMore } from "react-icons/md";
+import { Link } from 'react-router';
 
 
 const SingleProducts = () => {
@@ -22,6 +24,10 @@ const SingleProducts = () => {
                     <FaStar className='text-[#FBBF24]'/>
                     <p className='text-Primary font-normal text-sm'>4.9 (98)</p>
                 </div>
+                {/* ---See more button  */}
+            <div className='mt-4'>
+              <Link className='text-white text-sm py-[12px] px-[24px] lg:py-[10px] lg:px-[22px] bg-second rounded-full flex items-center w-fit gap-1.5 duration-[.3s] hover:scale-[1.06] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]' to={'/'}>Explore now <MdReadMore className=' text-2xl'/></Link>
+            </div>
             </div>
             <div>
                 <h2 className='text-second font-semibold text-base leading-[24px]'>$169.99</h2>

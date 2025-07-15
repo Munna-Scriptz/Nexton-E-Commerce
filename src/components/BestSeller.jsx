@@ -63,7 +63,6 @@ const BestSeller = () => {
                         <SingleProducts/>
                         <SingleProducts/>
                         <SingleProducts/>
-    
                     </Slider>
                 </div>
     

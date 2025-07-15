@@ -63,7 +63,6 @@ const Recommend = () => {
                     <SingleProducts/>
                     <SingleProducts/>
                     <SingleProducts/>
-
                 </Slider>
             </div>
 
