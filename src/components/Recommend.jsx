@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SingleProducts from './common/SingleProducts'
 import { CommonHead } from './common/CommonHead'
 import Slider from "react-slick";
+import axios from 'axios';
 
 const Recommend = () => {
+  // -----------Api 
+  const [products , setProducts] = useState([])
 
+    useEffect(()=>{
+        axios.get('https://dummyjson.com/products')
+        .then((res)=>{setProducts(res.data.products)})
+        .catch((err)=>{console.log('error')})
+    } , [])
+      
+  // ----------Slider 
     const settings = {
     infinite: true,
     slidesToShow: 3,
@@ -56,12 +66,12 @@ const Recommend = () => {
             
             <div className="slider-container">
                 <Slider {...settings}>
-                    <SingleProducts/>
-                    <SingleProducts/>
-                    <SingleProducts/>
-                    <SingleProducts/>
-                    <SingleProducts/>
-                    <SingleProducts/>
+                    {
+                      products.map((items)=>(
+                        console.log(items),
+                        <SingleProducts proName={items.title} ProCat={items.category} proPrice={items.price} proRate={items.rating} ProStock={items.stock} proDis={items.discountPercentage} proImg={items.images}/>
+                      ))
+                    }
                     <SingleProducts/>
                 </Slider>
             </div>
