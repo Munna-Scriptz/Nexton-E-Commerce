@@ -2,6 +2,7 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import './App.css'
 import { LayoutOne } from './layout/LayoutOne'
 import { Home } from './pages/Home'
+import ProductPage from './pages/ProductPage'
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
     <Route>
       <Route path='/' element={<LayoutOne/>}>
         <Route index element={<Home/>}></Route>
+        <Route path='/Products' element={<ProductPage/>}></Route>
       </Route>
     </Route>
   ))
