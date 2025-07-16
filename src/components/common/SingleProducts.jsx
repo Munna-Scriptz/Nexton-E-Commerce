@@ -6,7 +6,7 @@ import { MdReadMore } from "react-icons/md";
 import { Link } from 'react-router';
 
 
-const SingleProducts = ({proImg ,proName , proPrice , ProCat , proDis , proRate , ProStock}) => {
+const SingleProducts = ({proImg ,proName , proPrice , ProCat , proDis , proRate , ProStock , ShowMoreButton}) => {
 
     
   return (
@@ -27,7 +27,7 @@ const SingleProducts = ({proImg ,proName , proPrice , ProCat , proDis , proRate 
                     <p className='text-Primary font-normal text-sm'>{proRate} ({ProStock})</p>
                 </div>
                 {/* ---See more button  */}
-            <div className='mt-4'>
+            <div className={`mt-4 ${ShowMoreButton}`}>
               <Link className='text-white text-sm py-[12px] px-[24px] lg:py-[10px] lg:px-[22px] bg-second rounded-full flex items-center w-fit gap-1.5 duration-[.3s] hover:scale-[1.06] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]' to={'/'}>Explore now <MdReadMore className=' text-2xl'/></Link>
             </div>
             </div>

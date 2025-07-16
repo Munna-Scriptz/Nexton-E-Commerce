@@ -1,11 +1,18 @@
 import React from 'react'
+import SingleProducts from '../components/common/SingleProducts'
+import { FaAngleLeft } from "react-icons/fa6";
+import { FaAngleRight } from "react-icons/fa6";
+import axios from 'axios';
 
 const ProductPage = () => {
+    axios.get('https://dummyjson.com/products')
+
+    
   return (
     <>
         <section className='mt-[40px]'>
             <div className="container">
-                <div id="Mother_Div">
+                <div id="Mother_Div" className='flex justify-between gap-5'>
                     {/* -----Left Side  */}
                     <div id="Left_Side" className='w-[285px]'>
                         {/* categories */}
@@ -89,8 +96,24 @@ const ProductPage = () => {
                         </div>
                     </div>
                     {/* -----Left Side  */}
-                    <div id="Right_Side">
-
+                    <div id="Right_Side" className='flex flex-col items-end'>
+                        <div className='flex flex-wrap justify-center gap-y-[52px] gap-x-5'>
+                            <SingleProducts ShowMoreButton={'hidden'}/>
+                            <SingleProducts ShowMoreButton={'hidden'}/>
+                            <SingleProducts ShowMoreButton={'hidden'}/>
+                            <SingleProducts ShowMoreButton={'hidden'}/>
+                            <SingleProducts ShowMoreButton={'hidden'}/>
+                            <SingleProducts ShowMoreButton={'hidden'}/>
+                        </div>
+                        {/* -----Buttons  */}
+                        <div className='flex items-center gap-1 mt-[52px]'>
+                            <button className='h-[36px] w-[36px] text-Primary text-base rounded-[12px] cursor-pointer flex items-center justify-center'><FaAngleLeft/></button>
+                            <button className='h-[36px] w-[36px] text-Primary text-base bg-[#E5E7EB] rounded-[12px] cursor-pointer'>1</button>
+                            <button className='h-[36px] w-[36px] text-Primary text-base rounded-[12px] cursor-pointer'>2</button>
+                            <button className='h-[36px] w-[36px] text-Primary text-base rounded-[12px] cursor-pointer'>3</button>
+                            <button className='h-[36px] w-[36px] text-Primary text-base rounded-[12px] cursor-pointer'>4</button>
+                            <button className='h-[36px] w-[36px] text-Primary text-base rounded-[12px] cursor-pointer flex items-center justify-center'><FaAngleRight/></button>
+                        </div>   
                     </div>
                 </div>
             </div>
