@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SingleProducts from '../components/common/SingleProducts'
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
 import axios from 'axios';
 
 const ProductPage = () => {
-    axios.get('https://dummyjson.com/products')
-
+    const [products , setProducts] = useState([])
     
+    useEffect(()=>{
+        axios.get('https://dummyjson.com/products')
+        .then((res)=>{setProducts(res.data.products)})
+        .catch((err)=>{console.log(err)})
+    } , [])
+    console.log(products)
   return (
     <>
         <section className='mt-[40px]'>
@@ -20,31 +25,31 @@ const ProductPage = () => {
                             <h2 className='text-[18px] font-semibold text-second font-poppins mb-[24px]'>Categories</h2>
                             <div  className='flex items-center gap-3'>
                                 <input type="checkbox" className='w-5 h-5' id='check'/>
-                                <label for='check' className='text-Primary text-sm'>Men’s fashion</label>
+                                <label htmlFor='check' className='text-Primary text-sm'>Men's fashion</label>
                             </div>
                             <div  className='flex items-center gap-3 mt-[16px]'>
                                 <input type="checkbox" className='w-5 h-5 border-2 rounded-[4px] outline-none border-[#94A3B8]' id='check1'/>
-                                <label for='check1' className='text-Primary text-sm'>Women’s fashion</label>
+                                <label htmlFor='check1' className='text-Primary text-sm'>Women’s fashion</label>
                             </div>
                             <div  className='flex items-center gap-3 mt-[16px]'>
                                 <input type="checkbox" className='w-5 h-5 border-2 rounded-[4px] outline-none border-[#94A3B8]' id='check2'/>
-                                <label for='check2' className='text-Primary text-sm'>Kids & Toys</label>
+                                <label htmlFor='check2' className='text-Primary text-sm'>Kids & Toys</label>
                             </div>
                             <div  className='flex items-center gap-3 mt-[16px]'>
                                 <input type="checkbox" className='w-5 h-5 border-2 rounded-[4px] outline-none border-[#94A3B8]' id='check3'/>
-                                <label for='check3' className='text-Primary text-sm'>Accessories</label>
+                                <label htmlFor='check3' className='text-Primary text-sm'>Accessories</label>
                             </div>
                             <div  className='flex items-center gap-3 mt-[16px]'>
                                 <input type="checkbox" className='w-5 h-5 border-2 rounded-[4px] outline-none border-[#94A3B8]' id='check4'/>
-                                <label for='check4' className='text-Primary text-sm'>Cosmetics</label>
+                                <label htmlFor='check4' className='text-Primary text-sm'>Cosmetics</label>
                             </div>
                             <div  className='flex items-center gap-3 mt-[16px]'>
                                 <input type="checkbox" className='w-5 h-5 border-2 rounded-[4px] outline-none border-[#94A3B8]' id='check5'/>
-                                <label for='check5' className='text-Primary text-sm'>Shoes</label>
+                                <label hidden='check5' className='text-Primary text-sm'>Shoes</label>
                             </div>
                             <div  className='flex items-center gap-3 mt-[16px]'>
                                 <input type="checkbox" className='w-5 h-5 border-2 rounded-[4px] outline-none border-[#94A3B8]' id='check6'/>
-                                <label for='check6' className='text-Primary text-sm'>Sports</label>
+                                <label htmlFor='check6' className='text-Primary text-sm'>Sports</label>
                             </div>
                         </div>
                         {/* Range */}
@@ -75,23 +80,23 @@ const ProductPage = () => {
                             <h2 className='text-[18px] font-semibold text-second font-poppins mb-[24px]'>Sort order</h2>
                             <div  className='flex items-center gap-3'>
                                 <input type="radio" className='w-5 h-5 rounded-full' id='radio1'/>
-                                <label for='radio1' className='text-Primary text-sm'>Most Popular</label>
+                                <label htmlFor='radio1' className='text-Primary text-sm'>Most Popular</label>
                             </div>
                             <div  className='flex items-center gap-3 mt-[16px]'>
                                 <input type="radio" className='w-5 h-5 rounded-full border-2outline-none border-[#94A3B8]' id='radio2'/>
-                                <label for='radio2' className='text-Primary text-sm'>Best Rating</label>
+                                <label htmlFor='radio2' className='text-Primary text-sm'>Best Rating</label>
                             </div>
                             <div  className='flex items-center gap-3 mt-[16px]'>
                                 <input type="radio" className='w-5 h-5 rounded-full border-2 outline-none border-[#94A3B8]' id='radio3'/>
-                                <label for='radio3' className='text-Primary text-sm'>Most Popular</label>
+                                <label htmlFor='radio3' className='text-Primary text-sm'>Most Popular</label>
                             </div>
                             <div  className='flex items-center gap-3 mt-[16px]'>
                                 <input type="radio" className='w-5 h-5 rounded-full border-2outline-none border-[#94A3B8]'id='radio4'/>
-                                <label for='radio4' className='text-Primary text-sm'>Price Low - Hight</label>
+                                <label htmlFor='radio4' className='text-Primary text-sm'>Price Low - Hight</label>
                             </div>
                             <div  className='flex items-center gap-3 mt-[16px]'>
                                 <input type="radio" className='w-5 h-5 rounded-full border-2outline-none border-[#94A3B8]' id='radio5'/>
-                                <label for='radio5' className='text-Primary text-sm'>Price Hight - Low</label>
+                                <label htmlFor='radio5' className='text-Primary text-sm'>Price Hight - Low</label>
                             </div>
                         </div>
                     </div>
