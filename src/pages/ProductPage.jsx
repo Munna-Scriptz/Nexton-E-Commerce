@@ -45,7 +45,7 @@ const ProductPage = () => {
                             </div>
                             <div  className='flex items-center gap-3 mt-[16px]'>
                                 <input type="checkbox" className='w-5 h-5 border-2 rounded-[4px] outline-none border-[#94A3B8]' id='check5'/>
-                                <label hidden='check5' className='text-Primary text-sm'>Shoes</label>
+                                <label htmlFor='check5' className='text-Primary text-sm'>Shoes</label>
                             </div>
                             <div  className='flex items-center gap-3 mt-[16px]'>
                                 <input type="checkbox" className='w-5 h-5 border-2 rounded-[4px] outline-none border-[#94A3B8]' id='check6'/>
@@ -100,15 +100,14 @@ const ProductPage = () => {
                             </div>
                         </div>
                     </div>
-                    {/* -----Left Side  */}
+                    {/* -----right Side  */}
                     <div id="Right_Side" className='flex flex-col items-end'>
                         <div className='flex flex-wrap justify-center gap-y-[52px] gap-x-5'>
-                            <SingleProducts ShowMoreButton={'hidden'}/>
-                            <SingleProducts ShowMoreButton={'hidden'}/>
-                            <SingleProducts ShowMoreButton={'hidden'}/>
-                            <SingleProducts ShowMoreButton={'hidden'}/>
-                            <SingleProducts ShowMoreButton={'hidden'}/>
-                            <SingleProducts ShowMoreButton={'hidden'}/>
+                            {
+                                products.slice(0,9).map((items , i)=>(
+                                    <SingleProducts key={i} ShowMoreButton={'hidden'} proName={items.title} ProCat={items.category} proPrice={items.price} proRate={items.rating} ProStock={items.stock} proDis={items.discountPercentage} proImg={items.images}/>
+                                ))
+                            }
                         </div>
                         {/* -----Buttons  */}
                         <div className='flex items-center gap-1 mt-[52px]'>

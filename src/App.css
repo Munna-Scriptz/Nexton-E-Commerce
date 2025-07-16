@@ -271,7 +271,35 @@ body {
   }
 }
 
+/* -------Product Name Text------- */
+.ProductName{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 20ch;
+}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------Product Prince Range------------ */
 .PrinceRange[type="range"] {
 	--thumb-height: 1.125em;
 	--track-height: 0.125em;
@@ -404,3 +432,4 @@ body {
 .PrinceRange[type="range"]:active::-moz-range-progress {
 	filter: brightness(var(--brightness-down));
 }
+
