@@ -11,8 +11,8 @@ import { AddToCart } from './AddToCart';
 
 const Navbar = () => {
 
-  const [value , setValue] = useState('true')
-  const [cart , setCart] = useState('true')
+  const [value , setValue] = useState(true)
+  const [cart , setCart] = useState(true)
   console.log(cart)
 
   return (
@@ -51,7 +51,8 @@ const Navbar = () => {
       </section>
 
       {/* -----Add To Cart----- */}
-        <section className={`fixed top-0 z-50 h-full w-full backdrop-blur-md bg-[#00000063] duration-[.3s] right-0 flex justify-end ${cart? 'hidden' : 'visible'}`}>
+        <section className={`fixed top-0 z-50 h-full w-full duration-[.3s] right-0 flex justify-end ${cart? 'hidden' : 'visible'}` }>
+          <div onClick={()=>setCart(!cart)} className='fixed top-0 left-0 z-0 h-full w-full backdrop-blur-md bg-[#00000063]'></div>
           <AddToCart Cross={<RxCross2 onClick={()=>setCart(!cart)} className='text-3xl'/>}/>
         </section>
     </div>

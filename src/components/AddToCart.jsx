@@ -3,10 +3,10 @@ import { RxCross2 } from "react-icons/rx";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import { Link } from 'react-router';
 
-export const AddToCart = ({Cross}) => {
+export const AddToCart = ({Cross , SideCross}) => {
   return (
     <>
-        <section id='Add-To-Cart' className='h-full bg-[#f8f8f8] w-[500px] p-5 border-l-2'>
+        <section id='Add-To-Cart' className='h-full bg-[#f8f8f8] w-[500px] p-5 border-l-2 z-10'>
             {/* ------Add to Cart Header */}
             <div className='flex items-center justify-between mb-10'>
                 <h2 className='font-medium text-[20px] text-second flex items-center gap-4'>Add To Cart <RiShoppingCart2Line className='text-[24px] text-Primary'/>
@@ -134,6 +134,7 @@ export const AddToCart = ({Cross}) => {
                 </div>
             </div>
         </section>
+
     </>
   )
 }

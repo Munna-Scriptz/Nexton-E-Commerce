@@ -3,6 +3,7 @@ import SingleProducts from '../components/common/SingleProducts'
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
 import axios from 'axios';
+import BreadCrumb from '../components/BreadCrumb';
 
 const ProductPage = () => {
     const [products , setProducts] = useState([])
@@ -15,11 +16,12 @@ const ProductPage = () => {
     console.log(products)
   return (
     <>
-        <section className='mt-[40px]'>
+        <section className='mt-[30px]'>
             <div className="container">
                 <div id="Mother_Div" className='flex justify-between gap-5'>
                     {/* -----Left Side  */}
                     <div id="Left_Side" className='w-[285px]'>
+                        <BreadCrumb CrumbPath={'/Products'} CrumbName={'Products'}/>
                         {/* categories */}
                         <div className=' border-b-1 border-[#E5E7EB] pb-[40px]'>
                             <h2 className='text-[18px] font-semibold text-second font-poppins mb-[24px]'>Categories</h2>
