@@ -4,16 +4,23 @@ import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
 import axios from 'axios';
 import BreadCrumb from '../components/BreadCrumb';
+import Pagination from '../components/Pagination';
 
 const ProductPage = () => {
+
+    const [page, setPage] = useState(1);
+    const itemsPerPage = 9;
+    // ----------Api Integration 
     const [products , setProducts] = useState([])
-    
     useEffect(()=>{
         axios.get('https://dummyjson.com/products')
         .then((res)=>{setProducts(res.data.products)})
         .catch((err)=>{console.log(err)})
     } , [])
-    console.log(products)
+    // -----------Pagination
+  const start = (page - 1) * itemsPerPage;
+  const currentItems = products.slice(start, start + itemsPerPage);
+  const totalPages = Math.ceil(products.length / itemsPerPage);
   return (
     <>
         <section className='mt-[30px]'>
@@ -106,20 +113,21 @@ const ProductPage = () => {
                     <div id="Right_Side" className='flex flex-col items-end'>
                         <div className='flex flex-wrap justify-center gap-y-[52px] gap-x-5'>
                             {
-                                products.slice(0,9).map((items , i)=>(
+                                currentItems.slice(0,9).map((items , i)=>(
                                     <SingleProducts key={i} ShowMoreButton={'hidden'} proName={items.title} ProCat={items.category} proPrice={items.price} proRate={items.rating} ProStock={items.stock} proDis={items.discountPercentage} proImg={items.images}/>
                                 ))
                             }
                         </div>
                         {/* -----Buttons  */}
-                        <div className='flex items-center gap-1 mt-[52px]'>
+                        <Pagination totalPages={totalPages} currentPage={page} setPage={setPage} />
+                        {/* <div className='flex items-center gap-1 mt-[52px]'>
                             <button className='h-[36px] w-[36px] text-Primary text-base rounded-[12px] cursor-pointer flex items-center justify-center'><FaAngleLeft/></button>
                             <button className='h-[36px] w-[36px] text-Primary text-base bg-[#E5E7EB] rounded-[12px] cursor-pointer'>1</button>
                             <button className='h-[36px] w-[36px] text-Primary text-base rounded-[12px] cursor-pointer'>2</button>
                             <button className='h-[36px] w-[36px] text-Primary text-base rounded-[12px] cursor-pointer'>3</button>
                             <button className='h-[36px] w-[36px] text-Primary text-base rounded-[12px] cursor-pointer'>4</button>
                             <button className='h-[36px] w-[36px] text-Primary text-base rounded-[12px] cursor-pointer flex items-center justify-center'><FaAngleRight/></button>
-                        </div>   
+                        </div>    */}
                     </div>
                 </div>
             </div>
