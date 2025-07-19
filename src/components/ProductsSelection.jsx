@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { FaStar } from "react-icons/fa";
 import { IoBagHandleOutline } from "react-icons/io5";
+import { Link } from 'react-router';
 const ProductsSelection = () => {
 
   const [Value, SetValue] = useState(1)
@@ -18,7 +19,7 @@ const ProductsSelection = () => {
                     {/* -----Reviews----- */}
                     <div className='flex items-center gap-[6px]'>
                       <FaStar className='text-[#FBBF24] text-[17px]'/>
-                      <p className='text-Primary font-semibold text-base flex items-center gap-[6px]'>4.9 • <span className='font-normal underline'>142 reviews</span></p>
+                      <p className='text-Primary font-semibold text-base flex items-center gap-[6px]'>4.9 • <Link to={'/'} className='font-normal underline'>142 reviews</Link></p>
                     </div>
                     {/* -----Price----- */}
                     <div className='flex flex-col items-end'>
@@ -46,7 +47,7 @@ const ProductsSelection = () => {
                       <p className='text-base text-Primary font-medium'>{Value}</p>
                       <button className='w-[24px] h-[24px] border-2 border-[#E5E7EB] rounded-full text-[18px] text-second cursor-pointer hover:bg-Primary hover:text-white duration-[.3s] select-none' onClick={()=>SetValue(Value + 1)}>+</button>
                     </div>
-                    <button className='w-[178px]  h-[52px] bg-second text-white flex items-center  justify-center cursor-pointer gap-[8px] rounded-full' ><IoBagHandleOutline />Add to cart</button>
+                    <button className='w-[178px]  h-[52px] bg-second text-white flex items-center  justify-center cursor-pointer gap-[8px] rounded-full hover:scale-[1.04] duration-[.3s] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]' ><IoBagHandleOutline />Add to cart</button>
                   </div>
                   {/* --------Total Amount--------- */}
                   <div id='Total_Amount' className='mt-[32px]'>
@@ -68,7 +69,7 @@ const ProductsSelection = () => {
                         <p className='text-second font-semibold text-base'>$169.99</p>
                     </div>
                   </div>
-                </div>
+        </div>
     </>
   )
 }
