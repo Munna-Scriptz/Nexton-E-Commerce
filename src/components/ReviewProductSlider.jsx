@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import WatchImage1 from '../assets/Images/WatchImage1.png'
 import WatchImage2 from '../assets/Images/WatchImage2.png'
 
-const ReviewProductDetails = () => {
+const ReviewProductSlider = () => {
   const [selectedImg, setSelectedImg] = useState(0);
 
   const images = [
@@ -35,5 +35,5 @@ const ReviewProductDetails = () => {
   );
 };
 
-export default ReviewProductDetails;
+export default ReviewProductSlider;
 
