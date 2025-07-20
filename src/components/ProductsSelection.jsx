@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { FaStar } from "react-icons/fa";
 import { IoBagHandleOutline } from "react-icons/io5";
 import { Link } from 'react-router';
-const ProductsSelection = () => {
+
+const ProductsSelection = ({ProductPrice ,ProductRating , ProductStocks , ProductDis}) => {
 
   const [Value, SetValue] = useState(1)
 
@@ -19,12 +20,12 @@ const ProductsSelection = () => {
                     {/* -----Reviews----- */}
                     <div className='flex items-center gap-[6px]'>
                       <FaStar className='text-[#FBBF24] text-[17px]'/>
-                      <p className='text-Primary font-semibold text-base flex items-center gap-[6px]'>4.9 • <Link to={'/'} className='font-normal underline'>142 reviews</Link></p>
+                      <p className='text-Primary font-semibold text-base flex items-center gap-[6px]'>{ProductRating} • <Link to={'/'} className='font-normal underline'>{ProductStocks} reviews</Link></p>
                     </div>
                     {/* -----Price----- */}
                     <div className='flex flex-col items-end'>
-                      <h2 className='text-[24px] font-semibold text-second'>$169.99</h2>
-                      <p className='text-sm text-Primary font-medium line-through' >$199.99</p>
+                      <h2 className='text-[24px] font-semibold text-second'>${ProductPrice}</h2>
+                      <p className='text-sm text-Primary font-medium line-through' >${ProductDis}</p>
                     </div>
                   </div>
                   {/* --------Size--------- */}
@@ -53,8 +54,8 @@ const ProductsSelection = () => {
                   <div id='Total_Amount' className='mt-[32px]'>
                     <div>
                         <div className='flex items-center justify-between'>
-                          <p className='text-Primary font-normal text-base'>$169.99 x 1</p>
-                          <p className='text-Primary font-normal text-base'>$169.99</p>
+                          <p className='text-Primary font-normal text-base'>${ProductPrice} x 1</p>
+                          <p className='text-Primary font-normal text-base'>${ProductPrice}</p>
                         </div>
                         <div className='flex items-center justify-between mt-[10px]'>
                           <p className='text-Primary font-normal text-base'>$Tax estimate</p>

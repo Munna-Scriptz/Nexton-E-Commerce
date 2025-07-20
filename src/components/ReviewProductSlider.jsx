@@ -4,27 +4,13 @@ import WatchImage2 from '../assets/Images/WatchImage2.png'
 import { useParams } from "react-router";
 import axios from "axios";
 
-const ReviewProductSlider = () => {
+const ReviewProductSlider = ({ProductMainImg , ProductSubImg}) => {
   const [selectedImg, setSelectedImg] = useState(0);
-
-  const MyParams = useParams()
-  const [Products , setProducts] = useState([])
-
-  // --------Params---------
-  // ----api 
-
-  useEffect(()=>{
-      axios.get(`https://dummyjson.com/products/${MyParams.ProductIdNo}`)
-      .then((res)=>{setProducts(res.data)})
-      .catch((err)=>{console.log(err)})
-  } , [])
-  console.log(Products)
-
   // ---------Images---------
   const images = [
-    Products.images,
-    Products.images,
-    Products.thumbnail,
+    ProductSubImg,
+    ProductSubImg,
+    ProductMainImg,
   ];
 
   return (
