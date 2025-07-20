@@ -68,8 +68,7 @@ const BestSeller = () => {
                     <Slider {...settings}>
                       {
                       products.map((items)=>(
-                        console.log(items),
-                        <SingleProducts proName={items.title} ProCat={items.category} proPrice={items.price} proRate={items.rating} ProStock={items.stock} proDis={items.discountPercentage} proImg={items.images}/>
+                        <SingleProducts proName={items.title} ProCat={items.category} proPrice={items.price} proRate={items.rating} ProStock={items.stock} proDis={items.discountPercentage} proImg={items.thumbnail}/>
                       ))
                     }
                     </Slider>

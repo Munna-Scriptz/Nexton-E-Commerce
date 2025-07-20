@@ -3,6 +3,7 @@ import SingleProducts from './common/SingleProducts'
 import { CommonHead } from './common/CommonHead'
 import Slider from "react-slick";
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 const Recommend = () => {
   // -----------Api 
@@ -58,6 +59,13 @@ const Recommend = () => {
       }
     ]
   };
+  // ---------Show Details Function 
+  const MyNavigation = useNavigate()
+
+  const HandleDetails = (ProductDetails)=>{
+    MyNavigation(`/Details/${ProductDetails}`)
+
+  }
 
   return (
     <section id='Recommend' className='mt-[138px] ml-[24px] lg:ml-0'>
@@ -68,8 +76,7 @@ const Recommend = () => {
                 <Slider {...settings}>
                     {
                       products.map((items)=>(
-                        console.log(items),
-                        <SingleProducts proName={items.title} ProCat={items.category} proPrice={items.price} proRate={items.rating} ProStock={items.stock} proDis={items.discountPercentage} proImg={items.images}/>
+                        <SingleProducts ShowDetails={()=>HandleDetails(items.id)} proName={items.title} ProCat={items.category} proPrice={items.price} proRate={items.rating} ProStock={items.stock} proDis={items.discountPercentage} proImg={items.thumbnail}/>
                       ))
                     }
                 </Slider>

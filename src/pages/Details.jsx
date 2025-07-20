@@ -46,7 +46,7 @@ const Details = () => {
                 </div>
               </div>
               {/* ----Recommended---- */}
-              <div id="Recommended">
+              <div id="Recommended" className='pb-[96px]'>
                 <Recommend/>
               </div>
             </div>

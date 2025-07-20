@@ -12,7 +12,7 @@ function App() {
       <Route path='/' element={<LayoutOne/>}>
         <Route index element={<Home/>}></Route>
         <Route path='/Products' element={<ProductPage/>}></Route>
-        <Route path='/Details' element={<Details/>}></Route>
+        <Route path='/Details/:ProductIdNo' element={<Details/>}></Route>
       </Route>
     </Route>
   ))

@@ -6,15 +6,14 @@ import { MdReadMore } from "react-icons/md";
 import { Link } from 'react-router';
 
 
-const SingleProducts = ({proImg ,proName , proPrice , ProCat , proDis , proRate , ProStock , ShowMoreButton}) => {
+const SingleProducts = ({proImg ,proName , proPrice , ProCat , proDis , proRate , ProStock , ShowMoreButton , ShowDetails}) => {
 
-    
   return (
-    <section className='w-[312px] lg:w-[309px] mt-[40px]'>
+    <section onClick={ShowDetails} className='w-[312px] lg:w-[309px] mt-[40px]'>
         {/* ------Product Image  */}
         <div className=' relative'>
             <img src={proImg} alt="Product Image" className='h-[347px]'/>
-            <button className='ShopButton absolute right-0 top-0 pt-[22px] pr-[22px] cursor-pointer duration-[.3s] hover:scale-[1.2]'><IoBagHandleOutline className='text-[18px] text-Primary'/><span className="tooltip font-poppins text-white">SHOP</span></button>
+            <Link to={'/Details'} className='ShopButton absolute right-0 top-0 pt-[22px] pr-[22px] cursor-pointer duration-[.3s] hover:scale-[1.2]'><IoBagHandleOutline className='text-[18px] text-Primary'/><span className="tooltip font-poppins text-white">SHOP</span></Link>
         </div>
 
         {/* ------Product Details  */}

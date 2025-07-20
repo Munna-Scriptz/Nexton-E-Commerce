@@ -13,7 +13,6 @@ const Navbar = () => {
 
   const [value , setValue] = useState(true)
   const [cart , setCart] = useState(true)
-  console.log(cart)
 
   return (
     <div>

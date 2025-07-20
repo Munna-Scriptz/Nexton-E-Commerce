@@ -13,7 +13,6 @@ import { RiUserLine } from "react-icons/ri";
 export const ResNavbar = () => {
 
     const [Value , SetValue] = useState('true')
-    console.log(Value)
 
   return (
     <>
