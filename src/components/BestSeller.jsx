@@ -3,17 +3,23 @@ import Slider from "react-slick";
 import { CommonHead } from './common/CommonHead'
 import SingleProducts from './common/SingleProducts';
 import axios from 'axios';
+import { useNavigate, useParams } from 'react-router';
 
 const BestSeller = () => {
   // -----------Api 
     const [products , setProducts] = useState([])
+    const MyNavigate = useNavigate()
+
+    const HandleDetails = (ProductDetails)=>{
+      MyNavigate(`/Details/${ProductDetails}`)
+    }
   
       useEffect(()=>{
           axios.get('https://dummyjson.com/products')
           .then((res)=>{setProducts(res.data.products)})
           .catch((err)=>{console.log('error')})
       } , [])
-        
+
     // ----------Slider 
     const settings = {
     infinite: true,
@@ -68,7 +74,7 @@ const BestSeller = () => {
                     <Slider {...settings}>
                       {
                       products.map((items)=>(
-                        <SingleProducts proName={items.title} ProCat={items.category} proPrice={items.price} proRate={items.rating} ProStock={items.stock} proDis={items.discountPercentage} proImg={items.thumbnail}/>
+                        <SingleProducts ShowDetails={()=>HandleDetails(items.id)} proName={items.title} ProCat={items.category} proPrice={items.price} proRate={items.rating} ProStock={items.stock} proDis={items.discountPercentage} proImg={items.thumbnail}/>
                       ))
                     }
                     </Slider>

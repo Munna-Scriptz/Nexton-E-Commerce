@@ -3,11 +3,17 @@ import ProductImg from "../../assets/Images/ProductImage.png"
 import { FaStar } from "react-icons/fa";
 import { IoBagHandleOutline } from "react-icons/io5";
 import { MdReadMore } from "react-icons/md";
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 
 const SingleProducts = ({proImg ,proName , proPrice , ProCat , proDis , proRate , ProStock , ShowMoreButton , ShowDetails}) => {
 
+      // --------Navigate 
+    const MyNavigate = useNavigate()
+    const HandleShow = ()=>{
+      MyNavigate(/Details/)
+    }     
+    
   return (
     <section onClick={ShowDetails} className='w-[312px] lg:w-[309px] mt-[40px]'>
         {/* ------Product Image  */}

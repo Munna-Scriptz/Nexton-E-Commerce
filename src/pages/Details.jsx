@@ -5,6 +5,7 @@ import Recommend from '../components/Recommend';
 import { Link, useParams } from 'react-router';
 import { BsStars } from "react-icons/bs";
 import axios from 'axios';
+import BreadCrumb from '../components/BreadCrumb';
 
 
 const Details = () => {
@@ -24,6 +25,7 @@ const Details = () => {
     <>
         <section id='DetailsPage' className='mt-[40px]'>
             <div className="container">
+              <BreadCrumb CrumbPath={`/Details/${MyParams.ProductIdNo}`} CrumbName={'Details'}/>
               <div className="Details_Div flex items-start justify-between">
                 {/* -------Left Side-------- */}
                 <ReviewProductSlider ProductMainImg={Products.thumbnail} ProductSubImg={Products.images}/> 
