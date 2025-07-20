@@ -23,9 +23,10 @@ const Recommend = () => {
       .catch((err)=>{console.log(err)})
   } , [])
 
-
-
-
+  const HandleCart =(Data)=>{
+    localStorage.setItem('Product' , JSON.stringify(Data))
+  }
+  console.log(JSON.parse(localStorage.getItem('Product')))
   // ----------Slider 
     const settings = {
     infinite: true,
@@ -79,7 +80,7 @@ const Recommend = () => {
                 <Slider {...settings}>
                     {
                       products.map((items)=>(
-                        <SingleProducts ShowDetails={()=>HandleDetails(items.id)} proName={items.title} ProCat={items.category} proPrice={items.price} proRate={items.rating} ProStock={items.stock} proDis={items.discountPercentage} proImg={items.thumbnail}/>
+                        <SingleProducts HandleCart={()=>HandleCart(items)} ShowDetails={()=>HandleDetails(items.id)} proName={items.title} ProCat={items.category} proPrice={items.price} proRate={items.rating} ProStock={items.stock} proDis={items.discountPercentage} proImg={items.thumbnail}/>
                       ))
                     }
                 </Slider>
