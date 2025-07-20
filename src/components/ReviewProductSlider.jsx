@@ -1,15 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import WatchImage1 from '../assets/Images/WatchImage1.png'
 import WatchImage2 from '../assets/Images/WatchImage2.png'
+import { useParams } from "react-router";
+import axios from "axios";
 
 const ReviewProductSlider = () => {
   const [selectedImg, setSelectedImg] = useState(0);
 
+  const MyParams = useParams()
+  const [Products , setProducts] = useState([])
+
+  // --------Params---------
+  // ----api 
+
+  useEffect(()=>{
+      axios.get(`https://dummyjson.com/products/${MyParams.ProductIdNo}`)
+      .then((res)=>{setProducts(res.data)})
+      .catch((err)=>{console.log(err)})
+  } , [])
+  console.log(Products)
+
+  // ---------Images---------
   const images = [
-    WatchImage1,
-    WatchImage2,
-    "https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_3.jpg",
-    "https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_4.jpg",
+    Products.images,
+    Products.images,
+    Products.thumbnail,
   ];
 
   return (

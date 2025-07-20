@@ -3,18 +3,29 @@ import SingleProducts from './common/SingleProducts'
 import { CommonHead } from './common/CommonHead'
 import Slider from "react-slick";
 import axios from 'axios';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 
 const Recommend = () => {
-  // -----------Api 
   const [products , setProducts] = useState([])
+  
+  // ---------Show Details Function 
+  const MyNavigation = useNavigate()
+  
+  const HandleDetails = (ProductDetails)=>{
+    MyNavigation(`/Details/${ProductDetails}`)
+  }
+  
+  
+  // -----------Api 
+  useEffect(()=>{
+      axios.get('https://dummyjson.com/products')
+      .then((res)=>{setProducts(res.data.products)})
+      .catch((err)=>{console.log(err)})
+  } , [])
 
-    useEffect(()=>{
-        axios.get('https://dummyjson.com/products')
-        .then((res)=>{setProducts(res.data.products)})
-        .catch((err)=>{console.log('error')})
-    } , [])
-      
+
+
+
   // ----------Slider 
     const settings = {
     infinite: true,
@@ -59,14 +70,6 @@ const Recommend = () => {
       }
     ]
   };
-  // ---------Show Details Function 
-  const MyNavigation = useNavigate()
-
-  const HandleDetails = (ProductDetails)=>{
-    MyNavigation(`/Details/${ProductDetails}`)
-
-  }
-
   return (
     <section id='Recommend' className='mt-[138px] ml-[24px] lg:ml-0'>
         <div className="container">
