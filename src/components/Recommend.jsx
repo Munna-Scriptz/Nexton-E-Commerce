@@ -22,11 +22,6 @@ const Recommend = () => {
       .then((res)=>{setProducts(res.data.products)})
       .catch((err)=>{console.log(err)})
   } , [])
-
-  const HandleCart =(Data)=>{
-    localStorage.setItem('Product' , JSON.stringify(Data))
-  }
-  console.log(JSON.parse(localStorage.getItem('Product')))
   // ----------Slider 
     const settings = {
     infinite: true,

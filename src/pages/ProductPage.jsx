@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import SingleProducts from '../components/common/SingleProducts'
-import { FaAngleLeft } from "react-icons/fa6";
-import { FaAngleRight } from "react-icons/fa6";
 import axios from 'axios';
 import BreadCrumb from '../components/BreadCrumb';
 import Pagination from '../components/Pagination';
+import { useNavigate } from 'react-router';
 
 const ProductPage = () => {
 
     const [page, setPage] = useState(1);
     const itemsPerPage = 9;
+    const MyNavigate = useNavigate()
     // ----------Api Integration 
+
     const [products , setProducts] = useState([])
     useEffect(()=>{
         axios.get('https://dummyjson.com/products')
         .then((res)=>{setProducts(res.data.products)})
         .catch((err)=>{console.log(err)})
     } , [])
+
+    const HandleDetailShow =(ProductId)=>{
+    MyNavigate(`/Details/${ProductId}`)
+
+    }
     // -----------Pagination
   const start = (page - 1) * itemsPerPage;
   const currentItems = products.slice(start, start + itemsPerPage);
@@ -114,7 +120,7 @@ const ProductPage = () => {
                         <div className='flex flex-wrap justify-center gap-y-[52px] gap-x-5'>
                             {
                                 currentItems.slice(0,9).map((items , i)=>(
-                                    <SingleProducts key={i}proName={items.title} ProCat={items.category} proPrice={items.price} proRate={items.rating} ProStock={items.stock} proDis={items.discountPercentage} proImg={items.images}/>
+                                    <SingleProducts ShowDetails={()=>HandleDetailShow(items.id)} key={i}proName={items.title} ProCat={items.category} proPrice={items.price} proRate={items.rating} ProStock={items.stock} proDis={items.discountPercentage} proImg={items.thumbnail}/>
                                 ))
                             }
                         </div>
