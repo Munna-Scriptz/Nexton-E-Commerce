@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react'
 import ProductImg from "../../assets/Images/ProductImage.png"
 import { FaStar } from "react-icons/fa";
 import { IoBagHandleOutline } from "react-icons/io5";
-import { MdReadMore } from "react-icons/md";
 import { Link, useNavigate } from 'react-router';
 
 
-const SingleProducts = ({proImg ,proName , proPrice , ProCat , proDis , proRate , ProStock , ShowMoreButton , ShowDetails , HandleCart}) => {
+const SingleProducts = ({proImg ,proName , proPrice , ProCat , proDis , proRate , ProStock , ShowDetails , HandleCart}) => {
 
   return (
     <div className='w-[312px] lg:w-[309px] mt-[40px] relative'>
@@ -27,10 +26,6 @@ const SingleProducts = ({proImg ,proName , proPrice , ProCat , proDis , proRate 
                       <FaStar className='text-[#FBBF24]'/>
                       <p className='text-Primary font-normal text-sm'>{proRate} ({ProStock})</p>
                   </div>
-                  {/* ---See more button  */}
-              <div className={`mt-4 ${ShowMoreButton}`}>
-                <Link className='text-white text-sm py-[12px] px-[24px] lg:py-[10px] lg:px-[22px] bg-second rounded-full flex items-center w-fit gap-1.5 duration-[.3s] hover:scale-[1.06] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]' to={'/Products'}>Explore now <MdReadMore className=' text-2xl'/></Link>
-              </div>
               </div>
               <div>
                   <h2 className='text-second font-semibold text-base leading-[24px]'>${proPrice}</h2>

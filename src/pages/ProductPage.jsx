@@ -114,20 +114,12 @@ const ProductPage = () => {
                         <div className='flex flex-wrap justify-center gap-y-[52px] gap-x-5'>
                             {
                                 currentItems.slice(0,9).map((items , i)=>(
-                                    <SingleProducts key={i} ShowMoreButton={'hidden'} proName={items.title} ProCat={items.category} proPrice={items.price} proRate={items.rating} ProStock={items.stock} proDis={items.discountPercentage} proImg={items.images}/>
+                                    <SingleProducts key={i}proName={items.title} ProCat={items.category} proPrice={items.price} proRate={items.rating} ProStock={items.stock} proDis={items.discountPercentage} proImg={items.images}/>
                                 ))
                             }
                         </div>
                         {/* -----Buttons  */}
                         <Pagination totalPages={totalPages} currentPage={page} setPage={setPage} />
-                        {/* <div className='flex items-center gap-1 mt-[52px]'>
-                            <button className='h-[36px] w-[36px] text-Primary text-base rounded-[12px] cursor-pointer flex items-center justify-center'><FaAngleLeft/></button>
-                            <button className='h-[36px] w-[36px] text-Primary text-base bg-[#E5E7EB] rounded-[12px] cursor-pointer'>1</button>
-                            <button className='h-[36px] w-[36px] text-Primary text-base rounded-[12px] cursor-pointer'>2</button>
-                            <button className='h-[36px] w-[36px] text-Primary text-base rounded-[12px] cursor-pointer'>3</button>
-                            <button className='h-[36px] w-[36px] text-Primary text-base rounded-[12px] cursor-pointer'>4</button>
-                            <button className='h-[36px] w-[36px] text-Primary text-base rounded-[12px] cursor-pointer flex items-center justify-center'><FaAngleRight/></button>
-                        </div>    */}
                     </div>
                 </div>
             </div>
