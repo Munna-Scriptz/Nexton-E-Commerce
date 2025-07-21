@@ -6,7 +6,7 @@ import { CiCreditCard1 } from "react-icons/ci";
 const CheckoutInfo = () => {
   return (
     <>
-      <section className='w-[638px] mt-[52px]'>
+      <section className='w-[638px]'>
         {/* -------------First Section----------------- */}
         <div className='border-2 border-BorderCol py-[24px] rounded-[16px]'>
           <div className='border-b-2 border-[#E5E7EB]'>
