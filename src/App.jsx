@@ -4,6 +4,7 @@ import { LayoutOne } from './layout/LayoutOne'
 import { Home } from './pages/Home'
 import ProductPage from './pages/ProductPage'
 import Details from './pages/Details'
+import Checkout from './pages/Checkout'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <Route index element={<Home/>}></Route>
         <Route path='/Products' element={<ProductPage/>}></Route>
         <Route path='/Details/:ProductIdNo' element={<Details/>}></Route>
+        <Route path='/Checkout' element={<Checkout/>}></Route>
       </Route>
     </Route>
   ))

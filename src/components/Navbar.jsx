@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav id='Navbar' className='py-[27px] hidden lg:block overflow-hidden'>
+      <nav id='Navbar' className='py-[27px] hidden lg:block overflow-hidden border-b-2 border-[#E5E7EB]'>
         <div id='NavRow' className='container flex items-center justify-between'>
           {/* ------Logo------ */}
           <Link to={'/'}><img src={Logo} alt="Logo" /></Link>
