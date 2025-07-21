@@ -1,5 +1,5 @@
 import React from 'react'
-import BannerImage from "../assets/Images/Banner2.png"
+import BannerImage from "../../assets/Images/Banner2.png"
 import { Link } from 'react-router'
 
 const BottomBanner = () => {

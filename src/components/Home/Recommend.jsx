@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import SingleProducts from './common/SingleProducts'
-import { CommonHead } from './common/CommonHead'
+import SingleProducts from '../common/SingleProducts'
+import { CommonHead } from '../common/CommonHead'
 import Slider from "react-slick";
 import axios from 'axios';
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate} from 'react-router';
 
 const Recommend = () => {
   const [products , setProducts] = useState([])

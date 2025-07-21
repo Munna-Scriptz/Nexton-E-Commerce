@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import WatchImage1 from '../assets/Images/WatchImage1.png'
-import WatchImage2 from '../assets/Images/WatchImage2.png'
+import WatchImage1 from '../../assets/Images/WatchImage1.png'
+import WatchImage2 from '../../assets/Images/WatchImage2.png'
 import { useParams } from "react-router";
 import axios from "axios";
 

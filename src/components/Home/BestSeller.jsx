@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Slider from "react-slick";
-import { CommonHead } from './common/CommonHead'
-import SingleProducts from './common/SingleProducts';
+import { CommonHead } from '../common/CommonHead'
+import SingleProducts from '../common/SingleProducts';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router';
 

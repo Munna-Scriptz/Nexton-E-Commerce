@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import ReviewProductSlider from '../components/ReviewProductSlider'
-import ProductsSelection from '../components/ProductsSelection';
-import Recommend from '../components/Recommend';
+import ReviewProductSlider from '../components/Product/ReviewProductSlider'
+import ProductsSelection from '../components/Product/ProductsSelection';
+import Recommend from '../components/Home/Recommend';
 import { Link, useParams } from 'react-router';
 import { BsStars } from "react-icons/bs";
 import axios from 'axios';
-import BreadCrumb from '../components/BreadCrumb';
+import BreadCrumb from '../components/common/BreadCrumb';
 
 
 const Details = () => {

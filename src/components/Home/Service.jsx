@@ -1,5 +1,5 @@
 import React from 'react'
-import { SingleServiceItem } from './common/SingleServiceItem'
+import { SingleServiceItem } from '../common/SingleServiceItem'
 import { BsTruck } from "react-icons/bs";
 import { RiExchange2Line } from "react-icons/ri";
 import { TfiWorld } from "react-icons/tfi";

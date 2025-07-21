@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { RiSafariLine, RiSearch2Line } from "react-icons/ri";
+import { RiSearch2Line } from "react-icons/ri";
 import { RiUserLine } from "react-icons/ri";
 import Logo from "../assets/Images/logo.png"
 import whiteLogo from "../assets/Images/WhiteLogo.png"
 import { RiShoppingCart2Line } from "react-icons/ri";
 import { Link } from 'react-router';
-import LoginOrRegis from './LoginOrRegis';
+import LoginOrRegis from './Home/LoginOrRegis';
 import { RxCross2 } from "react-icons/rx";
 import { AddToCart } from './AddToCart';
 

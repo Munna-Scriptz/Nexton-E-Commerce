@@ -1,5 +1,5 @@
-import { CommonHead } from './common/CommonHead'
-import SingleBrand from './common/SingleBrand'
+import { CommonHead } from '../common/CommonHead'
+import SingleBrand from '../common/SingleBrand'
 import React from "react";
 import Slider from "react-slick";
 

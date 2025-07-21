@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import SingleProducts from '../components/common/SingleProducts'
 import axios from 'axios';
-import BreadCrumb from '../components/BreadCrumb';
-import Pagination from '../components/Pagination';
+import BreadCrumb from '../components/common/BreadCrumb';
+import Pagination from '../components/Product/Pagination';
 import { useNavigate } from 'react-router';
 
 const ProductPage = () => {

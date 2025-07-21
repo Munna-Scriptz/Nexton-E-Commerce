@@ -4,8 +4,8 @@ import { CiSearch } from "react-icons/ci";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
-import BannerImg from "../assets/Images/banner.png"
-import BannerImg2 from "../assets/Images/Banner2.png"
+import BannerImg from "../../assets/Images/banner.png"
+import BannerImg2 from "../../assets/Images/Banner2.png"
 
 const Banner = () => {
   // -----Slider Fun----

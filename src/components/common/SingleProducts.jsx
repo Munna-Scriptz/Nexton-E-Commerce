@@ -1,8 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import ProductImg from "../../assets/Images/ProductImage.png"
 import { FaStar } from "react-icons/fa";
 import { IoBagHandleOutline } from "react-icons/io5";
-import { Link, useNavigate } from 'react-router';
 
 
 const SingleProducts = ({proImg ,proName , proPrice , ProCat , proDis , proRate , ProStock , ShowDetails , HandleCart}) => {
