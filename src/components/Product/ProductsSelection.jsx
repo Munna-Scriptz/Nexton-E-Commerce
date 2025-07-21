@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FaStar } from "react-icons/fa";
 import { IoBagHandleOutline } from "react-icons/io5";
-import { Link } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router';
 
 const ProductsSelection = ({ProductPrice ,ProductRating , ProductStocks , ProductDis}) => {
 
@@ -12,7 +12,15 @@ const ProductsSelection = ({ProductPrice ,ProductRating , ProductStocks , Produc
   }else{
 
   }
-
+  // ---------Show The params in Checkout
+  const MyParams = useParams()
+  const MyNavigate = useNavigate()
+  
+  const HandleBuyClick = ()=>{
+    MyNavigate(`/Checkout/${MyParams.ProductIdNo}`)
+    console.log(MyParams)
+  }
+  
   return (
     <>
         <div className='w-[460px] h-[463px] p-[33px] border-2 border-[#E5E7EB] mt-[16px] rounded-[16px]'>
@@ -48,7 +56,7 @@ const ProductsSelection = ({ProductPrice ,ProductRating , ProductStocks , Produc
                       <p className='text-base text-Primary font-medium'>{Value}</p>
                       <button className='w-[24px] h-[24px] border-2 border-[#E5E7EB] rounded-full text-[18px] text-second cursor-pointer hover:bg-Primary hover:text-white duration-[.3s] select-none' onClick={()=>SetValue(Value + 1)}>+</button>
                     </div>
-                    <button className='w-[178px]  h-[52px] bg-second text-white flex items-center  justify-center cursor-pointer gap-[8px] rounded-full hover:scale-[1.04] duration-[.3s] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]' ><IoBagHandleOutline />Add to cart</button>
+                    <Link onClick={()=>HandleBuyClick()} className='w-[178px]  h-[52px] bg-second text-white flex items-center  justify-center cursor-pointer gap-[8px] rounded-full hover:scale-[1.04] duration-[.3s] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]' ><IoBagHandleOutline />Add to cart</Link>
                   </div>
                   {/* --------Total Amount--------- */}
                   <div id='Total_Amount' className='mt-[32px]'>
