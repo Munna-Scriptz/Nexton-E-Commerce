@@ -11,26 +11,34 @@ import { AddToCart } from './AddToCart';
 import axios from 'axios';
 
 const Navbar = () => {
-
   const [value , setValue] = useState(true)
   const [cart , setCart] = useState(true)
-  
-      const [product , setProduct] = useState([])
-      const ProductID = JSON.parse(localStorage.getItem('product'))
-      // --------Map Product 
-      const mappedProduct = product.filter((item)=>{
-         return ProductID.includes(item.id)
-      })
-  
-      // --------APi In Cart 
-      useEffect(()=>{
-          axios.get(`https://dummyjson.com/products/${mappedProduct}`)
-          .then((res)=>{setProduct(res.data.products)})
-          .catch((err)=>{console.log(err)})
-      }, [])
-  
-          console.log(mappedProduct.length)
+  // ------------Local Store And Add to Card------------------
+    const [product , setProduct] = useState([])
+    const ProductID = JSON.parse(localStorage.getItem('product'))
+    // --------Map Product 
+    const mappedProduct = product.filter((item)=>{
+       return ProductID?.includes(item.id)
+    })
+    // --------APi In Cart 
+    useEffect(()=>{
+        axios.get(`https://dummyjson.com/products/${mappedProduct}`)
+        .then((res)=>{setProduct(res.data.products)})
+        .catch((err)=>{console.log(err)})
+    }, [])
 
+    // ----------Total Amount
+   const Total = mappedProduct.reduce((sum , no)=>{
+      return sum + no.price
+    }, 0)
+    // ----------Delete Cart
+    const [Del , SetDel] = useState('')
+    const HandleDelete = (DelItems)=> {
+      SetDel(DelItems)
+      localStorage.removeItem('product' , Del)
+    }
+    
+console.log(Del)
   return (
     <div>
       <nav id='Navbar' className='py-[27px] hidden lg:block overflow-hidden border-b-2 border-[#E5E7EB]'>
@@ -69,8 +77,7 @@ const Navbar = () => {
       {/* -----Add To Cart----- */}
         <section className={`fixed top-0 z-50 h-full w-full duration-[.3s] right-0 flex justify-end ${cart? 'hidden' : 'visible'}` }>
           <div onClick={()=>setCart(!cart)} className='fixed top-0 left-0 z-0 h-full w-full backdrop-blur-md bg-[#00000063]'></div>
-
-          <AddToCart AllProduct={mappedProduct} Cross={<RxCross2 onClick={()=>setCart(!cart)} className='text-3xl'/>}/>
+          <AddToCart DeleteCart={HandleDelete} TotalCredit={Total} AllProduct={mappedProduct} Cross={<RxCross2 onClick={()=>setCart(!cart)} className='text-3xl'/>}/>
         </section>
     </div>
   )
