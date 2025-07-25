@@ -6,16 +6,14 @@ import axios from 'axios';
 import { useNavigate} from 'react-router';
 
 const Recommend = () => {
+
   const [products , setProducts] = useState([])
-  
   // ---------Show Details Function 
   const MyNavigation = useNavigate()
   
   const HandleDetails = (ProductDetails)=>{
     MyNavigation(`/Details/${ProductDetails}`)
   }
-  
-  
   // -----------Api 
   useEffect(()=>{
       axios.get('https://dummyjson.com/products')
@@ -66,6 +64,14 @@ const Recommend = () => {
       }
     ]
   };
+  // --------Local Storage 
+  const HandleCart = (ProItems)=>{
+    const ProductId = JSON.parse(localStorage.getItem('product')) || []
+    ProductId?.push(ProItems.id)
+
+    localStorage.setItem('product' , JSON.stringify(ProductId))
+  }
+
   return (
     <section id='Recommend' className='mt-[138px] ml-[24px] lg:ml-0 cursor-pointer'>
         <div className="container">
