@@ -13,7 +13,7 @@ const LoginOrRegis = () => {
                 <div>
                     <h2 className='text-white font-medium text-[32px] mb-5'>Welcome!</h2>
                     <p className='text-white text-[17px] mb-7 w-[260px]'>Create your account For Free. if you are new!</p>
-                    <Link className='LoginWithButton2 text-white py-[6px] px-[24px] lg:py-[6px] lg:px-[36px] border-[2px] rounded-full flex items-center w-fit gap-2.5 duration-[.3s] hover:scale-[1.06] cursor-pointer' to={'/'}>Sign Up</Link>
+                    <Link className='LoginWithButton2 text-white py-[6px] px-[24px] lg:py-[6px] lg:px-[36px] border-[2px] rounded-full flex items-center w-fit gap-2.5 duration-[.3s] hover:scale-[1.06] cursor-pointer' to={'/Register'}>Sign Up</Link>
                 </div>
 
                 <div className='flex items-end flex-col'>

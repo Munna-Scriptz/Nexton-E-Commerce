@@ -5,6 +5,7 @@ import { Home } from './pages/Home'
 import ProductPage from './pages/ProductPage'
 import Details from './pages/Details'
 import Checkout from './pages/Checkout'
+import Register from './components/Register'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path='/Products' element={<ProductPage/>}></Route>
         <Route path='/Details/:ProductIdNo' element={<Details/>}></Route>
         <Route path='/Checkout/:BuyId' element={<Checkout/>}></Route>
+        <Route path='/Register' element={<Register/>}></Route>
       </Route>
     </Route>
   ))
