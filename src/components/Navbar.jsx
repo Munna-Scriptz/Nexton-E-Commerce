@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { RiSearch2Line } from "react-icons/ri";
 import { RiUserLine } from "react-icons/ri";
 import Logo from "../assets/Images/logo.png"
@@ -8,11 +8,28 @@ import { Link } from 'react-router';
 import LoginOrRegis from './Home/LoginOrRegis';
 import { RxCross2 } from "react-icons/rx";
 import { AddToCart } from './AddToCart';
+import axios from 'axios';
 
 const Navbar = () => {
 
   const [value , setValue] = useState(true)
   const [cart , setCart] = useState(true)
+  
+      const [product , setProduct] = useState([])
+      const ProductID = JSON.parse(localStorage.getItem('product'))
+      // --------Map Product 
+      const mappedProduct = product.filter((item)=>{
+         return ProductID.includes(item.id)
+      })
+  
+      // --------APi In Cart 
+      useEffect(()=>{
+          axios.get(`https://dummyjson.com/products/${mappedProduct}`)
+          .then((res)=>{setProduct(res.data.products)})
+          .catch((err)=>{console.log(err)})
+      }, [])
+  
+          console.log(mappedProduct.length)
 
   return (
     <div>
@@ -33,7 +50,7 @@ const Navbar = () => {
             <button onClick={()=>(setValue(!value))}><RiUserLine className='text-[24px] text-Primary mr-[22px] cursor-pointer'/></button>
             <button onClick={()=>setCart(!cart)} className='relative cursor-pointer'>
               <RiShoppingCart2Line className='text-[24px] text-Primary'/>
-              <div className='absolute right-[-7px] top-[-7px] bg-[#0EA5E9] h-[20px] w-[20px] flex items-center justify-center rounded-full text-[#fff] text-[12px]'>3</div>
+              <div className='absolute right-[-7px] top-[-7px] bg-[#0EA5E9] h-[20px] w-[20px] flex items-center justify-center rounded-full text-[#fff] text-[12px]'>{mappedProduct.length}</div>
             </button>
           </div>
 
@@ -52,7 +69,8 @@ const Navbar = () => {
       {/* -----Add To Cart----- */}
         <section className={`fixed top-0 z-50 h-full w-full duration-[.3s] right-0 flex justify-end ${cart? 'hidden' : 'visible'}` }>
           <div onClick={()=>setCart(!cart)} className='fixed top-0 left-0 z-0 h-full w-full backdrop-blur-md bg-[#00000063]'></div>
-          <AddToCart Cross={<RxCross2 onClick={()=>setCart(!cart)} className='text-3xl'/>}/>
+
+          <AddToCart AllProduct={mappedProduct} Cross={<RxCross2 onClick={()=>setCart(!cart)} className='text-3xl'/>}/>
         </section>
     </div>
   )

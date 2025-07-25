@@ -1,9 +1,10 @@
-import React from 'react'
-import { RxCross2 } from "react-icons/rx";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { RiShoppingCart2Line } from "react-icons/ri";
 import { Link } from 'react-router';
 
-export const AddToCart = ({Cross , SideCross}) => {
+export const AddToCart = ({Cross, AllProduct}) => {
+
   return (
     <>
         <section id='Add-To-Cart' className='h-full bg-[#f8f8f8] w-[500px] p-5 border-l-2 z-10'>
@@ -15,112 +16,23 @@ export const AddToCart = ({Cross , SideCross}) => {
             </div>
             {/* ------Add items */}
             <div className='h-[72%] overflow-y-scroll'>
-                <div className='flex items-center justify-between mb-5'>
-                    <div className='flex items-center gap-5'>
-                        <div className='w-[50px] h-[50px] bg-Primary rounded-[10px]'></div>
-                        <div>
-                            <h2 className='text-second font-medium text-[16px]'>Product Name</h2>
-                            <p className='text-Primary font-normal text-sm'>Product Details</p>
+                {
+                    AllProduct.map((items)=>(
+                        <div className='flex items-center justify-between mb-5'>
+                            <div className='flex items-center gap-5'>
+                                <div className='w-[50px] h-[50px] rounded-[10px]'><img src={items.thumbnail} alt="Product Image" /></div>
+                                <div>
+                                    <h2 className='text-second font-medium text-[16px]'>{items.title}</h2>
+                                    <p className='text-Primary font-normal text-sm'>{items.category}</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h2 className='text-second font-medium text-base'>${items.price}</h2>
+                                <p className='text-Primary font-normal text-sm line-through text-end'>${items.discountPercentage}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <h2 className='text-second font-medium text-base'>$50</h2>
-                        <p className='text-Primary font-normal text-sm line-through'>69$</p>
-                    </div>
-                </div>
-                <div className='flex items-center justify-between mb-5'>
-                    <div className='flex items-center gap-5'>
-                        <div className='w-[50px] h-[50px] bg-Primary rounded-[10px]'></div>
-                        <div>
-                            <h2 className='text-second font-medium text-[16px]'>Product Name</h2>
-                            <p className='text-Primary font-normal text-sm'>Product Details</p>
-                        </div>
-                    </div>
-                    <div>
-                        <h2 className='text-second font-medium text-base'>$50</h2>
-                        <p className='text-Primary font-normal text-sm line-through'>69$</p>
-                    </div>
-                </div>
-                <div className='flex items-center justify-between mb-5'>
-                    <div className='flex items-center gap-5'>
-                        <div className='w-[50px] h-[50px] bg-Primary rounded-[10px]'></div>
-                        <div>
-                            <h2 className='text-second font-medium text-[16px]'>Product Name</h2>
-                            <p className='text-Primary font-normal text-sm'>Product Details</p>
-                        </div>
-                    </div>
-                    <div>
-                        <h2 className='text-second font-medium text-base'>$50</h2>
-                        <p className='text-Primary font-normal text-sm line-through'>69$</p>
-                    </div>
-                </div>
-                <div className='flex items-center justify-between mb-5'>
-                    <div className='flex items-center gap-5'>
-                        <div className='w-[50px] h-[50px] bg-Primary rounded-[10px]'></div>
-                        <div>
-                            <h2 className='text-second font-medium text-[16px]'>Product Name</h2>
-                            <p className='text-Primary font-normal text-sm'>Product Details</p>
-                        </div>
-                    </div>
-                    <div>
-                        <h2 className='text-second font-medium text-base'>$50</h2>
-                        <p className='text-Primary font-normal text-sm line-through'>69$</p>
-                    </div>
-                </div>
-                <div className='flex items-center justify-between mb-5'>
-                    <div className='flex items-center gap-5'>
-                        <div className='w-[50px] h-[50px] bg-Primary rounded-[10px]'></div>
-                        <div>
-                            <h2 className='text-second font-medium text-[16px]'>Product Name</h2>
-                            <p className='text-Primary font-normal text-sm'>Product Details</p>
-                        </div>
-                    </div>
-                    <div>
-                        <h2 className='text-second font-medium text-base'>$50</h2>
-                        <p className='text-Primary font-normal text-sm line-through'>69$</p>
-                    </div>
-                </div>
-                <div className='flex items-center justify-between mb-5'>
-                    <div className='flex items-center gap-5'>
-                        <div className='w-[50px] h-[50px] bg-Primary rounded-[10px]'></div>
-                        <div>
-                            <h2 className='text-second font-medium text-[16px]'>Product Name</h2>
-                            <p className='text-Primary font-normal text-sm'>Product Details</p>
-                        </div>
-                    </div>
-                    <div>
-                        <h2 className='text-second font-medium text-base'>$50</h2>
-                        <p className='text-Primary font-normal text-sm line-through'>69$</p>
-                    </div>
-                </div>
-                <div className='flex items-center justify-between mb-5'>
-                    <div className='flex items-center gap-5'>
-                        <div className='w-[50px] h-[50px] bg-Primary rounded-[10px]'></div>
-                        <div>
-                            <h2 className='text-second font-medium text-[16px]'>Product Name</h2>
-                            <p className='text-Primary font-normal text-sm'>Product Details</p>
-                        </div>
-                    </div>
-                    <div>
-                        <h2 className='text-second font-medium text-base'>$50</h2>
-                        <p className='text-Primary font-normal text-sm line-through'>69$</p>
-                    </div>
-                </div>
-                <div className='flex items-center justify-between mb-5'>
-                    <div className='flex items-center gap-5'>
-                        <div className='w-[50px] h-[50px] bg-Primary rounded-[10px]'></div>
-                        <div>
-                            <h2 className='text-second font-medium text-[16px]'>Product Name</h2>
-                            <p className='text-Primary font-normal text-sm'>Product Details</p>
-                        </div>
-                    </div>
-                    <div>
-                        <h2 className='text-second font-medium text-base'>$50</h2>
-                        <p className='text-Primary font-normal text-sm line-through'>69$</p>
-                    </div>
-                </div>
-                
-                
+                    ))
+                }
             </div>
 
             {/* ------Buy items */}
