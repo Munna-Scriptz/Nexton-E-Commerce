@@ -19,7 +19,7 @@ const LoginOrRegis = () => {
                 <div className='flex items-end flex-col'>
                     <h2 className='text-second font-medium text-[32px] mb-4 text-end'>Welcome <br /> Back!</h2>
                     <p className=' text-Primary text-[17px] mb-6 w-[290px] text-end'>Login if you already have account. And Unlock New Journey</p>
-                    <Link className='LoginWithButton text-second py-[6px] px-[24px] lg:py-[6px] lg:px-[36px] border-[2px] rounded-full flex items-center w-fit gap-2.5 duration-[.3s] hover:scale-[1.06] cursor-pointer' to={'/'}>login</Link>
+                    <Link className='LoginWithButton text-second py-[6px] px-[24px] lg:py-[6px] lg:px-[36px] border-[2px] rounded-full flex items-center w-fit gap-2.5 duration-[.3s] hover:scale-[1.06] cursor-pointer' to={'/Login'}>login</Link>
                     {/* --------Or Start------- */}
                     <div className='w-full flex items-center justify-between gap-2 mt-5 mb-5'><span className='h-[2px] bg-Primary w-full'></span><p className='text-center text-second font-medium'>OR</p><span className='h-[2px] bg-Primary w-full'></span></div>
                     {/* --------Or End------- */}
