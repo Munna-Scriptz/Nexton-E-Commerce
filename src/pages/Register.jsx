@@ -6,7 +6,14 @@ const Register = () => {
     const [email , setEmail] = useState('')
     const [emailError , setEmailError] = useState('')
     const [ErrorBorder , setErrorBorder] = useState('border-BorderCol')
+    // --------------Password Error 
+    const [pass , setPass] = useState('')
+    const [passError , setPassError] = useState('')
+    // --------------Password again Error 
+    const [passAgain , setPassAgain] = useState('')
+    const [passErrorAgain , setPassErrorAgain] = useState('')
 
+    // ---------Error FUn 
     const HandleSubmit = (e) =>{
         e.preventDefault()
 
@@ -14,9 +21,13 @@ const Register = () => {
             setEmailError('Please enter your email')
             setErrorBorder('border-red-600')
         }
+        if(!pass){
+            setPassError('Please enter your Password')
+        }
+        if(!passAgain){
+            setPassErrorAgain('Please enter your Password Again')
+        }
     }
-
-
 
 
     // console.log(email)
@@ -38,12 +49,14 @@ const Register = () => {
                     {/* -----Password  */}
                     <div>
                         <p className='text-base font-semibold text-second'>Password</p>
-                        <input className='w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2' type="password" />
+                        <p className='text-red-600 font-medium'>{passError}</p>
+                        <input onChange={(e)=>{setPass(e.target.value) , setPassError('')}} className='w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2' type="password" />
                     </div>
                     {/* -----Password again */}
                     <div>
                         <p className='text-base font-semibold text-second'>Password (Again)</p>
-                        <input className='w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2'type="password" />
+                        <p className='text-red-600 font-medium'>{passErrorAgain}</p>
+                        <input onChange={(e)=>{setPassAgain(e.target.value) , setPassErrorAgain('')}} className='w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2'type="password" />
                     </div>
                 </div>
 
