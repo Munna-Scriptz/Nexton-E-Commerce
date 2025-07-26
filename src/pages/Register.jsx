@@ -1,20 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router'
 
 const Register = () => {
+    // --------------Email Error 
+    const [email , setEmail] = useState('')
+    const [emailError , setEmailError] = useState('')
+    const [ErrorBorder , setErrorBorder] = useState('border-BorderCol')
+
+    const HandleSubmit = (e) =>{
+        e.preventDefault()
+
+        if(!email){
+            setEmailError('Please enter your email')
+            setErrorBorder('border-red-600')
+        }
+    }
+
+
+
+
+    // console.log(email)
+
   return (
     <>
         <section id='Register_Box' className='mt-[40px] mb-[72px] flex items-center justify-center'>
-            <div className='w-[440px]'>
+            <form onSubmit={HandleSubmit} className='w-[440px]'>
                 {/* -------Header-------- */}
                 <div><h2 className='text-[36px] font-semibold text-second text-center mb-[60px]'>Register</h2></div>
-
                 {/* -------Input Box-------- */}
                 <div className='flex flex-col gap-[24px]'>
                     {/* -----Email  */}
                     <div>
                         <p className='text-base font-semibold text-second'>Email</p>
-                        <input className='w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2' placeholder='example@example.com' type="email" />
+                        <p className='text-red-600 font-medium'>{emailError}</p>
+                        <input onChange={(e)=>{setEmail(e.target.value) , setEmailError('') , setErrorBorder('border-BorderCol')}} className={`w-full border ${ErrorBorder} rounded-[12px] h-[43px] px-5 outline-none mt-2`} placeholder='example@example.com' type="email" />
                     </div>
                     {/* -----Password  */}
                     <div>
@@ -36,7 +55,7 @@ const Register = () => {
                         <p className='text-Primary text-base font-normal text-center'>Already a member? <Link className='text-[#0EA5E9]' to={'/Login'}>Login</Link></p>
                     </div>
                 </div>
-            </div>
+            </form>
         </section>
     </>
   )

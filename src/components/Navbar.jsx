@@ -37,8 +37,6 @@ const Navbar = () => {
       SetDel(DelItems)
       localStorage.removeItem('product' , Del)
     }
-    
-console.log(Del)
   return (
     <div>
       <nav id='Navbar' className='py-[27px] hidden lg:block overflow-hidden border-b-2 border-[#E5E7EB]'>
