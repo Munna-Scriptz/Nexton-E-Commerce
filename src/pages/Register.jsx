@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router'
+import { FiEye } from "react-icons/fi";
 
 const Register = () => {
     // --------------Email Error 
@@ -28,9 +29,10 @@ const Register = () => {
             setPassErrorAgain('Please enter your Password Again')
         }
     }
+    // ----------password Show/hide 
+    const [showPass , setShowPass] = useState(true)
 
 
-    // console.log(email)
 
   return (
     <>
@@ -50,13 +52,19 @@ const Register = () => {
                     <div>
                         <p className='text-base font-semibold text-second'>Password</p>
                         <p className='text-red-600 font-medium'>{passError}</p>
-                        <input onChange={(e)=>{setPass(e.target.value) , setPassError('')}} className='w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2' type="password" />
+                        <div className='relative'>
+                            <input onChange={(e)=>{setPass(e.target.value) , setPassError('')}} className='w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2' type="password" />
+                            <FiEye className='absolute top-5 right-5 text-[18px]'/>
+                        </div>
                     </div>
                     {/* -----Password again */}
                     <div>
                         <p className='text-base font-semibold text-second'>Password (Again)</p>
                         <p className='text-red-600 font-medium'>{passErrorAgain}</p>
-                        <input onChange={(e)=>{setPassAgain(e.target.value) , setPassErrorAgain('')}} className='w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2'type="password" />
+                        <div className='relative'>
+                            <input onChange={(e)=>{setPassAgain(e.target.value) , setPassErrorAgain('')}} className='w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2'type="password" />
+                            <FiEye className='absolute top-5 right-5 text-[18px]'/>
+                        </div>
                     </div>
                 </div>
 
