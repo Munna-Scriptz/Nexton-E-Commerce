@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router'
 import { FiEye } from "react-icons/fi";
+import { FaRegEyeSlash } from "react-icons/fa";
 
 const Register = () => {
     // --------------Email Error 
@@ -30,9 +31,8 @@ const Register = () => {
         }
     }
     // ----------password Show/hide 
-    const [showPass , setShowPass] = useState(true)
-
-
+    const [showPass , setShowPass] = useState(false)
+    const [showPassAgain , setShowPassAgain] = useState(false)
 
   return (
     <>
@@ -53,8 +53,14 @@ const Register = () => {
                         <p className='text-base font-semibold text-second'>Password</p>
                         <p className='text-red-600 font-medium'>{passError}</p>
                         <div className='relative'>
-                            <input onChange={(e)=>{setPass(e.target.value) , setPassError('')}} className='w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2' type="password" />
-                            <FiEye className='absolute top-5 right-5 text-[18px]'/>
+                            <input onChange={(e)=>{setPass(e.target.value) , setPassError('')}} className='w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2' type={showPass? 'text' : 'password'} />
+                            {
+                                showPass?
+                                <FiEye onClick={()=>setShowPass(!showPass)} className='absolute top-5 right-5 text-[18px]'/>
+                                :
+                                <FaRegEyeSlash onClick={()=>setShowPass(!showPass)} className='absolute top-5 right-5 text-[21px]'/>
+                                
+                            }
                         </div>
                     </div>
                     {/* -----Password again */}
@@ -62,8 +68,13 @@ const Register = () => {
                         <p className='text-base font-semibold text-second'>Password (Again)</p>
                         <p className='text-red-600 font-medium'>{passErrorAgain}</p>
                         <div className='relative'>
-                            <input onChange={(e)=>{setPassAgain(e.target.value) , setPassErrorAgain('')}} className='w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2'type="password" />
-                            <FiEye className='absolute top-5 right-5 text-[18px]'/>
+                            <input onChange={(e)=>{setPassAgain(e.target.value) , setPassErrorAgain('')}} className='w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2'type={showPassAgain? 'text' : 'password'} />
+                            {
+                                showPassAgain?
+                                <FiEye onClick={()=>setShowPassAgain(!showPassAgain)} className='absolute top-5 right-5 text-[18px]'/>
+                                :
+                                <FaRegEyeSlash onClick={()=>setShowPassAgain(!showPassAgain)} className='absolute top-5 right-5 text-[21px]'/>
+                            }
                         </div>
                     </div>
                 </div>
