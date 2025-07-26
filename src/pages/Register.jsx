@@ -11,9 +11,12 @@ const Register = () => {
     // --------------Password Error 
     const [pass , setPass] = useState('')
     const [passError , setPassError] = useState('')
+    const [PassErrorBorder , setPassErrorBorder] = useState('border-BorderCol')
+
     // --------------Password again Error 
     const [passAgain , setPassAgain] = useState('')
     const [passErrorAgain , setPassErrorAgain] = useState('')
+    const [AgainErrorBorder , setAgainErrorBorder] = useState('border-BorderCol')
 
     // ---------Error FUn 
     const HandleSubmit = (e) =>{
@@ -25,9 +28,11 @@ const Register = () => {
         }
         if(!pass){
             setPassError('Please enter your Password')
+            setPassErrorBorder('border-red-600')
         }
         if(!passAgain){
             setPassErrorAgain('Please enter your Password Again')
+            setAgainErrorBorder('border-red-600')
         }
     }
     // ----------password Show/hide 
@@ -41,7 +46,7 @@ const Register = () => {
                 {/* -------Header-------- */}
                 <div><h2 className='text-[36px] font-semibold text-second text-center mb-[60px]'>Register</h2></div>
                 {/* -------Input Box-------- */}
-                <div className='flex flex-col gap-[24px]'>
+                <div className='flex flex-col gap-[24px] select-none'>
                     {/* -----Email  */}
                     <div>
                         <p className='text-base font-semibold text-second'>Email</p>
@@ -53,13 +58,12 @@ const Register = () => {
                         <p className='text-base font-semibold text-second'>Password</p>
                         <p className='text-red-600 font-medium'>{passError}</p>
                         <div className='relative'>
-                            <input onChange={(e)=>{setPass(e.target.value) , setPassError('')}} className='w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2' type={showPass? 'text' : 'password'} />
+                            <input onChange={(e)=>{setPass(e.target.value) , setPassError('') , setPassErrorBorder('border-BorderCol')}} className={`w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2 ${PassErrorBorder}`} type={showPass? 'text' : 'password'} />
                             {
                                 showPass?
-                                <FiEye onClick={()=>setShowPass(!showPass)} className='absolute top-5 right-5 text-[18px]'/>
-                                :
                                 <FaRegEyeSlash onClick={()=>setShowPass(!showPass)} className='absolute top-5 right-5 text-[21px]'/>
-                                
+                                :
+                                <FiEye onClick={()=>setShowPass(!showPass)} className='absolute top-5 right-5 text-[18px]'/>
                             }
                         </div>
                     </div>
@@ -68,12 +72,12 @@ const Register = () => {
                         <p className='text-base font-semibold text-second'>Password (Again)</p>
                         <p className='text-red-600 font-medium'>{passErrorAgain}</p>
                         <div className='relative'>
-                            <input onChange={(e)=>{setPassAgain(e.target.value) , setPassErrorAgain('')}} className='w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2'type={showPassAgain? 'text' : 'password'} />
+                            <input onChange={(e)=>{setPassAgain(e.target.value) , setPassErrorAgain('') , setAgainErrorBorder('border-BorderCol')}} className={`w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2 ${AgainErrorBorder}`} type={showPassAgain? 'text' : 'password'} />
                             {
                                 showPassAgain?
-                                <FiEye onClick={()=>setShowPassAgain(!showPassAgain)} className='absolute top-5 right-5 text-[18px]'/>
-                                :
                                 <FaRegEyeSlash onClick={()=>setShowPassAgain(!showPassAgain)} className='absolute top-5 right-5 text-[21px]'/>
+                                :
+                                <FiEye onClick={()=>setShowPassAgain(!showPassAgain)} className='absolute top-5 right-5 text-[18px]'/>
                             }
                         </div>
                     </div>
