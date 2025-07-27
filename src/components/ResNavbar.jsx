@@ -80,8 +80,8 @@ export const ResNavbar = () => {
             <ul className='flex flex-col items-start gap-5 text-md mt-25'>
                 <li><Link onClick={()=>SetValue(!Value)} className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><IoHomeOutline/> Home</Link></li>
                 <li><Link onClick={()=>SetValue(!Value)} className='text-[#F8F8F8] flex items-center gap-2' to={'/Products'}><LuShoppingBag/> Shop</Link></li>
-                <li><Link onClick={()=>SetValue(!Value)} className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><MdOutlineGroup/> About</Link></li>
-                <li><Link onClick={()=>{SetValue(!Value) , SetShowCart(!showCart)}} className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><RiShoppingCart2Line/>Cart</Link></li>
+                <li><Link onClick={()=>SetValue(!Value)} className='text-[#F8F8F8] flex items-center gap-2' to={'/About'}><MdOutlineGroup/> About</Link></li>
+                <li><button onClick={()=>{SetValue(!Value) , SetShowCart(!showCart)}} className='text-[#F8F8F8] flex items-center gap-2'><RiShoppingCart2Line/>Cart</button></li>
                 <li><Link onClick={()=>SetValue(!Value)} className='text-[#F8F8F8] flex items-center gap-2' to={'/Login'}><RiUserLine/> Login</Link></li>
                 <li><Link onClick={()=>SetValue(!Value)} className='text-[#F8F8F8] flex items-center gap-2' to={'/Register'}><TbArrowsJoin/> Register</Link></li>
             </ul>

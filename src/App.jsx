@@ -7,6 +7,7 @@ import Details from './pages/Details'
 import Checkout from './pages/Checkout'
 import Register from './pages/Register'
 import Login from './pages/Login'
+import About from './pages/About'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path='/Checkout/:BuyId' element={<Checkout/>}></Route>
         <Route path='/Register' element={<Register/>}></Route>
         <Route path='/Login' element={<Login/>}></Route>
+        <Route path='/About' element={<About/>}></Route>
       </Route>
     </Route>
   ))
