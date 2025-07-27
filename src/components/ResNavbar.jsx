@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 import ResLogo from "../assets/Images/resLogo.png"
 import { RiSearch2Line } from "react-icons/ri";
@@ -8,12 +8,42 @@ import { LuShoppingBag } from "react-icons/lu";
 import { MdLogin } from "react-icons/md";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import { RiUserLine } from "react-icons/ri";
+import { AddToCart } from './AddToCart';
+import axios from 'axios';
+import { RxCross2 } from "react-icons/rx";
+import { TbArrowsJoin } from "react-icons/tb";
 
 
 export const ResNavbar = () => {
+    const [Value , SetValue] = useState(true)
+    const [showCart , SetShowCart] = useState(true)
+  // -----------Cart 
+  // ------------Local Store And Add to Card------------------
+    const [product , setProduct] = useState([])
+    const ProductID = JSON.parse(localStorage.getItem('product'))
+    // --------Map Product 
+    const mappedProduct = product.filter((item)=>{
+       return ProductID?.includes(item.id)
+    })
+    // --------APi In Cart 
+    useEffect(()=>{
+        axios.get(`https://dummyjson.com/products/${mappedProduct}`)
+        .then((res)=>{setProduct(res.data.products)})
+        .catch((err)=>{console.log(err)})
+    }, [])
 
-    const [Value , SetValue] = useState('true')
+    // ----------Total Amount
+   const Total = mappedProduct.reduce((sum , no)=>{
+      return sum + no.price
+    }, 0)
+    // ----------Delete Cart
 
+    const HandleDelete = (DelItems)=> {
+      const storedProducts = JSON.parse(localStorage.getItem('product')) || [];
+      const updatedProducts = storedProducts.filter(id => id !== DelItems);
+      localStorage.setItem('product', JSON.stringify(updatedProducts));
+      setProduct(prev => prev.filter(p => p.id !== DelItems));
+    }
   return (
     <>
     
@@ -47,16 +77,22 @@ export const ResNavbar = () => {
                 </button>
             </div>
 
-            <ul className='flex flex-col items-center gap-3 mt-25'>
-                <li><Link className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><IoHomeOutline/> Home</Link></li>
-                <li><Link className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><MdOutlineGroup/> About</Link></li>
-                <li><Link className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><LuShoppingBag/> Shop</Link></li>
-                <li><Link className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><RiShoppingCart2Line/>Cart</Link></li>
-                <li><Link className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><RiUserLine/> Account</Link></li>
+            <ul className='flex flex-col items-start gap-5 text-md mt-25'>
+                <li><Link onClick={()=>SetValue(!Value)} className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><IoHomeOutline/> Home</Link></li>
+                <li><Link onClick={()=>SetValue(!Value)} className='text-[#F8F8F8] flex items-center gap-2' to={'/Products'}><LuShoppingBag/> Shop</Link></li>
+                <li><Link onClick={()=>SetValue(!Value)} className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><MdOutlineGroup/> About</Link></li>
+                <li><Link onClick={()=>{SetValue(!Value) , SetShowCart(!showCart)}} className='text-[#F8F8F8] flex items-center gap-2' to={'/'}><RiShoppingCart2Line/>Cart</Link></li>
+                <li><Link onClick={()=>SetValue(!Value)} className='text-[#F8F8F8] flex items-center gap-2' to={'/Login'}><RiUserLine/> Login</Link></li>
+                <li><Link onClick={()=>SetValue(!Value)} className='text-[#F8F8F8] flex items-center gap-2' to={'/Register'}><TbArrowsJoin/> Register</Link></li>
             </ul>
         </div>
       </div>
-
+      
+      {/* -----Add To Cart----- */}
+        <section className={`fixed top-0 z-50 h-full w-full right-0 flex justify-end duration-[.8s] ${showCart? 'translate-x-[-740px] ' : ' translate-x-[-2px]'}` }>
+          <div onClick={()=>SetShowCart(!showCart)} className='fixed top-0 left-0 z-0 h-full w-full backdrop-blur-md bg-[#00000063]'></div>
+          <AddToCart CartItem={mappedProduct.length} DeleteCart={(e)=>HandleDelete(e)} TotalCredit={Total} AllProduct={mappedProduct} Cross={<RxCross2 onClick={()=>SetShowCart(!showCart)} className='text-3xl'/>}/>
+        </section>
     </nav>
     
     </>
