@@ -50,7 +50,7 @@ const Register = () => {
   return (
     <>
         <section id='Register_Box' className='mt-[40px] mb-[72px] flex items-center justify-center'>
-            <form onSubmit={HandleSubmit} className='w-[440px]'>
+            <form onSubmit={HandleSubmit} className=' lg:w-[440px]'>
                 {/* -------Header-------- */}
                 <div><h2 className='text-[36px] font-semibold text-second text-center mb-[60px]'>Register</h2></div>
                 {/* -------Input Box-------- */}
@@ -75,9 +75,9 @@ const Register = () => {
                             <input onChange={(e)=>{setPass(e.target.value) , setPassError('') , setPassErrorBorder('border-BorderCol')}} className={`w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2 ${PassErrorBorder}`} type={showPass? 'text' : 'password'} />
                             {
                                 showPass?
-                                <FaRegEyeSlash onClick={()=>setShowPass(!showPass)} className='absolute top-5 right-5 text-[21px]'/>
+                                <FaRegEyeSlash onClick={()=>setShowPass(!showPass)} className='absolute top-5 right-5 text-[21px] cursor-pointer'/>
                                 :
-                                <FiEye onClick={()=>setShowPass(!showPass)} className='absolute top-5 right-5 text-[18px]'/>
+                                <FiEye onClick={()=>setShowPass(!showPass)} className='absolute top-5 right-5 text-[18px] cursor-pointer'/>
                             }
                         </div>
                     </div>
@@ -89,9 +89,9 @@ const Register = () => {
                             <input onChange={(e)=>{setPassAgain(e.target.value) , setPassErrorAgain('') , setAgainErrorBorder('border-BorderCol')}} className={`w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2 ${AgainErrorBorder}`} type={showPassAgain? 'text' : 'password'} />
                             {
                                 showPassAgain?
-                                <FaRegEyeSlash onClick={()=>setShowPassAgain(!showPassAgain)} className='absolute top-5 right-5 text-[21px]'/>
+                                <FaRegEyeSlash onClick={()=>setShowPassAgain(!showPassAgain)} className='absolute top-5 right-5 text-[21px] cursor-pointer'/>
                                 :
-                                <FiEye onClick={()=>setShowPassAgain(!showPassAgain)} className='absolute top-5 right-5 text-[18px]'/>
+                                <FiEye onClick={()=>setShowPassAgain(!showPassAgain)} className='absolute top-5 right-5 text-[18px] cursor-pointer'/>
                             }
                         </div>
                     </div>

@@ -25,7 +25,7 @@ const Login = () => {
   return (
     <>
         <section id='Register_Box' className='mt-[40px] mb-[72px] flex items-center justify-center'>
-            <form onSubmit={HandleSubmit} className='w-[440px]'>
+            <form onSubmit={HandleSubmit} className='lg:w-[440px]'>
                 {/* -------Header-------- */}
                 <div><h2 className='text-[36px] font-semibold text-second text-center mb-[60px]'>Login</h2></div>
 
@@ -45,9 +45,9 @@ const Login = () => {
                             <input onChange={(e)=>setPassInfo({password: e.target.value , passwordError: '' , passwordBorder: 'border-BorderCol'})} className={`w-full border ${passInfo.passwordBorder} rounded-[12px] h-[43px] px-5 outline-none mt-2`} type={hidePass? 'password' : 'text'} />
                             {
                                 hidePass?
-                                <FiEye onClick={()=>setHidePass(!hidePass)} className='absolute top-5 right-5 text-[20px]'/>
+                                <FiEye onClick={()=>setHidePass(!hidePass)} className='absolute top-5 right-5 text-[20px] cursor-pointer'/>
                                 :
-                                <FaRegEyeSlash onClick={()=>setHidePass(!hidePass)} className='absolute top-5 right-5 text-[18px]'/>
+                                <FaRegEyeSlash onClick={()=>setHidePass(!hidePass)} className='absolute top-5 right-5 text-[18px] cursor-pointer'/>
 
                             }
                         </div>
