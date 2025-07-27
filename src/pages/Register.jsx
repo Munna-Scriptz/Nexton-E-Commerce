@@ -5,6 +5,10 @@ import { FaRegEyeSlash } from "react-icons/fa";
 
 const Register = () => {
     // --------------Email Error 
+    const [username , setUsername] = useState('')
+    const [usernameError , setUsernameError] = useState('')
+    const [UsernameBorder, setUsernameBorder] = useState('border-BorderCol')
+    // --------------Email Error 
     const [email , setEmail] = useState('')
     const [emailError , setEmailError] = useState('')
     const [ErrorBorder , setErrorBorder] = useState('border-BorderCol')
@@ -22,6 +26,10 @@ const Register = () => {
     const HandleSubmit = (e) =>{
         e.preventDefault()
 
+        if(!username){
+            setUsernameError('Please enter your email')
+            setUsernameBorder('border-red-600')
+        }
         if(!email){
             setEmailError('Please enter your email')
             setErrorBorder('border-red-600')
@@ -47,6 +55,12 @@ const Register = () => {
                 <div><h2 className='text-[36px] font-semibold text-second text-center mb-[60px]'>Register</h2></div>
                 {/* -------Input Box-------- */}
                 <div className='flex flex-col gap-[24px] select-none'>
+                    {/* -----Username  */}
+                    <div>
+                        <p className='text-base font-semibold text-second'>Username</p>
+                        <p className='text-red-600 font-medium'>{usernameError}</p>
+                        <input onChange={(e)=>{setUsername(e.target.value) , setUsernameError('') , setUsernameBorder('border-BorderCol')}} className={`w-full border ${UsernameBorder} rounded-[12px] h-[43px] px-5 outline-none mt-2`} placeholder='Your username' type="username" />
+                    </div>
                     {/* -----Email  */}
                     <div>
                         <p className='text-base font-semibold text-second'>Email</p>
