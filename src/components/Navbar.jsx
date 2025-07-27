@@ -32,11 +32,14 @@ const Navbar = () => {
       return sum + no.price
     }, 0)
     // ----------Delete Cart
-    const [Del , SetDel] = useState('')
+
     const HandleDelete = (DelItems)=> {
-      SetDel(DelItems)
-      localStorage.removeItem('product' , Del)
+      const storedProducts = JSON.parse(localStorage.getItem('product')) || [];
+      const updatedProducts = storedProducts.filter(id => id !== DelItems);
+      localStorage.setItem('product', JSON.stringify(updatedProducts));
+      setProduct(prev => prev.filter(p => p.id !== DelItems));
     }
+    
   return (
     <div>
       <nav id='Navbar' className='py-[27px] hidden lg:block overflow-hidden border-b-2 border-[#E5E7EB]'>
@@ -75,7 +78,7 @@ const Navbar = () => {
       {/* -----Add To Cart----- */}
         <section className={`fixed top-0 z-50 h-full w-full duration-[.3s] right-0 flex justify-end ${cart? 'hidden' : 'visible'}` }>
           <div onClick={()=>setCart(!cart)} className='fixed top-0 left-0 z-0 h-full w-full backdrop-blur-md bg-[#00000063]'></div>
-          <AddToCart DeleteCart={HandleDelete} TotalCredit={Total} AllProduct={mappedProduct} Cross={<RxCross2 onClick={()=>setCart(!cart)} className='text-3xl'/>}/>
+          <AddToCart DeleteCart={(e)=>HandleDelete(e)} TotalCredit={Total} AllProduct={mappedProduct} Cross={<RxCross2 onClick={()=>setCart(!cart)} className='text-3xl'/>}/>
         </section>
     </div>
   )
