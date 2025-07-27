@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { IoResize } from "react-icons/io5";
 import ProductImg from '../../assets/Images/ProductImage.png'
 
-const CheckoutSummery = ({CheckImg , CheckPrice , CheckName}) => {
+const CheckoutSummery = ({CheckImg , CheckPrice , CheckName , HideInSmTop , HideInSmBottom , HideAllInLG}) => {
   // -------First Quantity
   const [value , setValue] = useState(1)
   if(value < 1){
@@ -16,7 +16,8 @@ const CheckoutSummery = ({CheckImg , CheckPrice , CheckName}) => {
   }
   return (
     <>
-      <section id='Checkout-Summery' className='w-[618px]'>
+      <section id='Checkout-Summery' className={`lg:w-[618px] lg:px-0 w-full px-[24px] ${HideAllInLG}`}>
+        <div className={`${HideInSmTop}`}>
           <div>
             <h2 className='text-2xl font-semibold text-second'>Order summary</h2>
           </div>
@@ -66,12 +67,13 @@ const CheckoutSummery = ({CheckImg , CheckPrice , CheckName}) => {
             </div>
 
           </div>
+        </div>
           {/* -------Checkout final--------- */}
-          <div className='mt-6'>
+          <div className={`mt-6 ${HideInSmBottom}`}>
             <p className='text-base text-Primary font-normal flex items-center justify-between'>Subtotal <span>${CheckPrice}</span></p>
             <p className='text-base text-Primary font-normal flex items-center justify-between mt-2'>Shipping estimate <span>$5.00</span></p>
             <p className='text-base text-Primary font-normal flex items-center justify-between mt-2'>Tax estimate <span>$24.90</span></p>
-            <h2 className='text-second font-semibold text-base flex items-center justify-between mt-6'>Order total <span>${CheckPrice + 24}</span></h2>
+            <h2 className='text-second font-semibold text-base flex items-center justify-between mt-6'>Order total <span className=' truncate text-clip w-14'>${CheckPrice + 24}</span></h2>
             <button className='text-base font-medium text-white bg-second mt-6 w-full h-[52px] rounded-full cursor-pointer hover:scale-[1.05] duration-300'>Confirm order</button>
           </div>
       </section>

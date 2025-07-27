@@ -19,13 +19,14 @@ const Checkout = () => {
   return (
     <>
         <section id='Checkout' className='container mt-[40px]'>
-            <div>
+            <div className='px-6 lg:px0'>
                 <h2 className='text-4xl font-semibold text-second mb-4'>Checkout</h2>
                 <BreadCrumb CrumbName={'Checkout'} CrumbPath={'/Checkout'}/>
             </div>
-            <div className='flex justify-between items-start mt-[52px]'>
+            <div className='flex justify-between flex-col-reverse lg:flex-row items-start mt-[52px]'>
+                <CheckoutSummery HideAllInLG={`lg:hidden`} HideInSmTop={`hidden lg:hidden`} CheckImg={Product.thumbnail} CheckPrice={Product.price} CheckName={Product.title}/> 
                 <CheckoutInfo/>
-                <CheckoutSummery CheckImg={Product.thumbnail} CheckPrice={Product.price} CheckName={Product.title}/>
+                <CheckoutSummery HideInSmBottom={`hidden lg:block`} CheckImg={Product.thumbnail} CheckPrice={Product.price} CheckName={Product.title}/> 
             </div>
         </section>
     </>

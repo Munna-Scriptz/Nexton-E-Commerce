@@ -6,84 +6,84 @@ import { CiCreditCard1 } from "react-icons/ci";
 const CheckoutInfo = () => {
   return (
     <>
-      <section className='w-[638px]'>
+      <section className='lg:w-[638px] lg:px-0 w-full px-6'>
         {/* -------------First Section----------------- */}
-        <div className='border-2 border-BorderCol py-[24px] rounded-[16px]'>
-          <div className='border-b-2 border-[#E5E7EB]'>
+        <div className='border-1 border-BorderCol py-[24px] rounded-[16px] lg:mt-0 mt-[80px]'>
+          <div className='border-b-1 border-[#E5E7EB]'>
             <h2 className='text-Primary font-medium text-base flex items-center gap-4 pl-[24px] pb-[24px]'><FaRegCircleUser className='text-2xl'/>CONTACT INFO</h2>
           </div>
 
-          <div className='p-[24px] flex item-center justify-between'>
+          <div className='p-[24px] flex lg:flex-row flex-col item-center justify-between'>
             <div>
               <p className='text-base font-semibold text-second mb-2'>Your phone number</p>
-              <input className='border-2 border-[#E5E7EB] rounded-[12px] w-[283px] h-[43px] pl-2 outline-none' type="number" />
+              <input className='border-1 border-[#E5E7EB] rounded-[12px] w-[283px] h-[43px] pl-2 outline-none' type="number" />
             </div>
-            <div>
+            <div className='lg:mt-0 mt-6'>
               <p className='text-base font-semibold text-second mb-2'>Email address</p>
-              <input className='border-2 border-[#E5E7EB] rounded-[12px] w-[283px] h-[43px] pl-2 outline-none' type="email" />
+              <input className='border-1 border-[#E5E7EB] rounded-[12px] w-[283px] h-[43px] pl-2 outline-none' type="email" />
             </div>
           </div>
         </div>
         {/* -------------Second Section----------------- */}
-        <div className='border-2 border-BorderCol py-[24px] rounded-[16px] mt-[40px]'>
-          <div className='border-b-2 border-BorderCol'>
+        <div className='border-1 border-BorderCol py-[24px] rounded-[16px] mt-[40px]'>
+          <div className='border-b-1 border-BorderCol'>
             <h2 className='text-Primary font-medium text-base flex items-center gap-4 pl-[24px] pb-[24px]'><TbRouteAltLeft className='text-2xl'/>SHIPPING ADDRESS</h2>
           </div>
           {/* ---------inputs 1-------- */}
           <div className='p-[24px] flex item-center justify-between'>
             <div>
               <p className='text-base font-semibold text-second mb-2'>First name</p>
-              <input className='border-2 border-BorderCol rounded-[12px] w-[283px] h-[43px] pl-2 outline-none' type="text" />
+              <input className='border-1 border-BorderCol rounded-[12px] lg:w-[283px] w-[123px] h-[43px] pl-2 outline-none' type="text" />
             </div>
             <div>
               <p className='text-base font-semibold text-second mb-2'>Last name</p>
-              <input className='border-2 border-BorderCol rounded-[12px] w-[283px] h-[43px] pl-2 outline-none' type="text" />
+              <input className='border-1 border-BorderCol rounded-[12px] lg:w-[283px] w-[123px] h-[43px] pl-2 outline-none' type="text" />
             </div>
           </div>
           {/* ---------inputs 2-------- */}
-          <div className='px-[24px] flex item-center justify-between mt-[24px]'>
+          <div className='px-[24px] flex lg:flex-row flex-col item-center justify-between mt-[24px]'>
             <div>
               <p className='text-base font-semibold text-second mb-2'>Address line 1</p>
-              <input className='border-2 border-BorderCol rounded-[12px] w-[383px] h-[43px] pl-2 outline-none' type="text" />
+              <input className='border-1 border-BorderCol rounded-[12px] lg:w-[383px] w-full h-[43px] pl-2 outline-none' type="text" />
             </div>
             <div>
-              <p className='text-base font-semibold text-second mb-2'>Apt, Suite</p>
-              <input className='border-2 border-BorderCol rounded-[12px] w-[180px] h-[43px] pl-2 outline-none' type="text" />
+              <p className='text-base font-semibold text-second mb-2 lg:mt-o mt-6'>Apt, Suite</p>
+              <input className='border-1 border-BorderCol rounded-[12px] lg:w-[180px] w-full h-[43px] pl-2 outline-none' type="text" />
             </div>
           </div>
           {/* ---------inputs 3-------- */}
           <div className='px-[24px] mt-[24px]'>
             <div>
               <p className='text-base font-semibold text-second mb-2'>Address line 2</p>
-              <input className='border-2 border-BorderCol rounded-[12px] w-full h-[43px] pl-2 outline-none' type="text" />
+              <input className='border-1 border-BorderCol rounded-[12px] w-full h-[43px] pl-2 outline-none' type="text" />
             </div>
           </div>
           {/* ---------inputs 4-------- */}
           <div className='p-[24px] flex item-center justify-between'>
             <div>
               <p className='text-base font-semibold text-second mb-2'>City</p>
-              <input className='border-2 border-BorderCol rounded-[12px] w-[283px] h-[43px] pl-2 outline-none' type="text" />
+              <input className='border-1 border-BorderCol rounded-[12px] lg:w-[283px] w-[123px] h-[43px] pl-2 outline-none' type="text" />
             </div>
             <div>
               <p className='text-base font-semibold text-second mb-2'>Country</p>
-              <input className='border-2 border-BorderCol rounded-[12px] w-[283px] h-[43px] pl-2 outline-none' type="text" />
+              <input className='border-1 border-BorderCol rounded-[12px] lg:w-[283px] w-[123px] h-[43px] pl-2 outline-none' type="text" />
             </div>
           </div>
           {/* ---------inputs 5-------- */}
           <div className='p-[24px] flex item-center justify-between'>
             <div>
               <p className='text-base font-semibold text-second mb-2'>State/Province</p>
-              <input className='border-2 border-BorderCol rounded-[12px] w-[283px] h-[43px] pl-2 outline-none' type="text" />
+              <input className='border-1 border-BorderCol rounded-[12px] lg:w-[283px] w-[123px] h-[43px] pl-2 outline-none' type="text" />
             </div>
             <div>
               <p className='text-base font-semibold text-second mb-2'>Postal code</p>
-              <input className='border-2 border-BorderCol rounded-[12px] w-[283px] h-[43px] pl-2 outline-none' type="text" />
+              <input className='border-1 border-BorderCol rounded-[12px] lg:w-[283px] w-[123px] h-[43px] pl-2 outline-none' type="text" />
             </div>
           </div>
         </div>
         {/* -------------Third Section----------------- */}
-        <div className='border-2 border-BorderCol py-[24px] rounded-[16px] mt-[40px]'>
-          <div className='border-b-2 border-[#E5E7EB]'>
+        <div className='border-1 border-BorderCol py-[24px] rounded-[16px] mt-[40px]'>
+          <div className='border-b-1 border-[#E5E7EB]'>
             <h2 className='text-Primary font-medium text-base flex items-center gap-4 pl-[24px] pb-[24px]'><CiCreditCard1 className='text-2xl'/>PAYMENT</h2>
           </div>
           {/* ---------Input 1-------- */}
@@ -100,12 +100,12 @@ const CheckoutInfo = () => {
           {/* ---------Input 2-------- */}
           <div className='px-[24px] flex item-center justify-between mt-[24px]'>
             <div>
-              <p className='text-base font-semibold text-second mb-2'>Expiration date (MM/YY)</p>
-              <input className='border-2 border-BorderCol rounded-[12px] w-[386px] h-[43px] pl-2 outline-none' type="text" />
+              <p className='text-base font-semibold text-second mb-2'>Expiration date</p>
+              <input className='border-1 border-BorderCol rounded-[12px] lg:w-[386px] w-[123px] h-[43px] pl-2 outline-none' type="text" />
             </div>
             <div>
               <p className='text-base font-semibold text-second mb-2'>CVC</p>
-              <input className='border-2 border-BorderCol rounded-[12px] w-[180px] h-[43px] pl-2 outline-none' type="text" />
+              <input className='border-1 border-BorderCol rounded-[12px] lg:w-[180px] w-[123px] h-[43px] pl-2 outline-none' type="text" />
             </div>
           </div>
         </div>
