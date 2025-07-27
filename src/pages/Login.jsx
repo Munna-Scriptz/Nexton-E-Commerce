@@ -1,11 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router'
 
 const Login = () => {
+
+    const [info , setInfo] = useState({email : '' ,emailError : '' ,emailErrorBorder : 'border-BorderCol'})
+    const [passInfo , setPassInfo] = useState({password : '' ,passwordError : '' ,passwordBorder : 'border-BorderCol'})
+
+    const HandleSubmit = (e)=>{
+        e.preventDefault()
+
+        if(!info.email){
+            setInfo((e)=>({...e , emailError: 'Please enter your email' , emailErrorBorder: 'border-red-600'}))
+        }
+        if(!passInfo.password){
+            setPassInfo((e)=>({...e ,passwordError: 'Please enter your password' , passwordBorder: 'border-red-600'}))
+        }
+
+    }
+    console.log(info , passInfo)
   return (
     <>
         <section id='Register_Box' className='mt-[40px] mb-[72px] flex items-center justify-center'>
-            <div className='w-[440px]'>
+            <form onSubmit={HandleSubmit} className='w-[440px]'>
                 {/* -------Header-------- */}
                 <div><h2 className='text-[36px] font-semibold text-second text-center mb-[60px]'>Login</h2></div>
 
@@ -14,12 +30,14 @@ const Login = () => {
                     {/* -----Email  */}
                     <div>
                         <p className='text-base font-semibold text-second'>Email</p>
-                        <input className='w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2' placeholder='example@example.com' type="email" />
+                        <p className='text-red-600 font-medium'>{info.emailError}</p>
+                        <input onChange={(e)=>setInfo({email:e.target.value , emailError: '' , emailErrorBorder: 'border-BorderCol'})} className={`w-full border ${info.emailErrorBorder} rounded-[12px] h-[43px] px-5 outline-none mt-2`} placeholder='example@example.com' type="text" />
                     </div>
                     {/* -----Password  */}
                     <div>
                         <p className='text-base font-semibold text-second'>Password</p>
-                        <input className='w-full border border-BorderCol rounded-[12px] h-[43px] px-5 outline-none mt-2' type="password" />
+                        <p className='text-red-600 font-medium'>{passInfo.passwordError}</p>
+                        <input onChange={(e)=>setPassInfo({password: e.target.value , passwordError: '' , passwordBorder: 'border-BorderCol'})} className={`w-full border ${passInfo.passwordBorder} rounded-[12px] h-[43px] px-5 outline-none mt-2`} type="password" />
                     </div>
                 </div>
 
@@ -31,7 +49,7 @@ const Login = () => {
                         <p className='text-Primary text-base font-normal text-center'>New user? <Link className='text-[#0EA5E9]' to={'/Register'}>Create an account</Link></p>
                     </div>
                 </div>
-            </div>
+            </form>
         </section>
     </>
   )
