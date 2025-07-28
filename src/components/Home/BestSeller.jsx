@@ -64,7 +64,13 @@ const BestSeller = () => {
       }
     ]
   };
+  // --------Local Storage 
+  const HandleCart = (ProItems)=>{
+    const ProductId = JSON.parse(localStorage.getItem('product')) || []
+    ProductId?.push(ProItems.id)
 
+    localStorage.setItem('product' , JSON.stringify(ProductId))
+  }
   return (
     <section id='Recommend' className='mt-[176px] ml-[24px] pb-[70px] lg:ml-0'>
             <div className="container">
@@ -74,7 +80,7 @@ const BestSeller = () => {
                     <Slider {...settings}>
                       {
                       products.map((items)=>(
-                        <SingleProducts ShowDetails={()=>HandleDetails(items.id)} proName={items.title} ProCat={items.category} proPrice={items.price} proRate={items.rating} ProStock={items.stock} proDis={items.discountPercentage} proImg={items.thumbnail}/>
+                        <SingleProducts HandleCart={()=>HandleCart(items)} ShowDetails={()=>HandleDetails(items.id)} proName={items.title} ProCat={items.category} proPrice={items.price} proRate={items.rating} ProStock={items.stock} proDis={items.discountPercentage} proImg={items.thumbnail}/>
                       ))
                     }
                     </Slider>

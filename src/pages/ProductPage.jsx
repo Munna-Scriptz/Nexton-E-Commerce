@@ -27,6 +27,13 @@ const ProductPage = () => {
   const start = (page - 1) * itemsPerPage;
   const currentItems = products.slice(start, start + itemsPerPage);
   const totalPages = Math.ceil(products.length / itemsPerPage);
+    // --------Local Storage 
+  const HandleCart = (ProItems)=>{
+    const ProductId = JSON.parse(localStorage.getItem('product')) || []
+    ProductId?.push(ProItems.id)
+
+    localStorage.setItem('product' , JSON.stringify(ProductId))
+  }
   return (
     <>
         <section className='mt-[30px]'>
@@ -120,7 +127,7 @@ const ProductPage = () => {
                         <div className='flex flex-wrap justify-center gap-y-[52px] gap-x-5'>
                             {
                                 currentItems.slice(0,9).map((items , i)=>(
-                                    <SingleProducts ShowDetails={()=>HandleDetailShow(items.id)} key={i}proName={items.title} ProCat={items.category} proPrice={items.price} proRate={items.rating} ProStock={items.stock} proDis={items.discountPercentage} proImg={items.thumbnail}/>
+                                    <SingleProducts HandleCart={()=>HandleCart(items)} ShowDetails={()=>HandleDetailShow(items.id)} key={i}proName={items.title} ProCat={items.category} proPrice={items.price} proRate={items.rating} ProStock={items.stock} proDis={items.discountPercentage} proImg={items.thumbnail}/>
                                 ))
                             }
                         </div>
