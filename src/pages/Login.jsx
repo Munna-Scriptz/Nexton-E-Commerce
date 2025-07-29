@@ -6,11 +6,16 @@ import { FaRegEyeSlash } from "react-icons/fa";
 const Login = () => {
 
     const [info , setInfo] = useState({email : '' ,emailError : '' ,emailErrorBorder : 'border-BorderCol'})
+    const [username , setUsername] = useState({username: '' , usernameError: '' , usernameBorder: 'border-BorderCol'})
     const [passInfo , setPassInfo] = useState({password : '' ,passwordError : '' ,passwordBorder : 'border-BorderCol'})
     const [hidePass , setHidePass] = useState(true)
+
     const HandleSubmit = (e)=>{
         e.preventDefault()
 
+        if(!username.username){
+            setUsername((e)=>({...e , usernameError: 'Please enter your username' , usernameBorder: 'border-red-600'}))
+        }
         if(!info.email){
             setInfo((e)=>({...e , emailError: 'Please enter your email' , emailErrorBorder: 'border-red-600'}))
         }
@@ -31,6 +36,12 @@ const Login = () => {
 
                 {/* -------Input Box-------- */}
                 <div className='flex flex-col gap-[24px]'>
+                    {/* -----Username  */}
+                    <div>
+                        <p className='text-base font-semibold text-second'>Username</p>
+                        <p className='text-red-600 font-medium'>{username.usernameError}</p>
+                        <input onChange={(e)=>setUsername({username:e.target.value , usernameError: '' , usernameBorder: 'border-BorderCol'})} className={`w-full border ${username.usernameBorder} rounded-[12px] h-[43px] px-5 outline-none mt-2`} placeholder='Your username' type="user" />
+                    </div>
                     {/* -----Email  */}
                     <div>
                         <p className='text-base font-semibold text-second'>Email</p>
@@ -42,7 +53,7 @@ const Login = () => {
                         <p className='text-base font-semibold text-second'>Password</p>
                         <p className='text-red-600 font-medium'>{passInfo.passwordError}</p>
                         <div className='relative'>
-                            <input onChange={(e)=>setPassInfo({password: e.target.value , passwordError: '' , passwordBorder: 'border-BorderCol'})} className={`w-full border ${passInfo.passwordBorder} rounded-[12px] h-[43px] px-5 outline-none mt-2`} type={hidePass? 'password' : 'text'} />
+                            <input onChange={(e)=>setPassInfo({password: e.target.value , passwordError: '' , passwordBorder: 'border-BorderCol'})} className={`w-full border ${passInfo.passwordBorder} rounded-[12px] h-[43px] px-5 outline-none mt-2 select-none`} type={hidePass? 'password' : 'text'} />
                             {
                                 hidePass?
                                 <FiEye onClick={()=>setHidePass(!hidePass)} className='absolute top-5 right-5 text-[20px] cursor-pointer'/>
