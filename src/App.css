@@ -278,6 +278,9 @@ body {
   overflow: hidden;
   max-width: 20ch;
 }
+#Loader{
+  backdrop-filter: blur(5px);
+}
 
 
 

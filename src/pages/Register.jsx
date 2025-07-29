@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import { FiEye } from "react-icons/fi";
 import { FaRegEyeSlash } from "react-icons/fa";
 import axios from 'axios';
 import { Bounce, toast } from 'react-toastify';
+import { BounceLoader } from 'react-spinners';
 
 const Register = () => {
     // --------------Email Error 
@@ -26,7 +27,9 @@ const Register = () => {
     // ----------password Show/hide 
     const [showPass , setShowPass] = useState(false)
     const [showPassAgain , setShowPassAgain] = useState(false)
-
+    // ----------password Show/hide 
+    const [loader , setLoader] = useState(false)
+    const LoginNavigate = useNavigate()
     // ---------Error Fun 
     const HandleSubmit = (e) =>{
         e.preventDefault()
@@ -57,25 +60,54 @@ const Register = () => {
                 avatar: "https://picsum.photos/800"
             })
             .then((res)=>{
-                console.log(res)
+                setLoader(true)
+                LoginNavigate('/Login')
+                toast.success('Registration  Completed', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
             })
-            .catch((err)=>{console.log(err)}),
-            toast.success('Registration  Completed', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-            transition: Bounce,
-        })
+            console.log(res)
+            })
+            .catch((err)=>{
+                setLoader(false)
+                console.log(err)
+                toast.error('Something went wrong!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    transition: Bounce,
+                });
+            })
         )
     }
   return (
     <>
-        <section id='Register_Box' className='mt-[40px] mb-[72px] flex items-center justify-center'>
+        <section id='Register_Box' className='relative pt-[40px] mb-[72px] flex items-center justify-center'>
+            {/* ----------Loader-------- */}
+            {
+                loader?
+                <div id="Loader" className='absolute w-full h-screen z-50 bg-[#00000060] flex items-center justify-center'>
+                    <BounceLoader size={90} color='#111827'/>
+                </div>
+                :
+                <div id="Loader" className='absolute w-full h-screen z-50 bg-[#00000060] hidden items-center justify-center'>
+                    <BounceLoader size={90} color='#111827'/>
+                </div>
+
+            }
+            {/* ---------Register Input------- */}
             <form onSubmit={HandleSubmit} className=' lg:w-[440px]'>
                 {/* -------Header-------- */}
                 <div><h2 className='text-[36px] font-semibold text-second text-center mb-[60px]'>Register</h2></div>
