@@ -8,6 +8,7 @@ import Checkout from './pages/Checkout'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import About from './pages/About'
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer/>
       <RouterProvider router={MyRoute}></RouterProvider>
     </>
   )

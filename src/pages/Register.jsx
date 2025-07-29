@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 import { FiEye } from "react-icons/fi";
 import { FaRegEyeSlash } from "react-icons/fa";
+import axios from 'axios';
+import { Bounce, toast } from 'react-toastify';
 
 const Register = () => {
     // --------------Email Error 
@@ -21,8 +23,11 @@ const Register = () => {
     const [passAgain , setPassAgain] = useState('')
     const [passErrorAgain , setPassErrorAgain] = useState('')
     const [AgainErrorBorder , setAgainErrorBorder] = useState('border-BorderCol')
+    // ----------password Show/hide 
+    const [showPass , setShowPass] = useState(false)
+    const [showPassAgain , setShowPassAgain] = useState(false)
 
-    // ---------Error FUn 
+    // ---------Error Fun 
     const HandleSubmit = (e) =>{
         e.preventDefault()
 
@@ -42,11 +47,32 @@ const Register = () => {
             setPassErrorAgain('Please enter your Password Again')
             setAgainErrorBorder('border-red-600')
         }
+        else(
+            
+            // -------------User reg api 
+            axios.post(`https://api.escuelajs.co/api/v1/users/` , {
+                name:username,
+                email:email,
+                password:pass,
+                avatar: "https://picsum.photos/800"
+            })
+            .then((res)=>{
+                console.log(res)
+            })
+            .catch((err)=>{console.log(err)}),
+            toast.success('Registration  Completed', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Bounce,
+        })
+        )
     }
-    // ----------password Show/hide 
-    const [showPass , setShowPass] = useState(false)
-    const [showPassAgain , setShowPassAgain] = useState(false)
-
   return (
     <>
         <section id='Register_Box' className='mt-[40px] mb-[72px] flex items-center justify-center'>
