@@ -6,6 +6,13 @@ import Pagination from '../components/Product/Pagination';
 import { useNavigate } from 'react-router';
 
 const ProductPage = () => {
+    // --------Local Storage 
+    const HandleCart = (ProItems)=>{
+    const ProductId = JSON.parse(localStorage.getItem('product')) || []
+    ProductId?.push(ProItems.id)
+    
+    localStorage.setItem('product' , JSON.stringify(ProductId))
+    }
 
     const [page, setPage] = useState(1);
     const itemsPerPage = 9;
@@ -27,13 +34,6 @@ const ProductPage = () => {
   const start = (page - 1) * itemsPerPage;
   const currentItems = products.slice(start, start + itemsPerPage);
   const totalPages = Math.ceil(products.length / itemsPerPage);
-    // --------Local Storage 
-  const HandleCart = (ProItems)=>{
-    const ProductId = JSON.parse(localStorage.getItem('product')) || []
-    ProductId?.push(ProItems.id)
-
-    localStorage.setItem('product' , JSON.stringify(ProductId))
-  }
   return (
     <>
         <section className='mt-[30px]'>
