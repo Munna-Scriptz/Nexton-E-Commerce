@@ -33,7 +33,6 @@ const Register = () => {
     // ---------Error Fun 
     const HandleSubmit = (e) =>{
         e.preventDefault()
-
         if(!username){
             setUsernameError('Please enter your email')
             setUsernameBorder('border-red-600')
@@ -51,6 +50,7 @@ const Register = () => {
             setAgainErrorBorder('border-red-600')
         }
         else(
+            setLoader(true),
             
             // -------------User reg api 
             axios.post(`https://api.escuelajs.co/api/v1/users/` , {
@@ -60,8 +60,8 @@ const Register = () => {
                 avatar: "https://picsum.photos/800"
             })
             .then((res)=>{
-                setLoader(true)
-                LoginNavigate('/Login')
+                setLoader(false)
+                // LoginNavigate('/Login')
                 toast.success('Registration  Completed', {
                 position: "top-right",
                 autoClose: 5000,
