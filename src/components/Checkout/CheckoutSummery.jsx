@@ -13,23 +13,41 @@ const CheckoutSummery = ({CheckImg , CheckPrice , CheckName , HideInSmTop , Hide
   if(value2 < 1){
     setValue2(value2 + 1)
   }
-  // ------Hooks 
+  // ----------------------------------------------------------Hooks 
   const ProductID = JSON.parse(localStorage.getItem('product'))
   const [Product, SetProduct] = useState([])
   
-  // ---------Api 
+  // ---------------------------------------------------------Api 
   useEffect(()=>{
     axios.get(`https://dummyjson.com/products`)
     .then((res)=>{
-      SetProduct(res.data.products.filter((item)=>(
+
+     const CartData = res.data.products.filter((item)=>(
         ProductID.includes(item.id)
-      )))
+      ));
+
+      const Qty = CartData.map((item)=>{
+       return {...item , qty:1}
+      })
+
+      SetProduct(Qty)
+
     })
     .catch((err)=>{console.log(err)})
   },[])
+  const ConstValue = 1
 
-console.log(Product)
+  const handleQty = (id)=>{
+    SetProduct((prev)=>(
 
+      prev.map((item)=>{
+        if(item.id != id) return item
+        
+        return {...item, qty:item.qty + 1}
+      })
+
+    ))
+  }
   return (
     <>
       <section id='Checkout-Summery' className={`lg:w-[618px] lg:px-0 w-full px-[24px] ${HideAllInLG}`}>
@@ -39,28 +57,28 @@ console.log(Product)
           </div>
           {/* -------Product 1 Show--------- */}
           {
-            Product.map((item)=>(
-            <div className='flex items-center gap-8 py-6 border-t-2 border-BorderCol mt-6'>
-              <div className='w-[96px]'>
-                <img src={item.thumbnail} alt="Product" />
-              </div>
-            {/* -------Product 1--------- */}
-              <div className='flex items-center justify-between w-full'>
-                <div>
-                  <h2 className='font-semibold text-base text-second'>{}</h2>
-                  <p className='text-Primary text-sm font-normal flex items-center gap-1 mt-1'><IoResize /> One size</p>
-                  <div className='flex items-center gap-4 mt-[20px]'>
-                    <button className='w-[24px] h-[24px] border-2 border-[#E5E7EB] rounded-full text-[18px] text-second cursor-pointer hover:bg-Primary hover:text-white duration-[.3s] select-none' onClick={()=>setValue(value - 1)}>-</button>
-                    <p className='text-base text-Primary font-medium'>{value}</p>
-                    <button className='w-[24px] h-[24px] border-2 border-[#E5E7EB] rounded-full text-[18px] text-second cursor-pointer hover:bg-Primary hover:text-white duration-[.3s] select-none' onClick={()=>setValue(value + 1)}>+</button>
+            Product.map((item , key)=>(
+              <div key={key} className='flex items-center gap-8 py-6 border-t-2 border-BorderCol mt-6'>
+                <div className='w-[96px]'>
+                  <img src={item.thumbnail} alt="Product" />
+                </div>
+              {/* -------Product 1--------- */}
+                <div className='flex items-center justify-between w-full'>
+                  <div>
+                    <h2 className='font-semibold text-base text-second'>{item.title}</h2>
+                    <p className='text-Primary text-sm font-normal flex items-center gap-1 mt-1'><IoResize /> One size</p>
+                    <div className='flex items-center gap-4 mt-[20px]'>
+                      <button className='w-[24px] h-[24px] border-2 border-[#E5E7EB] rounded-full text-[18px] text-second cursor-pointer hover:bg-Primary hover:text-white duration-[.3s] select-none' onClick={()=>handleQty(item.id)}>-</button>
+                      <p className='text-base text-Primary font-medium'>{item.qty}</p>
+                      <button className='w-[24px] h-[24px] border-2 border-[#E5E7EB] rounded-full text-[18px] text-second cursor-pointer hover:bg-Primary hover:text-white duration-[.3s] select-none' onClick={()=>handleQty(item.id)}>+</button>
+                    </div>
+                  </div>
+                  <div className=' text-end'>
+                    <h2 className='font-semibold text-base text-second'>${item.price}</h2>
+                    <p className='text-Primary text-sm font-normal line-through'>${item.discountPercentage}</p>
                   </div>
                 </div>
-                <div className=' text-end'>
-                  <h2 className='font-semibold text-base text-second'>${item.price}</h2>
-                  <p className='text-Primary text-sm font-normal line-through'>$199.99</p>
-                </div>
               </div>
-            </div>
             ))
           }
         </div>
