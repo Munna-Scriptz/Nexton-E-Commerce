@@ -4,6 +4,8 @@ import axios from 'axios';
 import BreadCrumb from '../components/common/BreadCrumb';
 import Pagination from '../components/Product/Pagination';
 import { useNavigate } from 'react-router';
+import { FiFilter } from "react-icons/fi";
+import { GoTriangleDown } from "react-icons/go";
 
 const ProductPage = () => {
     // --------Local Storage 
@@ -34,13 +36,20 @@ const ProductPage = () => {
   const start = (page - 1) * itemsPerPage;
   const currentItems = products.slice(start, start + itemsPerPage);
   const totalPages = Math.ceil(products.length / itemsPerPage);
+
+    //   ------------Show page Dropdown 
+    const [perPage , SetPerPage] = useState(true)
+    const handlePerPage = ()=>{
+        
+    }
+    console.log(perPage)
   return (
     <>
         <section className='mt-[30px]'>
             <div className="container">
-                <div id="Mother_Div" className='flex justify-between gap-5'>
+                <div id="Mother_Div" className='flex lg:flex-row flex-col justify-between gap-5'>
                     {/* -----Left Side  */}
-                    <div id="Left_Side" className='w-[285px]'>
+                    <div id="Left_Side" className='w-[285px] lg:block hidden'>
                         <BreadCrumb CrumbPath={'/Products'} CrumbName={'Products'}/>
                         {/* categories */}
                         <div className=' border-b-1 border-[#E5E7EB] pb-[40px]'>
@@ -122,6 +131,30 @@ const ProductPage = () => {
                             </div>
                         </div>
                     </div>
+                    {/* ----------------------------------------For Small Devices Start */}
+                    <div className='lg:hidden flex items-center justify-between px-[24px] select-none'>
+                        <div className='flex items-center gap-[6px] text-Primary border-1 border-BorderCol rounded-full py-[6px] px-[12px] cursor-pointer'>
+                            <FiFilter />
+                            <p>Filters</p>
+                        </div>
+                        <div onClick={()=>SetPerPage(!perPage)} className='flex items-center gap-[6px] text-Primary border-1 border-BorderCol rounded-full py-[6px] px-[12px] cursor-pointer'>
+                            <p>Rows per page</p>
+                            <GoTriangleDown />
+                        </div>
+                    </div>
+                    {/* --------Dropdown show per row  */}
+                    <div className={`lg:hidden bg-transparent w-full flex pr-[12px] items-start justify-end duration-[.3s] overflow-hidden ${perPage? 'h-0' : 'h-[270px]'}`}>
+                        <div className={`bg-white w-[200px] border-BorderCol border-2 ${perPage? 'h-0' : 'h-[250px]'}`}>
+                            <ul className='flex flex-col'>
+                                <li className='w-full h-[50px] flex items-center justify-center cursor-pointer bg-[#eeeeee]'><button>10</button></li>
+                                <li className='w-full h-[50px] flex items-center justify-center cursor-pointer bg-[#fff]'><button>15</button></li>
+                                <li className='w-full h-[50px] flex items-center justify-center cursor-pointer bg-[#eeeeee]'><button>20</button></li>
+                                <li className='w-full h-[50px] flex items-center justify-center cursor-pointer bg-[#fff]'><button>25</button></li>
+                                <li className='w-full h-[50px] flex items-center justify-center cursor-pointer bg-[#eeeeee]'><button>30</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                    {/* ----------------------------------------For Small Devices end */}
                     {/* -----right Side  */}
                     <div id="Right_Side" className='flex flex-col items-end'>
                         <div className='flex flex-wrap justify-center gap-y-[52px] gap-x-5'>
@@ -132,7 +165,9 @@ const ProductPage = () => {
                             }
                         </div>
                         {/* -----Buttons  */}
-                        <Pagination totalPages={totalPages} currentPage={page} setPage={setPage} />
+                        <div className='mr-[24px]'>
+                            <Pagination totalPages={totalPages} currentPage={page} setPage={setPage} />
+                        </div>
                     </div>
                 </div>
             </div>
