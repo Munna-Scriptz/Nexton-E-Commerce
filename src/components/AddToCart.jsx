@@ -48,7 +48,7 @@ export const AddToCart = ({Cross, AllProduct , TotalCredit , DeleteCart}) => {
                     <h2 className='text-second font-medium text-[18px] overflow-hidden text-clip w-20 text-right'>${TotalCredit}</h2>
                 </div>
                 <div>
-                    <Link to={'/'} className='inline-block py-2 w-full bg-second text-white text-center rounded-[10px]'>Buy items</Link>
+                    <Link to={'/Checkout'} className='inline-block py-2 w-full bg-second text-white text-center rounded-[10px]'>Buy items</Link>
                 </div>
             </div>
         </section>

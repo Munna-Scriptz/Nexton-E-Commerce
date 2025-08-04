@@ -6,16 +6,7 @@ import axios from 'axios'
 import { useParams } from 'react-router'
 
 const Checkout = () => {
-  // ------Hooks 
-  const [Product, SetProduct] = useState([])
-  const MyParams = useParams()
-  
-  // ---------Api 
-  useEffect(()=>{
-    axios.get(`https://dummyjson.com/products/${MyParams.BuyId}`)
-    .then((res)=>{SetProduct(res.data)})
-    .catch((err)=>{console.log(err)})
-  },[])
+
   return (
     <>
         <section id='Checkout' className='container mt-[40px]'>
@@ -24,9 +15,9 @@ const Checkout = () => {
                 <BreadCrumb CrumbName={'Checkout'} CrumbPath={'/Checkout'}/>
             </div>
             <div className='flex justify-between flex-col-reverse lg:flex-row items-start mt-[52px]'>
-                <CheckoutSummery HideAllInLG={`lg:hidden`} HideInSmTop={`hidden lg:hidden`} CheckImg={Product.thumbnail} CheckPrice={Product.price} CheckName={Product.title}/> 
+                <CheckoutSummery HideAllInLG={`lg:hidden`} HideInSmTop={`hidden lg:hidden`}/> 
                 <CheckoutInfo/>
-                <CheckoutSummery HideInSmBottom={`hidden lg:block`} CheckImg={Product.thumbnail} CheckPrice={Product.price} CheckName={Product.title}/> 
+                <CheckoutSummery HideInSmBottom={`hidden lg:block`}/> 
             </div>
         </section>
     </>

@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoResize } from "react-icons/io5";
-import ProductImg from '../../assets/Images/ProductImage.png'
+import axios from 'axios';
 
 const CheckoutSummery = ({CheckImg , CheckPrice , CheckName , HideInSmTop , HideInSmBottom , HideAllInLG}) => {
   // -------First Quantity
@@ -8,12 +8,28 @@ const CheckoutSummery = ({CheckImg , CheckPrice , CheckName , HideInSmTop , Hide
   if(value < 1){
     setValue(value + 1)
   }
-
-  // -------First Quantity
+  // -------second Quantity
   const [value2 , setValue2] = useState(1)
   if(value2 < 1){
     setValue2(value2 + 1)
   }
+  // ------Hooks 
+  const ProductID = JSON.parse(localStorage.getItem('product'))
+  const [Product, SetProduct] = useState([])
+  
+  // ---------Api 
+  useEffect(()=>{
+    axios.get(`https://dummyjson.com/products`)
+    .then((res)=>{
+      SetProduct(res.data.products.filter((item)=>(
+        ProductID.includes(item.id)
+      )))
+    })
+    .catch((err)=>{console.log(err)})
+  },[])
+
+console.log(Product)
+
   return (
     <>
       <section id='Checkout-Summery' className={`lg:w-[618px] lg:px-0 w-full px-[24px] ${HideAllInLG}`}>
@@ -22,51 +38,31 @@ const CheckoutSummery = ({CheckImg , CheckPrice , CheckName , HideInSmTop , Hide
             <h2 className='text-2xl font-semibold text-second'>Order summary</h2>
           </div>
           {/* -------Product 1 Show--------- */}
-          <div className='flex items-center gap-8 py-6 border-t-2 border-BorderCol mt-6'>
-            <div className='w-[96px]'>
-              <img src={CheckImg} alt="Product" />
-            </div>
-          {/* -------Product 1--------- */}
-            <div className='flex items-center justify-between w-full'>
-              <div>
-                <h2 className='font-semibold text-base text-second'>{CheckName}</h2>
-                <p className='text-Primary text-sm font-normal flex items-center gap-1 mt-1'><IoResize /> One size</p>
-                <div className='flex items-center gap-4 mt-[20px]'>
-                  <button className='w-[24px] h-[24px] border-2 border-[#E5E7EB] rounded-full text-[18px] text-second cursor-pointer hover:bg-Primary hover:text-white duration-[.3s] select-none' onClick={()=>setValue(value - 1)}>-</button>
-                  <p className='text-base text-Primary font-medium'>{value}</p>
-                  <button className='w-[24px] h-[24px] border-2 border-[#E5E7EB] rounded-full text-[18px] text-second cursor-pointer hover:bg-Primary hover:text-white duration-[.3s] select-none' onClick={()=>setValue(value + 1)}>+</button>
+          {
+            Product.map((item)=>(
+            <div className='flex items-center gap-8 py-6 border-t-2 border-BorderCol mt-6'>
+              <div className='w-[96px]'>
+                <img src={item.thumbnail} alt="Product" />
+              </div>
+            {/* -------Product 1--------- */}
+              <div className='flex items-center justify-between w-full'>
+                <div>
+                  <h2 className='font-semibold text-base text-second'>{}</h2>
+                  <p className='text-Primary text-sm font-normal flex items-center gap-1 mt-1'><IoResize /> One size</p>
+                  <div className='flex items-center gap-4 mt-[20px]'>
+                    <button className='w-[24px] h-[24px] border-2 border-[#E5E7EB] rounded-full text-[18px] text-second cursor-pointer hover:bg-Primary hover:text-white duration-[.3s] select-none' onClick={()=>setValue(value - 1)}>-</button>
+                    <p className='text-base text-Primary font-medium'>{value}</p>
+                    <button className='w-[24px] h-[24px] border-2 border-[#E5E7EB] rounded-full text-[18px] text-second cursor-pointer hover:bg-Primary hover:text-white duration-[.3s] select-none' onClick={()=>setValue(value + 1)}>+</button>
+                  </div>
+                </div>
+                <div className=' text-end'>
+                  <h2 className='font-semibold text-base text-second'>${item.price}</h2>
+                  <p className='text-Primary text-sm font-normal line-through'>$199.99</p>
                 </div>
               </div>
-              <div className=' text-end'>
-                <h2 className='font-semibold text-base text-second'>${CheckPrice}</h2>
-                <p className='text-Primary text-sm font-normal line-through'>$199.99</p>
-              </div>
             </div>
-
-          </div>
-          {/* -------Product 2 Show--------- */}
-          <div className='flex items-center gap-8 py-6 border-t-2 border-BorderCol border-b-2'>
-            <div className='w-[96px]'>
-              <img src={CheckImg} alt="Product" />
-            </div>
-          {/* -------Product 1--------- */}
-            <div className='flex items-center justify-between w-full'>
-              <div>
-                <h2 className='font-semibold text-base text-second'>{CheckName}</h2>
-                <p className='text-Primary text-sm font-normal flex items-center gap-1 mt-1'><IoResize /> One size</p>
-                <div className='flex items-center gap-4 mt-[20px]'>
-                  <button className='w-[24px] h-[24px] border-2 border-[#E5E7EB] rounded-full text-[18px] text-second cursor-pointer hover:bg-Primary hover:text-white duration-[.3s] select-none' onClick={()=>setValue2(value2 - 1)}>-</button>
-                  <p className='text-base text-Primary font-medium'>{value2}</p>
-                  <button className='w-[24px] h-[24px] border-2 border-[#E5E7EB] rounded-full text-[18px] text-second cursor-pointer hover:bg-Primary hover:text-white duration-[.3s] select-none' onClick={()=>setValue2(value2 + 1)}>+</button>
-                </div>
-              </div>
-              <div className=' text-end'>
-                <h2 className='font-semibold text-base text-second'>${CheckPrice}</h2>
-                <p className='text-Primary text-sm font-normal line-through'>$199.99</p>
-              </div>
-            </div>
-
-          </div>
+            ))
+          }
         </div>
           {/* -------Checkout final--------- */}
           <div className={`mt-6 ${HideInSmBottom}`}>
