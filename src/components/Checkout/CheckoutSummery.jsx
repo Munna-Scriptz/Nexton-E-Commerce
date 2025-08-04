@@ -27,7 +27,7 @@ const CheckoutSummery = ({CheckImg , CheckPrice , CheckName , HideInSmTop , Hide
       ));
 
       const Qty = CartData.map((item)=>{
-       return {...item , qty:1}
+       return {...item , qty:1 , unitePrice: item.price}
       })
 
       SetProduct(Qty)
@@ -35,19 +35,25 @@ const CheckoutSummery = ({CheckImg , CheckPrice , CheckName , HideInSmTop , Hide
     })
     .catch((err)=>{console.log(err)})
   },[])
-  const ConstValue = 1
-
+  
+  // --------------------Handle Quantity
   const handleQty = (id)=>{
     SetProduct((prev)=>(
-
       prev.map((item)=>{
         if(item.id != id) return item
-        
-        return {...item, qty:item.qty + 1}
+        const UpdatedQty = item.qty + 1
+        const UpdatedPrice = item.unitePrice * UpdatedQty
+
+        return {...item, qty:UpdatedQty , price: UpdatedPrice}
       })
 
     ))
   }
+
+  const TotalPrice = Product.reduce((sum , total)=>{
+    return sum + total.price
+  }, 0)
+
   return (
     <>
       <section id='Checkout-Summery' className={`lg:w-[618px] lg:px-0 w-full px-[24px] ${HideAllInLG}`}>
@@ -74,7 +80,7 @@ const CheckoutSummery = ({CheckImg , CheckPrice , CheckName , HideInSmTop , Hide
                     </div>
                   </div>
                   <div className=' text-end'>
-                    <h2 className='font-semibold text-base text-second'>${item.price}</h2>
+                    <h2 className='font-semibold text-base text-second truncate text-clip w-17'>${item.price}</h2>
                     <p className='text-Primary text-sm font-normal line-through'>${item.discountPercentage}</p>
                   </div>
                 </div>
@@ -84,10 +90,10 @@ const CheckoutSummery = ({CheckImg , CheckPrice , CheckName , HideInSmTop , Hide
         </div>
           {/* -------Checkout final--------- */}
           <div className={`mt-6 ${HideInSmBottom}`}>
-            <p className='text-base text-Primary font-normal flex items-center justify-between'>Subtotal <span>${CheckPrice}</span></p>
+            <p className='SubtotalPrice text-base text-Primary font-normal flex items-center justify-between'>Subtotal <span className='truncate text-clip w-13'>${TotalPrice}</span></p>
             <p className='text-base text-Primary font-normal flex items-center justify-between mt-2'>Shipping estimate <span>$5.00</span></p>
             <p className='text-base text-Primary font-normal flex items-center justify-between mt-2'>Tax estimate <span>$24.90</span></p>
-            <h2 className='text-second font-semibold text-base flex items-center justify-between mt-6'>Order total <span className=' truncate text-clip w-14'>${CheckPrice + 24}</span></h2>
+            <h2 className='text-second font-semibold text-base flex items-center justify-between mt-6'>Order total <span className=' truncate text-clip w-14'>${TotalPrice + 5 + 24.90}</span></h2>
             <button className='text-base font-medium text-white bg-second mt-6 w-full h-[52px] rounded-full cursor-pointer hover:scale-[1.05] duration-300'>Confirm order</button>
           </div>
       </section>
