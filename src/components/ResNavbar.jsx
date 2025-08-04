@@ -89,7 +89,7 @@ export const ResNavbar = () => {
       </div>
       
       {/* -----Add To Cart----- */}
-        <section className={`fixed top-0 z-50 h-full w-full right-0 flex justify-end duration-[.8s] ${showCart? 'translate-x-[-740px] ' : ' translate-x-[-2px]'}` }>
+        <section className={`fixed top-0 z-50 h-full w-full right-0 flex justify-end duration-[.8s] ${showCart? 'translate-x-[-1020px] ' : ' translate-x-[-2px]'}` }>
           <div onClick={()=>SetShowCart(!showCart)} className='fixed top-0 left-0 z-0 h-full w-full backdrop-blur-md bg-[#00000063]'></div>
           <AddToCart CartItem={mappedProduct.length} DeleteCart={(e)=>HandleDelete(e)} TotalCredit={Total} AllProduct={mappedProduct} Cross={<RxCross2 onClick={()=>SetShowCart(!showCart)} className='text-3xl'/>}/>
         </section>

@@ -73,7 +73,7 @@ const Recommend = () => {
   }
 
   return (
-    <section id='Recommend' className='mt-[138px] ml-[24px] lg:ml-0 cursor-pointer'>
+    <section id='Recommend' className='mt-[138px] lg:ml-0 cursor-pointer'>
         <div className="container">
             <CommonHead StartText={'Recommendations.'} EndText={' Best matching products for you'}/>
             
