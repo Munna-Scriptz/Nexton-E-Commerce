@@ -144,7 +144,7 @@ const ProductPage = () => {
                         </div>
                     </div>
                     {/* --------Filter Product  */}
-                    <div className='lg:hidden w-full fixed top-10 right-0 z-50'>
+                    <div className='lg:hidden w-full fixed top-8 right-0 z-50'>
                         <ResFilter/>
                     </div>
                     {/* --------Dropdown show per row  */}
