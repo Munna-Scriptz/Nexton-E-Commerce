@@ -432,7 +432,7 @@ body {
 .PrinceRange[type="range"]:active::-moz-range-progress {
 	filter: brightness(var(--brightness-down));
 }
-
+/* ---------------------------Details Page Small device Filter  */
 .checkbox-btn {
   display: none;
 }
@@ -448,4 +448,7 @@ body {
 }
 .checkbox-btn:checked + .custom-btn .checkICon {
   opacity: 1;
+}
+#ScrollButtons{
+  scrollbar-width: none;
 }
