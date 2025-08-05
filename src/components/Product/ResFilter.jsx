@@ -27,7 +27,7 @@ const ResFilter = () => {
         const percent1 = (minValue / sliderMax) * 100;
         const percent2 = (maxValue / sliderMax) * 100;
         if (sliderTrack.current) {
-          sliderTrack.current.style.background = `linear-gradient(to right, #dadae5 ${percent1}%, #3264fe ${percent1}%, #3264fe ${percent2}%, #dadae5 ${percent2}%)`;
+          sliderTrack.current.style.background = `linear-gradient(to right, #dadae5 ${percent1}%, #0EA5E9 ${percent1}%, #0EA5E9 ${percent2}%, #dadae5 ${percent2}%)`;
         }
       };
     
