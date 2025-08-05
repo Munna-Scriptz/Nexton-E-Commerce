@@ -433,3 +433,19 @@ body {
 	filter: brightness(var(--brightness-down));
 }
 
+.checkbox-btn {
+  display: none;
+}
+.custom-btn {
+  cursor: pointer;
+  transition: 0.3s;
+  user-select: none;
+}
+.checkbox-btn:checked + .custom-btn {
+  background-color: #111827;
+  color: white;
+  border-color: transparent;
+}
+.checkbox-btn:checked + .custom-btn .checkICon {
+  opacity: 1;
+}

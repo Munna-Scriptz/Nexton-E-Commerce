@@ -6,6 +6,7 @@ import Pagination from '../components/Product/Pagination';
 import { useNavigate } from 'react-router';
 import { FiFilter } from "react-icons/fi";
 import { GoTriangleDown } from "react-icons/go";
+import ResFilter from '../components/Product/ResFilter';
 
 const ProductPage = () => {
     // --------Local Storage 
@@ -141,6 +142,10 @@ const ProductPage = () => {
                             <p>Rows per page</p>
                             <GoTriangleDown />
                         </div>
+                    </div>
+                    {/* --------Filter Product  */}
+                    <div className='lg:hidden w-full fixed top-10 right-0 z-50'>
+                        <ResFilter/>
                     </div>
                     {/* --------Dropdown show per row  */}
                     <div className={`lg:hidden bg-transparent w-full flex pr-[12px] items-start justify-end duration-[.3s] overflow-hidden ${perPage? 'h-0' : 'h-[270px]'}`}>
