@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import SingleProducts from '../components/common/SingleProducts'
 import axios from 'axios';
 import BreadCrumb from '../components/common/BreadCrumb';
@@ -40,13 +40,39 @@ const ProductPage = () => {
 
     //   ------------Show page Dropdown 
     const [perPage , SetPerPage] = useState(true)
-    const handlePerPage = ()=>{
+    const [filter , setFilter] = useState(true)
+    // ---------------Double Ranged input 
+          const [minValue, setMinValue] = useState(30);
+          const [maxValue, setMaxValue] = useState(70);
+          const minGap = 0;
+          const sliderMax = 100;
         
-    }
-    console.log(perPage)
+          const sliderTrack = useRef(null);
+        
+          const handleMinChange = (e) => {
+            const value = Math.min(Number(e.target.value), maxValue - minGap);
+            setMinValue(value);
+          };
+        
+          const handleMaxChange = (e) => {
+            const value = Math.max(Number(e.target.value), minValue + minGap);
+            setMaxValue(value);
+          };
+        
+          const fillColor = () => {
+            const percent1 = (minValue / sliderMax) * 100;
+            const percent2 = (maxValue / sliderMax) * 100;
+            if (sliderTrack.current) {
+              sliderTrack.current.style.background = `linear-gradient(to right, #dadae5 ${percent1}%, #0EA5E9 ${percent1}%, #0EA5E9 ${percent2}%, #dadae5 ${percent2}%)`;
+            }
+          };
+        
+          useEffect(() => {
+            fillColor();
+          }, [minValue, maxValue]);
   return (
     <>
-        <section className='mt-[30px]'>
+        <section className='mt-[30px] overflow-hidden'>
             <div className="container">
                 <div id="Mother_Div" className='flex lg:flex-row flex-col justify-between gap-5'>
                     {/* -----Left Side  */}
@@ -88,19 +114,37 @@ const ProductPage = () => {
                         <div className=' border-b-1 border-[#E5E7EB] pb-[40px] mt-[32px]'>
                             <h2 className='text-[18px] font-semibold text-second font-poppins mb-[24px]'>Price range</h2>
                             <div  className='flex flex-col gap-3'>
-                                <input type="range" className='PrinceRange w-full' id='check'/>
+                                <div className="wrapper my-10 pb-5">
+                                     <div className="InputContainer">
+                                        <div className="slider-track" ref={sliderTrack}></div>
+                                            <input
+                                            type="range"
+                                            min="0"
+                                            max="100"
+                                            value={minValue}
+                                            onChange={handleMinChange}
+                                            />
+                                            <input
+                                            type="range"
+                                            min="0"
+                                            max="100"
+                                            value={maxValue}
+                                            onChange={handleMaxChange}
+                                            />
+                                        </div>
+                                    </div>
                                 <div className='flex items-center justify-between'>
                                     <div>
                                         <p className='text-Primary font-normal text-base mb-1'>Min price</p>
                                         <div className='flex items-center justify-between w-[130px] py-2 px-[16px] border-1 border-[#E5E7EB] rounded-full'>
-                                            <input type="number" className='placeholder:text-Primary w-full h-full border-none outline-none text-Primary font-medium text-sm' placeholder='100'/>
+                                            <input type="number" className='placeholder:text-Primary w-full h-full border-none outline-none text-Primary font-medium text-sm' value={minValue}/>
                                             <p className='text-Primary font-medium text-sm'>$</p>
                                         </div>
                                     </div>
                                     <div>
                                         <p className='text-Primary font-normal text-base mb-1'>Max price</p>
                                         <div className='flex items-center justify-between w-[130px] py-2 px-[16px] border-1 border-[#E5E7EB] rounded-full'>
-                                            <input type="number" className='placeholder:text-Primary w-full h-full border-none outline-none font-medium text-sm' placeholder='500'/>
+                                            <input type="number" className='text-Primary w-full h-full border-none outline-none font-medium text-sm' value={maxValue}/>
                                             <p className='text-Primary font-medium text-sm'>$</p>
                                         </div>
                                     </div>
@@ -134,7 +178,7 @@ const ProductPage = () => {
                     </div>
                     {/* ----------------------------------------For Small Devices Start */}
                     <div className='lg:hidden flex items-center justify-between px-[24px] select-none'>
-                        <div className='flex items-center gap-[6px] text-Primary border-1 border-BorderCol rounded-full py-[6px] px-[12px] cursor-pointer'>
+                        <div onClick={()=>setFilter(!filter)} className='flex items-center gap-[6px] text-Primary border-1 border-BorderCol rounded-full py-[6px] px-[12px] cursor-pointer'>
                             <FiFilter />
                             <p>Filters</p>
                         </div>
@@ -144,8 +188,8 @@ const ProductPage = () => {
                         </div>
                     </div>
                     {/* --------Filter Product  */}
-                    <div className='lg:hidden w-full fixed top-8 right-0 z-50'>
-                        <ResFilter/>
+                    <div className={`lg:hidden w-full fixed duration-[.5s] right-0 z-50 ${filter? 'top-[1000px]' : 'top-8'}`}>
+                        <ResFilter close={()=>setFilter(!filter)}/>
                     </div>
                     {/* --------Dropdown show per row  */}
                     <div className={`lg:hidden bg-transparent w-full flex pr-[12px] items-start justify-end duration-[.3s] overflow-hidden ${perPage? 'h-0' : 'h-[270px]'}`}>

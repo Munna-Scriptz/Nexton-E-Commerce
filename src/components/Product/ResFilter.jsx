@@ -5,7 +5,7 @@ import CheckBoxButton from '../common/CheckBoxButton';
 import { FaCheck } from "react-icons/fa6";
 
 
-const ResFilter = () => {
+const ResFilter = ({close}) => {
       const [minValue, setMinValue] = useState(30);
       const [maxValue, setMaxValue] = useState(70);
       const minGap = 0;
@@ -39,7 +39,7 @@ const ResFilter = () => {
         <section className='bg-white w-full h-[100vh] rounded-md p-[12px] pb-[50px] overflow-y-scroll'>
             {/* ------------Top Buttons----------- */}
             <div className='flex items-center justify-between mt-1'>
-                <button className='text-second text-[20px] cursor-pointer'><FaAngleLeft/></button>
+                <button onClick={close} className={`text-second text-[20px] cursor-pointer`}><FaAngleLeft/></button>
                 <p className='text-second text-[16px] font-medium'>Filter</p>
                 <button className='text-second text-[16px] font-medium cursor-pointer'>Reset</button>
             </div>
@@ -97,7 +97,6 @@ const ResFilter = () => {
                 <p className='text-second text-[16px] font-medium'>Price range</p>
                 <div>
                     <p className='text-second text-[16px] font-medium'>Min {minValue}$ / Max {maxValue}$</p>
-
                 </div>
             </div>
             <div className="wrapper my-10 pb-5">
@@ -120,7 +119,7 @@ const ResFilter = () => {
                 </div>
             </div>
             {/* ------------Save Button----------- */}
-            <div>
+            <div onClick={close}>
                 <button className='w-full rounded-md cursor-pointer bg-second text-white py-[6px]'>Save Changes</button>
             </div>
             {/* <div className='flex items-center justify-center pt-2.5'><span className='w-[100px] h-[5px] rounded-full bg-Primary'></span></div> */}
