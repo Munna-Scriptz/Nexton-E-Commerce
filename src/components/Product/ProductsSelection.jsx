@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { FaStar } from "react-icons/fa";
 import { IoBagHandleOutline } from "react-icons/io5";
-import { Link, useNavigate, useParams } from 'react-router';
 import { FaPlus } from "react-icons/fa6";
 import { TiMinus } from "react-icons/ti";
+import { Link } from 'react-router';
 
-const ProductsSelection = ({ProductPrice ,ProductRating , ProductStocks , ProductDis}) => {
+const ProductsSelection = ({ProductPrice ,ProductRating , ProductStocks , ProductDis }) => {
 
   const [Value, SetValue] = useState(1)
 
@@ -14,13 +14,9 @@ const ProductsSelection = ({ProductPrice ,ProductRating , ProductStocks , Produc
   }else{
 
   }
-  // ---------Show The params in Checkout
-  const MyParams = useParams()
-  const MyNavigate = useNavigate()
-  
+  // ---------Add to Cart
   const HandleBuyClick = ()=>{
-    MyNavigate(`/Checkout/${MyParams.ProductIdNo}`)
-    console.log(MyParams)
+    console.log('hello')
   }
   
   return (
@@ -58,7 +54,7 @@ const ProductsSelection = ({ProductPrice ,ProductRating , ProductStocks , Produc
                       <p className='text-base text-Primary font-medium'>{Value}</p>
                       <button className='w-[24px] h-[24px] border-2 border-[#E5E7EB] rounded-full text-[12px] flex items-center justify-center text-second cursor-pointer hover:bg-Primary hover:text-white duration-[.3s] select-none' onClick={()=>SetValue(Value + 1)}><FaPlus /></button>
                     </div>
-                    <Link onClick={()=>HandleBuyClick()} className='lg:w-[178px] w-[147px] lg:h-[52px] h-[45px] bg-second text-white flex items-center  justify-center cursor-pointer gap-[8px] rounded-full hover:scale-[1.04] duration-[.3s] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]' ><IoBagHandleOutline />Add to cart</Link>
+                    <button onClick={()=>HandleBuyClick()} className='lg:w-[178px] w-[147px] lg:h-[52px] h-[45px] bg-second text-white flex items-center  justify-center cursor-pointer gap-[8px] rounded-full hover:scale-[1.04] duration-[.3s] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]' ><IoBagHandleOutline />Add to cart</button>
                   </div>
                   {/* --------Total Amount--------- */}
                   <div id='Total_Amount' className='mt-[32px]'>

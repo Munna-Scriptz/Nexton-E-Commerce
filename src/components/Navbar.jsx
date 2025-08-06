@@ -4,7 +4,7 @@ import { RiUserLine } from "react-icons/ri";
 import Logo from "../assets/Images/logo.png"
 import whiteLogo from "../assets/Images/WhiteLogo.png"
 import { RiShoppingCart2Line } from "react-icons/ri";
-import { Link } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router';
 import LoginOrRegis from './Home/LoginOrRegis';
 import { RxCross2 } from "react-icons/rx";
 import { AddToCart } from './AddToCart';
@@ -47,7 +47,12 @@ const Navbar = () => {
      const FilteredProduct = product.filter((items)=> items.title.toLowerCase().includes(searchInp.toLocaleLowerCase()))
      setSearchProductData(FilteredProduct)
     }
-    console.log(SearchProductData)
+    // ------Navigate Handler
+    const NavigateProduct = useNavigate()
+    const handleNavigation = (ProductID) => {
+      NavigateProduct(`/Details/${ProductID}`)
+      setSearchInp('')
+    }
   return (
     <div>
       <nav id='Navbar' className='py-[27px] hidden lg:block border-b-2 border-[#E5E7EB]'>
@@ -57,7 +62,7 @@ const Navbar = () => {
           {/* <Link to={'/'} className=' opacity-0 absolute dark:visible dark:opacity-100 dark:relative'><img src={whiteLogo} alt="Logo" /></Link> */}
           {/* ------Search Box------ */}
 
-          <div className='relative bg-[#F8F8F8] w-[400px] h-[52px] rounded-full flex items-center gap-[12px] pl-[26px]'>
+          <div className='relative bg-[#f3f3f3] w-[400px] h-[52px] rounded-full flex items-center gap-[12px] pl-[26px]'>
             <div><RiSearch2Line className='text-Primary text-[20px]'/></div>
             <input onChange={(e)=>{setSearchInp(e.target.value) , handleSearch()}} type="text" name='NavbarInput' className='w-full h-full text-Primary text-[14px] font-poppins border-none outline-none' placeholder='Search in products...'/>
             {/* ---------Search items--------- */}
@@ -73,7 +78,7 @@ const Navbar = () => {
               }
               {
                 SearchProductData?.map((items)=>(
-                  <div key={items.id} className='flex items-center gap-5 border-b-1 border-Primary py-3'>
+                  <div onClick={()=>handleNavigation(items.id)} key={items.id} className='flex items-center gap-5 border-b-1 border-BorderCol py-3 duration-[.2s] hover:bg-[#cacccf]'>
                     <img className='w-[80px]' src={items.thumbnail} alt="ProductImg" />
                     <div>
                       <h2 className='text-second font-medium font-poppins text-[20px]'>{items.title}</h2>

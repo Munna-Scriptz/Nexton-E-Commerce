@@ -19,7 +19,7 @@ const Details = () => {
       axios.get(`https://dummyjson.com/products/${MyParams.ProductIdNo}`)
       .then((res)=>{setProducts(res.data)})
       .catch((err)=>{console.log(err)})
-  } , [])
+  } , [MyParams])
 
   return (
     <>
