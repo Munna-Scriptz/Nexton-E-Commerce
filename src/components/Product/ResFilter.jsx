@@ -68,27 +68,27 @@ const ResFilter = ({close}) => {
                     <span className="custom-btn text-second text-[14px] font-medium cursor-pointer py-[6px] px-[14px] border-1 border-BorderCol rounded-full flex items-center gap-[7px]"><span className='w-[20px] h-[20px] bg-Primary border-1 border-BorderCol rounded-full'></span> Grey <FaCheck className='opacity-0 checkICon'/></span>
                 </label>
                 <label className='w-fit'>
-                    <input type="checkbox" className="checkbox-btn" id="myCheckbox"/>
+                    <input type="checkbox" className="checkbox-btn" id="myCheckbox2"/>
                     <span className="custom-btn text-second text-[14px] font-medium cursor-pointer py-[6px] px-[14px] border-1 border-BorderCol rounded-full flex items-center gap-[7px]"><span className='w-[20px] h-[20px] bg-black border-1 border-BorderCol rounded-full'></span> Black <FaCheck className='opacity-0 checkICon'/></span>
                 </label>
                 <label className='w-fit'>
-                    <input type="checkbox" className="checkbox-btn" id="myCheckbox"/>
+                    <input type="checkbox" className="checkbox-btn" id="myCheckbox3"/>
                     <span className="custom-btn text-second text-[14px] font-medium cursor-pointer py-[6px] px-[14px] border-1 border-BorderCol rounded-full flex items-center gap-[7px]"><span className='w-[20px] h-[20px] bg-[#dbdbdb] border-1 border-BorderCol rounded-full'></span> White <FaCheck className='opacity-0 checkICon'/></span>
                 </label>
                 <label className='w-fit'>
-                    <input type="checkbox" className="checkbox-btn" id="myCheckbox"/>
+                    <input type="checkbox" className="checkbox-btn" id="myCheckbox4"/>
                     <span className="custom-btn text-second text-[14px] font-medium cursor-pointer py-[6px] px-[14px] border-1 border-BorderCol rounded-full flex items-center gap-[7px]"><span className='w-[20px] h-[20px] bg-teal-500 border-1 border-BorderCol rounded-full'></span> Teal <FaCheck className='opacity-0 checkICon'/></span>
                 </label>
                 <label className='w-fit'>
-                    <input type="checkbox" className="checkbox-btn" id="myCheckbox"/>
+                    <input type="checkbox" className="checkbox-btn" id="myCheckbox5"/>
                     <span className="custom-btn text-second text-[14px] font-medium cursor-pointer py-[6px] px-[14px] border-1 border-BorderCol rounded-full flex items-center gap-[7px]"><span className='w-[20px] h-[20px] bg-green-700 border-1 border-BorderCol rounded-full'></span> Green <FaCheck className='opacity-0 checkICon'/></span>
                 </label>
                 <label className='w-fit'>
-                    <input type="checkbox" className="checkbox-btn" id="myCheckbox"/>
+                    <input type="checkbox" className="checkbox-btn" id="myCheckbox6"/>
                     <span className="custom-btn text-second text-[14px] font-medium cursor-pointer py-[6px] px-[14px] border-1 border-BorderCol rounded-full flex items-center gap-[7px]"><span className='w-[20px] h-[20px] bg-orange-500 border-1 border-BorderCol rounded-full'></span> Orange <FaCheck className='opacity-0 checkICon'/></span>
                 </label>
                 <label className='w-fit'>
-                    <input type="checkbox" className="checkbox-btn" id="myCheckbox"/>
+                    <input type="checkbox" className="checkbox-btn" id="myCheckbox7"/>
                     <span className="custom-btn text-second text-[14px] font-medium cursor-pointer py-[6px] px-[14px] border-1 border-BorderCol rounded-full flex items-center gap-[7px]"><span className='w-[20px] h-[20px] bg-blue-700 border-1 border-BorderCol rounded-full'></span> Blue <FaCheck className='opacity-0 checkICon'/></span>
                 </label>
             </div>

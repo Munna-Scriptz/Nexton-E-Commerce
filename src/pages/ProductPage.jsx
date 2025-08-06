@@ -137,14 +137,14 @@ const ProductPage = () => {
                                     <div>
                                         <p className='text-Primary font-normal text-base mb-1'>Min price</p>
                                         <div className='flex items-center justify-between w-[130px] py-2 px-[16px] border-1 border-[#E5E7EB] rounded-full'>
-                                            <input type="number" className='placeholder:text-Primary w-full h-full border-none outline-none text-Primary font-medium text-sm' value={minValue}/>
+                                            <input type="number" className='placeholder:text-Primary w-full h-full border-none outline-none text-Primary font-medium text-sm' value={minValue}  onChange={(e) => setMinValue(e.target.value)}/>
                                             <p className='text-Primary font-medium text-sm'>$</p>
                                         </div>
                                     </div>
                                     <div>
                                         <p className='text-Primary font-normal text-base mb-1'>Max price</p>
                                         <div className='flex items-center justify-between w-[130px] py-2 px-[16px] border-1 border-[#E5E7EB] rounded-full'>
-                                            <input type="number" className='text-Primary w-full h-full border-none outline-none font-medium text-sm' value={maxValue}/>
+                                            <input type="number" className='text-Primary w-full h-full border-none outline-none font-medium text-sm' value={maxValue} onChange={(e)=>setMaxValue(e.target.value)}/>
                                             <p className='text-Primary font-medium text-sm'>$</p>
                                         </div>
                                     </div>

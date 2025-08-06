@@ -55,7 +55,7 @@ export const ResNavbar = () => {
         
         <div className='bg-[#F8F8F8] w-[200px] h-[36px] rounded-full flex items-center gap-[12px] pl-[13px]'>
           <div><RiSearch2Line className='text-Primary text-[14px]'/></div>
-          <input type="text" className='w-full h-full text-Primary text-[12px] font-poppins border-none outline-none' placeholder='Search in products...'/>
+          <input type="text" name='NavBarSmInput' className='w-full h-full text-Primary text-[12px] font-poppins border-none outline-none' placeholder='Search in products...'/>
         </div> 
         {/* ------Nav Menu------ */}
     

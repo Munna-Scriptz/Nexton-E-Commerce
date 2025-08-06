@@ -9,6 +9,7 @@ import LoginOrRegis from './Home/LoginOrRegis';
 import { RxCross2 } from "react-icons/rx";
 import { AddToCart } from './AddToCart';
 import axios from 'axios';
+import ProductImg from '../assets/Images/ProductImage.png'
 
 const Navbar = () => {
   const [value , setValue] = useState(true)
@@ -32,27 +33,41 @@ const Navbar = () => {
       return sum + no.price
     }, 0)
     // ----------Delete Cart
-
     const HandleDelete = (DelItems)=> {
       const storedProducts = JSON.parse(localStorage.getItem('product')) || [];
       const updatedProducts = storedProducts.filter(id => id !== DelItems);
       localStorage.setItem('product', JSON.stringify(updatedProducts));
       setProduct(prev => prev.filter(p => p.id !== DelItems));
     }
+    // ----------------------------------Search Items 
+    const [searchData , setSearchData] = useState('')
+
+
   return (
     <div>
-      <nav id='Navbar' className='py-[27px] hidden lg:block overflow-hidden border-b-2 border-[#E5E7EB]'>
+      <nav id='Navbar' className='py-[27px] hidden lg:block border-b-2 border-[#E5E7EB]'>
         <div id='NavRow' className='container flex items-center justify-between'>
           {/* ------Logo------ */}
           <Link to={'/'}><img src={Logo} alt="Logo" /></Link>
           {/* <Link to={'/'} className=' opacity-0 absolute dark:visible dark:opacity-100 dark:relative'><img src={whiteLogo} alt="Logo" /></Link> */}
           {/* ------Search Box------ */}
 
-          <div className='bg-[#F8F8F8] w-[400px] h-[52px] rounded-full flex items-center gap-[12px] pl-[26px]'>
+          <div className='relative bg-[#F8F8F8] w-[400px] h-[52px] rounded-full flex items-center gap-[12px] pl-[26px]'>
             <div><RiSearch2Line className='text-Primary text-[20px]'/></div>
-            <input type="text" className='w-full h-full text-Primary text-[14px] font-poppins border-none outline-none' placeholder='Search in products...'/>
-          </div> 
-
+            <input type="text" name='NavbarInput' className='w-full h-full text-Primary text-[14px] font-poppins border-none outline-none' placeholder='Search in products...'/>
+            {/* ---------Search items--------- */}
+            <div className='bg-BorderCol absolute top-10 left-[-30%] w-[600px] p-[12px] z-10'>
+              <div className='flex items-center gap-5 border-b-1 border-Primary pb-3'>
+                <img className='w-[80px]' src={ProductImg} alt="ProductImg" />
+                <div>
+                  <h2 className='text-second font-medium font-poppins text-[20px]'>Tv Ref Awesome Watch</h2>
+                  <p className='text-Primary font-normal font-poppins text-base'>Accessories</p>
+                  <p className='text-second font-medium font-poppins text-[18px]'>24$</p>
+                </div>
+              </div>
+            </div> 
+            
+          </div>
           {/* ------Nav Icons------ */}
           <div>
             <button onClick={()=>(setValue(!value))}><RiUserLine className='text-[24px] text-Primary mr-[22px] cursor-pointer'/></button>
