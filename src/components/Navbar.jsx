@@ -9,7 +9,7 @@ import LoginOrRegis from './Home/LoginOrRegis';
 import { RxCross2 } from "react-icons/rx";
 import { AddToCart } from './AddToCart';
 import axios from 'axios';
-import ProductImg from '../assets/Images/ProductImage.png'
+import SearchError from '../assets/Images/SearchError.png'
 
 const Navbar = () => {
   const [value , setValue] = useState(true)
@@ -61,9 +61,18 @@ const Navbar = () => {
             <div><RiSearch2Line className='text-Primary text-[20px]'/></div>
             <input onChange={(e)=>{setSearchInp(e.target.value) , handleSearch()}} type="text" name='NavbarInput' className='w-full h-full text-Primary text-[14px] font-poppins border-none outline-none' placeholder='Search in products...'/>
             {/* ---------Search items--------- */}
-            <div className='bg-white absolute top-10 left-[-30%] w-[600px] p-[12px] z-10 h-[600px] overflow-y-scroll shadow-[0_3px_10px_rgb(0,0,0,0.2)]'>
+            <div className={`bg-white ${SearchProductData.length == 0? 'hidden' : 'block', searchInp ==''? 'hidden' : 'block'} absolute top-10 left-[-30%] w-[600px] p-[12px] z-10 h-[600px] rounded-md overflow-y-scroll shadow-[0_3px_10px_rgb(0,0,0,0.2)]`}>
+              {/* ------------SearchError---------- */}
               {
-                SearchProductData.map((items)=>(
+                SearchProductData?.length == 0?
+                <div className='flex items-center justify-center mt-[100px]'>
+                  <img className='w-[350px]' src={SearchError} alt="Sorry no Product Founded :(" />
+                </div>
+                :
+                ''
+              }
+              {
+                SearchProductData?.map((items)=>(
                   <div key={items.id} className='flex items-center gap-5 border-b-1 border-Primary py-3'>
                     <img className='w-[80px]' src={items.thumbnail} alt="ProductImg" />
                     <div>
