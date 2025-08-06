@@ -40,9 +40,14 @@ const Navbar = () => {
       setProduct(prev => prev.filter(p => p.id !== DelItems));
     }
     // ----------------------------------Search Items 
-    const [searchData , setSearchData] = useState('')
+    const [searchInp , setSearchInp] = useState('')
+    const [SearchProductData , setSearchProductData] = useState([])
 
-
+    const handleSearch = () => {
+     const FilteredProduct = product.filter((items)=> items.title.toLowerCase().includes(searchInp.toLocaleLowerCase()))
+     setSearchProductData(FilteredProduct)
+    }
+    console.log(SearchProductData)
   return (
     <div>
       <nav id='Navbar' className='py-[27px] hidden lg:block border-b-2 border-[#E5E7EB]'>
@@ -54,17 +59,21 @@ const Navbar = () => {
 
           <div className='relative bg-[#F8F8F8] w-[400px] h-[52px] rounded-full flex items-center gap-[12px] pl-[26px]'>
             <div><RiSearch2Line className='text-Primary text-[20px]'/></div>
-            <input type="text" name='NavbarInput' className='w-full h-full text-Primary text-[14px] font-poppins border-none outline-none' placeholder='Search in products...'/>
+            <input onChange={(e)=>{setSearchInp(e.target.value) , handleSearch()}} type="text" name='NavbarInput' className='w-full h-full text-Primary text-[14px] font-poppins border-none outline-none' placeholder='Search in products...'/>
             {/* ---------Search items--------- */}
-            <div className='bg-BorderCol absolute top-10 left-[-30%] w-[600px] p-[12px] z-10'>
-              <div className='flex items-center gap-5 border-b-1 border-Primary pb-3'>
-                <img className='w-[80px]' src={ProductImg} alt="ProductImg" />
-                <div>
-                  <h2 className='text-second font-medium font-poppins text-[20px]'>Tv Ref Awesome Watch</h2>
-                  <p className='text-Primary font-normal font-poppins text-base'>Accessories</p>
-                  <p className='text-second font-medium font-poppins text-[18px]'>24$</p>
-                </div>
-              </div>
+            <div className='bg-white absolute top-10 left-[-30%] w-[600px] p-[12px] z-10 h-[600px] overflow-y-scroll shadow-[0_3px_10px_rgb(0,0,0,0.2)]'>
+              {
+                SearchProductData.map((items)=>(
+                  <div key={items.id} className='flex items-center gap-5 border-b-1 border-Primary py-3'>
+                    <img className='w-[80px]' src={items.thumbnail} alt="ProductImg" />
+                    <div>
+                      <h2 className='text-second font-medium font-poppins text-[20px]'>{items.title}</h2>
+                      <p className='text-Primary font-normal font-poppins text-base mt-1 mb-1'>{items.category}</p>
+                      <p className='text-second font-medium font-poppins text-[18px]'>${items.price}</p>
+                    </div>
+                  </div>
+                ))
+              }
             </div> 
             
           </div>
