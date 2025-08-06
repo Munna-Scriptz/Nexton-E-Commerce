@@ -10,16 +10,18 @@ import { RxCross2 } from "react-icons/rx";
 import { AddToCart } from './AddToCart';
 import axios from 'axios';
 import SearchError from '../assets/Images/SearchError.png'
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
   const [value , setValue] = useState(true)
   const [cart , setCart] = useState(true)
   // ------------Local Store And Add to Card------------------
+    const GetFromRedux = useSelector((state)=>state.MyRedux.value)
     const [product , setProduct] = useState([])
-    const ProductID = JSON.parse(localStorage.getItem('product'))
+    console.log(GetFromRedux)
     // --------Map Product 
     const mappedProduct = product.filter((item)=>{
-       return ProductID?.includes(item.id)
+       return GetFromRedux?.includes(item.id)
     })
     // --------APi In Cart 
     useEffect(()=>{

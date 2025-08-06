@@ -4,6 +4,8 @@ import { CommonHead } from '../common/CommonHead'
 import SingleProducts from '../common/SingleProducts';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { ReduxServer } from '../../slice';
 
 const BestSeller = () => {
   // -----------Api 
@@ -65,11 +67,13 @@ const BestSeller = () => {
     ]
   };
   // --------Local Storage 
+    const dispatch = useDispatch()
+    dispatch(ReduxServer(JSON.parse(localStorage.getItem('product'))))
   const HandleCart = (ProItems)=>{
     const ProductId = JSON.parse(localStorage.getItem('product')) || []
     ProductId?.push(ProItems.id)
-
     localStorage.setItem('product' , JSON.stringify(ProductId))
+    dispatch(ReduxServer(JSON.parse(localStorage.getItem('product'))))
   }
   return (
     <section id='Recommend' className='mt-[176px] ml-[24px] pb-[70px] lg:ml-0'>

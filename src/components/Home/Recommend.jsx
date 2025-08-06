@@ -4,6 +4,8 @@ import { CommonHead } from '../common/CommonHead'
 import Slider from "react-slick";
 import axios from 'axios';
 import { useNavigate} from 'react-router';
+import { useDispatch } from 'react-redux';
+import { ReduxServer } from '../../slice';
 
 const Recommend = () => {
 
@@ -64,12 +66,15 @@ const Recommend = () => {
       }
     ]
   };
-  // --------Local Storage 
+  // --------------------------Local Storage 
+  const dispatch = useDispatch()
+  dispatch(ReduxServer(JSON.parse(localStorage.getItem('product'))))
+  
   const HandleCart = (ProItems)=>{
     const ProductId = JSON.parse(localStorage.getItem('product')) || []
     ProductId?.push(ProItems.id)
-
     localStorage.setItem('product' , JSON.stringify(ProductId))
+    dispatch(ReduxServer(JSON.parse(localStorage.getItem('product'))))
   }
 
   return (
