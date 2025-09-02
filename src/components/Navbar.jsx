@@ -18,7 +18,6 @@ const Navbar = () => {
   // ------------Local Store And Add to Card------------------
     const GetFromRedux = useSelector((state)=>state.MyRedux.value)
     const [product , setProduct] = useState([])
-    console.log(GetFromRedux)
     // --------Map Product 
     const mappedProduct = product.filter((item)=>{
        return GetFromRedux?.includes(item.id)
