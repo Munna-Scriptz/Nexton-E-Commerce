@@ -33,81 +33,88 @@ const ProductPage = () => {
     MyNavigate(`/Details/${ProductId}`)
 
     }
+    // ------------------------Category Select------------------------------
+    const [cate , setCate] = useState([])
+    const yolo = products.filter((item)=>{
+        if(item.category.includes(cate)) return item 
+    })
     // -----------Pagination
-  const start = (page - 1) * itemsPerPage;
-  const currentItems = products.slice(start, start + itemsPerPage);
-  const totalPages = Math.ceil(products.length / itemsPerPage);
-
+    const start = (page - 1) * itemsPerPage;
+    const currentItems = yolo.slice(start, start + itemsPerPage);
+    const totalPages = Math.ceil(yolo.length / itemsPerPage);
     //   ------------Show page Dropdown 
     const [perPage , SetPerPage] = useState(true)
     const [filter , setFilter] = useState(true)
     // ---------------Double Ranged input 
-          const [minValue, setMinValue] = useState(30);
-          const [maxValue, setMaxValue] = useState(70);
-          const minGap = 0;
-          const sliderMax = 100;
+    const [minValue, setMinValue] = useState(30);
+    const [maxValue, setMaxValue] = useState(70);
+    const minGap = 0;
+    const sliderMax = 100;
         
-          const sliderTrack = useRef(null);
+    const sliderTrack = useRef(null);
         
-          const handleMinChange = (e) => {
+    const handleMinChange = (e) => {
             const value = Math.min(Number(e.target.value), maxValue - minGap);
             setMinValue(value);
-          };
+    };
         
-          const handleMaxChange = (e) => {
+    const handleMaxChange = (e) => {
             const value = Math.max(Number(e.target.value), minValue + minGap);
             setMaxValue(value);
-          };
+    };
         
-          const fillColor = () => {
+    const fillColor = () => {
             const percent1 = (minValue / sliderMax) * 100;
             const percent2 = (maxValue / sliderMax) * 100;
             if (sliderTrack.current) {
               sliderTrack.current.style.background = `linear-gradient(to right, #dadae5 ${percent1}%, #0EA5E9 ${percent1}%, #0EA5E9 ${percent2}%, #dadae5 ${percent2}%)`;
             }
-          };
+    };
         
-          useEffect(() => {
+    useEffect(() => {
             fillColor();
-          }, [minValue, maxValue]);
+    }, [minValue, maxValue]);
+
+
+    
   return (
     <>
         <section className='mt-[30px] overflow-hidden'>
             <div className="container">
                 <div id="Mother_Div" className='flex lg:flex-row flex-col justify-between gap-5'>
-                    {/* -----Left Side  */}
+                    {/* --------------------------------Left Side ------------------------------------------------------ */}
                     <div id="Left_Side" className='w-[285px] lg:block hidden'>
                         <BreadCrumb CrumbPath={'/Products'} CrumbName={'Products'}/>
                         {/* categories */}
                         <div className=' border-b-1 border-[#E5E7EB] pb-[40px]'>
                             <h2 className='text-[18px] font-semibold text-second font-poppins mb-[24px]'>Categories</h2>
-                            <div  className='flex items-center gap-3'>
+                            <div onClick={()=>setCate('beauty')} className='flex items-center gap-3'>
                                 <input type="checkbox" className='w-5 h-5' id='check'/>
-                                <label htmlFor='check' className='text-Primary text-sm'>Men's fashion</label>
+                                <label htmlFor='check' className='text-Primary text-sm'>Beauty</label>
                             </div>
-                            <div  className='flex items-center gap-3 mt-[16px]'>
+                            <div onClick={()=>setCate('fragrances')} className='flex items-center gap-3 mt-[16px]'>
                                 <input type="checkbox" className='w-5 h-5 border-2 rounded-[4px] outline-none border-[#94A3B8]' id='check1'/>
-                                <label htmlFor='check1' className='text-Primary text-sm'>Women’s fashion</label>
+                                <label htmlFor='check1' className='text-Primary text-sm'>Fragrances</label>
                             </div>
-                            <div  className='flex items-center gap-3 mt-[16px]'>
+                            <div onClick={()=>setCate('toys')} className='flex items-center gap-3 mt-[16px]'>
                                 <input type="checkbox" className='w-5 h-5 border-2 rounded-[4px] outline-none border-[#94A3B8]' id='check2'/>
                                 <label htmlFor='check2' className='text-Primary text-sm'>Kids & Toys</label>
                             </div>
-                            <div  className='flex items-center gap-3 mt-[16px]'>
+                            <div onClick={()=>setCate('accessories')} className='flex items-center gap-3 mt-[16px]'>
                                 <input type="checkbox" className='w-5 h-5 border-2 rounded-[4px] outline-none border-[#94A3B8]' id='check3'/>
                                 <label htmlFor='check3' className='text-Primary text-sm'>Accessories</label>
                             </div>
-                            <div  className='flex items-center gap-3 mt-[16px]'>
+                            <div onClick={()=>setCate('cosmetics')} className='flex items-center gap-3 mt-[16px]'>
                                 <input type="checkbox" className='w-5 h-5 border-2 rounded-[4px] outline-none border-[#94A3B8]' id='check4'/>
                                 <label htmlFor='check4' className='text-Primary text-sm'>Cosmetics</label>
                             </div>
-                            <div  className='flex items-center gap-3 mt-[16px]'>
+                            <div onClick={()=>setCate('furniture')} className='flex items-center gap-3 mt-[16px]'>
                                 <input type="checkbox" className='w-5 h-5 border-2 rounded-[4px] outline-none border-[#94A3B8]' id='check5'/>
-                                <label htmlFor='check5' className='text-Primary text-sm'>Shoes</label>
+                                <label htmlFor='check5' className='text-Primary text-sm'>Furniture</label>
                             </div>
-                            <div  className='flex items-center gap-3 mt-[16px]'>
+                            <div onClick={()=>setCate('groceries')} className='flex items-center gap-3 mt-[16px]'>
                                 <input type="checkbox" className='w-5 h-5 border-2 rounded-[4px] outline-none border-[#94A3B8]' id='check6'/>
-                                <label htmlFor='check6' className='text-Primary text-sm'>Sports</label>
+                                <label htmlFor='check6' className='text-Primary text-sm'>groceries</label>
                             </div>
                         </div>
                         {/* Range */}
@@ -176,6 +183,7 @@ const ProductPage = () => {
                             </div>
                         </div>
                     </div>
+
                     {/* ----------------------------------------For Small Devices Start */}
                     <div className='lg:hidden flex items-center justify-between select-none'>
                         <div onClick={()=>setFilter(!filter)} className='flex items-center gap-[6px] text-Primary border-1 border-BorderCol rounded-full py-[6px] px-[12px] cursor-pointer'>
@@ -204,7 +212,8 @@ const ProductPage = () => {
                         </div>
                     </div>
                     {/* ----------------------------------------For Small Devices end */}
-                    {/* -----right Side  */}
+
+                    {/* {/* --------------------------------- right Side ------------------------------------------------- */}
                     <div id="Right_Side" className='flex flex-col items-end'>
                         <div className='flex flex-wrap justify-center gap-y-[52px] gap-x-5'>
                             {
