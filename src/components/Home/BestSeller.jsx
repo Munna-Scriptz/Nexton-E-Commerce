@@ -76,7 +76,7 @@ const BestSeller = () => {
     dispatch(ReduxServer(JSON.parse(localStorage.getItem('product'))))
   }
   return (
-    <section id='Recommend' className='mt-[176px] ml-[24px] pb-[70px] lg:ml-0'>
+    <section id='Recommend' className='mt-[176px] pb-[70px] lg:ml-0'>
             <div className="container">
                 <CommonHead StartText={'Best Sellers.'} EndText={' Best selling of the month'}/>
                 

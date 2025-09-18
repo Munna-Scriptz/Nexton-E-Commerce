@@ -5,7 +5,7 @@ import AboutImg2 from '../assets/Images/AboutImg2.png'
 const About = () => {
   return (
     <>
-        <section id='About' className='container mt-[40px] lg:px-0 px-[24px]'>
+        <section id='About' className='container mt-[40px]'>
             <div className='flex flex-col lg:flex-row items-center justify-between'>
                 {/* -------Left side  */}
                 <div className='lg:w-[643px] w-full'>

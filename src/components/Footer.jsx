@@ -14,7 +14,7 @@ import { Link } from 'react-router';
 
 const Footer = () => {
   return (
-    <footer className='border-t-[1px] border-[#E5E7EB] pt-[48px] lg:pt-[60px] mt-[100px] px-[24px] lg:px-0'>
+    <footer className='border-t-[1px] border-[#E5E7EB] pt-[48px] lg:pt-[60px] mt-[100px] lg:px-0'>
         <div className="container">
            <section id='Footer_Row' className='flex items-start lg:items-center justify-between flex-col gap-[60px] lg:gap-0 lg:flex-row md:flex-row'>
                 {/* -----First Column----- */}

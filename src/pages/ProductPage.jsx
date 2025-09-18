@@ -177,7 +177,7 @@ const ProductPage = () => {
                         </div>
                     </div>
                     {/* ----------------------------------------For Small Devices Start */}
-                    <div className='lg:hidden flex items-center justify-between px-[24px] select-none'>
+                    <div className='lg:hidden flex items-center justify-between select-none'>
                         <div onClick={()=>setFilter(!filter)} className='flex items-center gap-[6px] text-Primary border-1 border-BorderCol rounded-full py-[6px] px-[12px] cursor-pointer'>
                             <FiFilter />
                             <p>Filters</p>

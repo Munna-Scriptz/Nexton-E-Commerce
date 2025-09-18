@@ -4,7 +4,7 @@ import { MdReadMore } from "react-icons/md";
 
 export const CommonHead = ({StartText , EndText , HideShow}) => {
   return (
-    <div className="container">
+    <div>
       <div className='flex lg:items-center justify-between flex-col gap-2 lg:gap-0 lg:flex-row'>
         <div className='text-2xl lg:text-4xl font-semibold text-second'>{StartText} <span className=' text-[#4B5563] hidden lg:inline-block'>{EndText}</span></div>
           <div className={`${HideShow}`}>

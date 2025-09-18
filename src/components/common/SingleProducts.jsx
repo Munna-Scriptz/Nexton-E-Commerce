@@ -5,7 +5,7 @@ import { IoBagHandleOutline } from "react-icons/io5";
 const SingleProducts = ({proImg ,proName , proPrice , ProCat , proDis , proRate , ProStock , ShowDetails , HandleCart}) => {
 
   return (
-    <div className='w-[312px] lg:w-[309px] mt-[40px] relative'>
+    <div className='w-[312px] lg:w-[309px] mx-auto mt-[40px] relative'>
       {/* -----Add TO Cart  */}
       <button onClick={HandleCart} className='ShopButton absolute right-0 top-0 pt-[22px] z-20 pr-[22px] cursor-pointer duration-[.3s] hover:scale-[1.2]'><IoBagHandleOutline className='text-[18px] text-Primary'/><span className="tooltip font-poppins text-white">CART</span></button>
       <section onClick={()=>ShowDetails()} className='cursor-pointer'>

@@ -29,7 +29,7 @@ const Login = () => {
     }
   return (
     <>
-        <section id='Register_Box' className='mt-[40px] mb-[72px] flex items-center justify-center'>
+        <section id='Register_Box' className='container mt-[40px] mb-[72px] flex items-center justify-center'>
             <form onSubmit={HandleSubmit} className='lg:w-[440px]'>
                 {/* -------Header-------- */}
                 <div><h2 className='text-[36px] font-semibold text-second text-center mb-[60px]'>Login</h2></div>

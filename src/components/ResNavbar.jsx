@@ -47,7 +47,7 @@ export const ResNavbar = () => {
   return (
     <>
     
-    <nav id='Navbar' className='py-[27px] px-[16px] lg:hidden relative'>
+    <nav id='Navbar' className='py-[27px] lg:hidden relative'>
       <div id='NavRow' className='flex container items-center justify-between overflow-hidden'>
         {/* ------Logo------ */}
         <Link to={'/'} className='w-[24px] h-[24px]'><img src={ResLogo} alt="Logo" /></Link>

@@ -94,7 +94,7 @@ const Register = () => {
     }
   return (
     <>
-        <section id='Register_Box' className='relative pt-[40px] mb-[72px] flex items-center justify-center'>
+        <section id='Register_Box' className='container relative pt-[40px] mb-[72px] flex items-center justify-center'>
             {/* ----------Loader-------- */}
             {
                 loader?
