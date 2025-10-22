@@ -40,22 +40,6 @@ src/
 git clone https://github.com/yourusername/nexton-ecommerce.git
 
 
-2. Move into the project directory
-
-cd nexton-ecommerce
-
-
-3. Install dependencies
-
-npm install
-
-
-4. Start the app
-
-npm start
-
-
-
 🧩 Example Code
 
 import { useDispatch } from "react-redux";
